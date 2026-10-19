@@ -2,7 +2,7 @@
 
 ## Primary: baseline-goal success by randomized arm
 
-Measurement goals were frozen for every randomized user before the first intervention, using only already-arrived facts. They are separate from adaptive treatment goals. All assigned users, including abstentions, remain in their arm. No eligible goal, missing simulator follow-up, and incomplete goal windows are **inconclusive**, not failed. Unknown outcomes prevent an identified full-population point estimate.
+I freeze measurement goals for every randomized user before the first intervention, using only already-arrived facts. They are separate from adaptive treatment goals. I keep all assigned users in their arm, including viewers who receive no action. No eligible goal, missing simulator follow-up, and incomplete goal windows are **inconclusive**, not failed. With these unknown outcomes, I cannot identify a full-population point estimate.
 
 - All randomized users: agent: n=2513, succeeded=52, failed=747, inconclusive=1714; holdout: n=2487, succeeded=50, failed=782, inconclusive=1655. Success difference bounds [-66.49, 68.26] pp; 95% sampling envelope [-68.35, 70.08] pp.
 - Pre-intervention eligible-goal cohort: agent: n=2379, succeeded=52, failed=747, inconclusive=1580; holdout: n=2357, succeeded=50, failed=782, inconclusive=1525. Success difference bounds [-64.64, 66.48] pp; 95% sampling envelope [-66.58, 68.38] pp.
@@ -20,11 +20,11 @@ Measurement goals were frozen for every randomized user before the first interve
 - G09: agent: n=17, succeeded=2, failed=8, inconclusive=7; holdout: n=20, succeeded=1, failed=7, inconclusive=12. Success difference bounds [-53.24, 47.94] pp; 95% sampling envelope [-72.12, 69.24] pp.
 - G12: agent: n=2, succeeded=0, failed=0, inconclusive=2; holdout: n=5, succeeded=0, failed=0, inconclusive=5. Success difference bounds [-100.00, 100.00] pp; 95% sampling envelope [-100.00, 100.00] pp.
 
-Bounds assign every unknown outcome both possible values. The sampling envelope adds Newcombe/Wilson uncertainty at those extremes. It is not a missing-data correction or evidence of rollout benefit. No served-only selection is used. See cohort_outcomes.jsonl for each denominator.
+I calculate bounds by assigning each unknown outcome both possible values. The sampling envelope adds Newcombe/Wilson uncertainty at those extremes. It is not a missing-data correction or evidence of rollout benefit. I retain unserved viewers too. The denominators are in cohort_outcomes.jsonl.
 
 ## Secondary: seven-day recorded completion
 
-Endpoint fixed before analysis: at least one **recorded episode completion** in the seven days from replay start. Every randomized user stays in their assigned arm, including abstentions. This endpoint does not depend on the goal or whether an action was served.
+For my secondary endpoint, fixed before analysis, I use at least one **recorded episode completion** in the seven days from replay start. Every randomized user stays in their assigned arm, including abstentions. This endpoint does not depend on the goal or whether an action was served.
 
 - All randomized users: recorded-completion ITT: agent: 373/2513 (14.84%); holdout: 374/2487 (15.04%). Difference -0.20 pp; 95% CI [-2.17, 1.78] pp.
 - Triggered-user subset (includes all abstentions): agent: 373/863 (43.22%); holdout: 374/883 (42.36%). Difference 0.87 pp; 95% CI [-3.77, 5.50] pp.
@@ -33,7 +33,7 @@ Coverage: 1746 triggered / 5000 randomized; 3254 users are not simulated. Their 
 
 ## Initial goal outcomes (descriptive, by baseline goal)
 
-First-decision goals are frozen per viewer before their first intervention. No later goal is substituted. Inconclusive outcomes remain in the denominator and are separately counted; these are recorded-success contrasts, not an estimate of success for censored goals. Goal groups are small; no multiple-testing correction.
+For this descriptive comparison, I keep each viewer's first-decision goal fixed before their first intervention. I do not substitute a later goal. Inconclusive outcomes remain in the denominator and are separately counted; these are recorded-success contrasts, not an estimate of success for censored goals. Goal groups are small; no multiple-testing correction.
 
 - G01: agent: 18/58 (31.03%); holdout: 14/50 (28.00%). Difference 3.03 pp; 95% CI [-14.15, 19.58] pp.
   Outcome counts: {'failed': 76, 'succeeded': 32}.
@@ -56,11 +56,11 @@ First-decision goals are frozen per viewer before their first intervention. No l
 - G12: agent: n=0; holdout: 0/1 (0.00%). Difference unavailable.
   Outcome counts: {'failed': 1}.
 
-Confidence intervals use Newcombe differences of Wilson limits, independent viewers. One simulation seed is not a production experiment; intervals omit simulator/model uncertainty.
+I calculate confidence intervals using Newcombe differences of Wilson limits, treating viewers as independent. One simulation seed is not a production experiment; intervals omit simulator/model uncertainty.
 
 ## Pilot re-analysis
 
 - Randomized assignment (ITT): treatment: 349/1912 (18.25%); holdout: 387/1979 (19.56%). Difference -1.30 pp; 95% CI [-3.76, 1.16] pp.
 - Served vs all others (biased): agent: 87/217 (40.09%); holdout: 649/3674 (17.66%). Difference 22.43 pp; 95% CI [16.01, 29.17] pp.
 
-Serving is a post-assignment selection: active, reachable viewers are more likely to be served. Randomized treatment includes unserved viewers; excluding them destroys the randomized comparison.
+I show the served comparison to illustrate selection bias: active, reachable viewers are more likely to be served. Randomized treatment includes unserved viewers; excluding them destroys the randomized comparison.

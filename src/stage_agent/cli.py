@@ -113,16 +113,16 @@ def main():
                        {e['user_id'] for e in triggers})
     sim_report = json.loads((args.out / 'sim/simulator_report.json').read_text())
     report = ('# Final report\n\n'
-              f'{len(decisions)} unique decisions; {len(actions)} home pages; '
+              f'In this replay, my agent recorded {len(decisions)} unique decisions; {len(actions)} home pages; '
               f'{sum(d["action"] == "NO_ACTION" for d in decisions)} abstentions.\n\n'
               f'Outcome judgments: {dict(Counter(j["status"] for j in outcomes))}.\n\n'
               f'Local maximum decision latency: {max(latencies):.2f} ms. '
               f'Simulator policy problems: {sim_report["policy_problem_count"]}.\n\n'
-              'See data_quality.json for measured traps, audit.jsonl for control reactions, '
-              'impact_report.md for randomized comparisons, and ../KNOWN_LIMITATIONS.md for scope. '
-              'See impact_report.md for baseline-goal ITT with missing-outcome bounds. '
-              'Page revocation and safe replacement are implemented locally; the supplied simulator has no revocation API. '
-              'No outbound messages or hosted provider is enabled.\n')
+              'I use data_quality.json to inspect input quality, audit.jsonl to trace control reactions, '
+              'impact_report.md for randomized comparisons, and ../KNOWN_LIMITATIONS.md to explain the scope. '
+              'My primary comparison is baseline-goal ITT with explicit bounds for missing outcomes. '
+              'I handle page revocation and safe replacement locally; the supplied simulator has no revocation API. '
+              'I keep outbound messages disabled and use a mock provider.\n')
     (args.out / 'final_report.md').write_text(report, encoding='utf-8')
     store.db.close()
     print(f'Complete: {args.out}; {time.perf_counter()-started:.1f}s total', flush=True)

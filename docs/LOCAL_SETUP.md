@@ -1,8 +1,8 @@
-# Run the STAGE website locally
+# How I run the project locally
 
-These instructions work on Windows with PowerShell. The website also runs on macOS and Linux. It needs **Python 3.10 or newer** and a current browser. You do **not** need Node.js, npm, a model API key, a separate database server, or a pip install.
+This is my Windows/PowerShell setup guide, including the folder layout and commands I need. The website also runs on macOS and Linux. It needs **Python 3.10 or newer** and a current browser. Everything required at runtime is in Python's standard library, so there is no npm or pip setup step.
 
-## 1. Get the updated project
+## 1. Get my latest project
 
 Open <https://github.com/prasad-25-5/stage-assessment>.
 
@@ -15,7 +15,7 @@ Do not replace your original data pack or delete old replay results while updati
 
 Open the extracted folder in VS Code, then choose **Terminal → New Terminal**. You should see `serve.py`, `run.py`, `web/`, `src/`, and `sample_run/` in that folder.
 
-For your existing Windows location, the command may be:
+For the Windows folder I used earlier, the command is:
 
 ```powershell
 cd "D:\Downloads\codex-stage\stage-assessment"
@@ -30,7 +30,7 @@ If the new ZIP extracted as `stage-assessment-main`, use that actual folder path
 python --version
 ```
 
-Your Python 3.13 installation is suitable. If Windows recognizes `py` instead of `python`, use `py` in the commands below. If neither works, install Python from <https://www.python.org/downloads/> and enable **Add Python to PATH**, then reopen the terminal.
+The Python 3.13 installation I used for the earlier Windows run meets the requirement. If Windows recognizes `py` instead of `python`, use `py` in the commands below. If neither works, install Python from <https://www.python.org/downloads/> and enable **Add Python to PATH**, then reopen the terminal.
 
 A virtual environment is optional because there are no third-party runtime dependencies. There is no need to change PowerShell execution policy or run an activation script.
 
@@ -76,7 +76,7 @@ You can do this **without extracting the data pack**:
 | Replay studio | Launch a new local replay, watch its status, cancel it, and open completed results |
 | Account settings | Edit your name, change your password, revoke other sessions and sign out |
 
-Dashboard values come from actual result files. The sample is historical synthetic assignment data; it is not live production traffic. Times displayed in the workspace use IST.
+I use actual result files for the dashboard values. The sample is historical synthetic assignment data; it is not live production traffic. Times displayed in the workspace use IST.
 
 ## 7. Add the data pack for new replays
 
@@ -195,6 +195,6 @@ Refresh the page. Use the same address consistently; `localhost` and `127.0.0.1`
 
 There is no email reset service. You can create another local account; existing private runs remain associated with the original account. Keep an account-data backup if those results matter.
 
-## Scope
+## What this local setup covers
 
-This server binds to your own computer's loopback address. It is a local development and assessment website, not an internet deployment or video-streaming service. A public deployment needs a production web server, HTTPS, deployment-specific authentication and job execution infrastructure. No such deployment is claimed here.
+I run this website on my computer's loopback address for development and assessment. To publish it on the internet, I would need a production web server, HTTPS, deployment-specific authentication and job infrastructure. The current version lets me explore synthetic replay results; it does not stream video.

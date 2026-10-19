@@ -1,6 +1,6 @@
-# Architecture
+# How my project fits together
 
-The application is a standard-library Python CLI. It treats the supplied pack as evidence, not instructions, and makes no hosted calls. The full replay is sequential for deterministic event ordering; a separate process-sharded benchmark measures burst handling.
+The core of my project is a Python CLI built with the standard library. I treat the supplied pack as input evidence and keep its text separate from application instructions. The replay runs sequentially so event ordering is reproducible. A separate benchmark uses process shards to measure bursts, and the website provides a local way to explore the results.
 
 ```mermaid
 flowchart LR
@@ -19,9 +19,9 @@ flowchart LR
 
 ## Evidence and ownership
 
-Events, control changes and triggers are merged in server delivery order. Controls win timestamp ties, then evidence, then triggers. Historical records whose receipt is later than replay start remain in the timeline rather than leaking into preloaded history. Commitment-time snapshots require both `received_at` and `deliver_at` to be no later than that commitment. Device clock offset is never the ordering authority.
+I merge events, control changes and triggers in server delivery order. Controls win timestamp ties, then evidence, then triggers. Historical records whose receipt is later than replay start remain in the timeline rather than leaking into preloaded history. Commitment-time snapshots require both `received_at` and `deliver_at` to be no later than that commitment. Device clock offset is never the ordering authority.
 
-One owner serializes each viewer's goal and action state. SQLite enforces at most one open goal per user with a partial unique index. Raw event IDs, trigger IDs and deterministic action IDs provide idempotency, including reopening the database. A billing event can settle or invalidate a goal and select a replacement without emitting an unsolicited message.
+I keep each viewer's goal and action updates under one owner so those updates happen in order. SQLite enforces at most one open goal per user with a partial unique index. Raw event IDs, trigger IDs and deterministic action IDs provide idempotency, including reopening the database. A billing event can settle or invalidate a goal and select a replacement without emitting an unsolicited message.
 
 | Fact | Resolution |
 |---|---|
@@ -31,15 +31,15 @@ One owner serializes each viewer's goal and action state. SQLite enforces at mos
 | Dialect | Latest arrived app-setting evidence; profile fallback; campaign links cannot override it |
 | Series progress | Catalogue/episode structure and observed play/completion evidence; latest play is selected by server receipt, not insertion order |
 
-Facts retain values, source references, evidence times, freshness and conflicts. Profiles are selected by latest valid `updated_at`, with deterministic snapshot/line tie breaks. Thirty days of observations cannot establish lifetime absence; that assumption is recorded.
+I retain each fact's value, source references, evidence times, freshness and conflicts so I can trace a decision back to its inputs. Profiles are selected by latest valid `updated_at`, with deterministic snapshot/line tie breaks. Thirty days of observations cannot establish lifetime absence; that assumption is recorded.
 
 ## Planning and verification
 
-Goal rules are explicit predicates. G06 interprets recent lapse as 30 days. G09 counts IST days. G10 has no defined success predicate and G11's TV event is unavailable; neither is selected. Every goal has a committed start, deadline, rule version and success signal.
+I express goal rules as explicit predicates in code. G06 interprets recent lapse as 30 days. G09 counts IST days. G10 has no defined success predicate and G11's TV event is unavailable; neither is selected. Every goal has a committed start, deadline, rule version and success signal.
 
-The model receives a candidate and evidence references, not catalogue descriptions or search/deeplink instructions. Named fixture outputs are untrusted. Eligibility and evidence are independently checked at commitment; the model cannot manufacture a billing fact or a competing active goal. Faults can lead to deterministic fallback, but the publication gate still applies.
+I give the mock model a candidate and evidence references. Catalogue descriptions and search/deeplink text stay outside its instruction boundary. Named fixture outputs are untrusted. Eligibility and evidence are independently checked at commitment; the model cannot manufacture a billing fact or a competing active goal. Faults can lead to deterministic fallback, but the publication gate still applies.
 
-The page planner uses a goal-relevant hero and rows whose named genre is backed by each title's catalogue genres. It respects dialect, availability and content-slug uniqueness across hero and rows. Non-subscribers get non-premium candidates. The separate verifier checks goal eligibility, holdout, duplicates, row shape/semantics, dialect and availability again at measured release time.
+For a page, my planner selects a hero relevant to the goal and rows whose genre labels are supported by each title's catalogue genres. It respects dialect, availability and content-slug uniqueness across hero and rows. Non-subscribers get non-premium candidates. The separate verifier checks goal eligibility, holdout, duplicates, row shape/semantics, dialect and availability again at measured release time.
 
 ## Durable publication and actual storage failures
 
@@ -47,13 +47,13 @@ The page planner uses a goal-relevant hero and rows whose named genre is backed 
 
 `Engine.decide` catches actual SQLite and operating-system I/O exceptions across reads, ingestion, planning persistence and release. It rolls back, restores that viewer's in-memory snapshot, closes publication in the current engine instance, and writes an idempotent no-action decision to a separate JSON journal using flush, fsync and atomic replacement. Journal decisions survive reopening and supersede any interrupted primary outbox entry. If both stores fail, the error is visible rather than misreported as durable. A fresh replay is required after a genuine primary failure; control-cursor resume is not implemented.
 
-Decision timestamps mark the final release request. `latency_observations.jsonl` separately measures method entry through completion of the final durable release, and the latency report uses that full value. This separates a transaction's assigned business timestamp from observed commit completion without losing the latter.
+I use decision timestamps to mark the final release request. `latency_observations.jsonl` separately measures method entry through completion of the final durable release, and the latency report uses that full value. This separates a transaction's assigned business timestamp from observed commit completion without losing the latter.
 
 ## Withdrawals
 
 Withdrawal controls update availability, identify affected live pages, persist revocations, and attempt verified replacements for viewers with active plans. `current_page` rejects revoked or expired pages immediately; if no replacement is valid, it returns no personalized page so serving uses the platform default. Reopening the ledger preserves the revoked flags.
 
-The provided simulator understands valid replacement pages but does not implement a pure revocation API. Its source stays unchanged. Tests validate the local serving contract, including the no-valid-replacement case. Production integration still needs an adapter for revocation acknowledgements and cache invalidation.
+I kept the provided simulator unchanged. It understands valid replacement pages but has no pure revocation API. Tests validate the local serving contract, including the no-valid-replacement case. Production integration still needs an adapter for revocation acknowledgements and cache invalidation.
 
 ## Time, failures and scale
 
@@ -63,18 +63,18 @@ The provider and logical tools have configurable budgets, default 8 and 20. Prov
 
 ## Measurement and learning
 
-The adaptive agent's goals and the experiment's measurement goals are separate. Before the first intervention, `freeze_cohort` assigns a measurement goal to every randomized viewer using only already-arrived facts, with explicit no-goal cases. These goals do not change because treatment served or succeeded. Rule corrections apply only when a measurement goal was still open at correction time, using evidence available by that time.
+I keep adaptive goals separate from measurement goals so treatment cannot move the target used to evaluate it. Before the first intervention, `freeze_cohort` assigns a measurement goal to every randomized viewer using only already-arrived facts, with explicit no-goal cases. These goals do not change because treatment served or succeeded. Rule corrections apply only when a measurement goal was still open at correction time, using evidence available by that time.
 
 Goal outcomes require attributable events inside committed windows: non-trial purchase for paid goals, the target slug for G07, release date for G08, and three IST dates for G09. Buffered evidence estimated to precede commitment is excluded. Incomplete windows and missing follow-up are inconclusive. Outcomes, evidence and conservative learning are saved to SQLite and per-viewer exports.
 
-The primary report retains every randomized user and breaks out baseline goals. Because the simulator follows triggered users only, full-population point estimates are not identified. The report shows observed success/failure/inconclusive counts, worst-case missing-outcome bounds and a sampling envelope using Newcombe/Wilson limits at both extremes. Baseline eligibility is established before treatment; it is not served-only selection. Secondary recorded-completion contrasts have their coverage caveat. Pilot ITT uses randomized assignment and retains unserved treatment viewers.
+In the primary report, I retain every randomized user and show results by baseline goal. Because the simulator follows triggered users only, full-population point estimates are not identified. The report shows observed success/failure/inconclusive counts, worst-case missing-outcome bounds and a sampling envelope using Newcombe/Wilson limits at both extremes. Baseline eligibility is established before treatment; it is not served-only selection. Secondary recorded-completion contrasts have their coverage caveat. Pilot ITT uses randomized assignment and retains unserved treatment viewers.
 
 ## Local website
 
-`serve.py` starts a loopback-only Python HTTP server. `web/index.html`, `web/style.css` and `web/app.js` provide the responsive frontend without a Node build or external assets. The authenticated API reads completed artifacts through a bounded run cache, rather than inventing dashboard metrics. All chart and viewer data come from the selected run.
+I start the local website with `serve.py`, which binds a Python HTTP server to the loopback address. `web/index.html`, `web/style.css` and `web/app.js` provide the responsive frontend without a Node build or external assets. The authenticated API reads completed artifacts through a bounded run cache, rather than inventing dashboard metrics. All chart and viewer data come from the selected run.
 
 `web_auth.py` keeps local accounts separate from the synthetic viewer ledger: salted PBKDF2-SHA256 password hashes, opaque cookie sessions stored as hashes, per-session CSRF tokens, expiry, sign-out and revocation of other sessions. Browser cookies are HTTP-only and SameSite=Lax. State-changing requests require JSON, a trusted local origin, and a CSRF token after authentication. Password changes revoke other sessions. The site does not implement email verification or password-reset delivery.
 
 The replay studio creates a background subprocess with fixed argument lists and a validated seed. Each job has an account owner and private output directory. Result access and cancellation check that owner. One job is active at a time in a server instance. A completed state requires the original CLI and independent audit to pass; partial outputs are not exposed as completed runs. The shared included sample is available to all signed-in local accounts.
 
-Runtime accounts, hashed credentials, sessions, private jobs and logs live under `.local/web/` and are ignored by Git. The website is a development adapter, not a production HTTP/authentication/worker deployment. Its setup and limitations are documented in `docs/LOCAL_SETUP.md`.
+I keep runtime accounts, hashed credentials, sessions, private jobs and logs under `.local/web/`, which Git ignores. The website is a development adapter, not a production HTTP/authentication/worker deployment. Its setup and limitations are documented in `docs/LOCAL_SETUP.md`.

@@ -1,6 +1,6 @@
-# Website validation
+# How my website was checked
 
-The website was tested in the Linux development environment with Chromium. The existing Windows/Linux GitHub Actions matrix runs the standard-library unit and HTTP tests; no unobserved CI result is claimed.
+These are the website checks run with Codex in the Linux development environment using Chromium. I have configured a Windows/Linux GitHub Actions matrix for the standard-library unit and HTTP tests, but I keep those configured checks separate from CI results actually observed.
 
 ## Automated checks
 
@@ -15,7 +15,7 @@ Node is used here only to check JavaScript syntax during development; it is not 
 
 ## Browser checks
 
-An optional repeatable browser check is included:
+I included an optional browser smoke script so these flows can be checked again:
 
 ```bash
 # Development-only dependencies; unnecessary for normal website use.
@@ -26,7 +26,7 @@ python scripts/browser_smoke.py --url http://127.0.0.1:8000
 
 Run a separate website instance with a separate `--data-dir` when creating automated test accounts. On a development machine with an existing Chromium executable, the script also accepts `--browser-path`.
 
-Validated flows:
+The automated browser checks covered:
 
 - Create an account, load the dashboard and retain the session across refresh.
 - Search for a real synthetic viewer and inspect the decision timeline.
@@ -45,7 +45,7 @@ Both the basic browser check and its `--run-replay` variant passed with zero unc
 
 ## Limits
 
-These checks establish local browser/API behavior. They do not establish internet deployment, production HTTP-server suitability, real email verification/recovery, distributed authentication, multi-server jobs or streaming playback. Runtime accounts and generated private jobs are local and excluded from Git. The UI presents historical synthetic replay data, not live production viewing.
+I use these results as evidence of local browser and API behavior. They do not establish internet deployment, production HTTP-server suitability, real email verification/recovery, distributed authentication, multi-server jobs or streaming playback. Runtime accounts and generated private jobs are local and excluded from Git. The data I show in the UI comes from historical synthetic replays.
 
 ## Clean-checkout startup
 

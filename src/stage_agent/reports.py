@@ -53,7 +53,7 @@ def pilot_report(pack):
                        'success': r['succeeded'] == 'true'} for r in rows])
     return ('## Pilot re-analysis\n\n' + result_line('Randomized assignment (ITT)', itt) +
             result_line('Served vs all others (biased)', biased) +
-            '\nServing is a post-assignment selection: active, reachable viewers are more likely to be served. '
+            '\nI show the served comparison to illustrate selection bias: active, reachable viewers are more likely to be served. '
             'Randomized treatment includes unserved viewers; excluding them destroys the randomized comparison.\n')
 
 
@@ -100,21 +100,21 @@ def measure(pack, store, out, replay_start, horizon, sim_events, controls=(), ob
     eligible_itt = summarize([r for r in cohort if r['goal']])
     write_jsonl(out / 'cohort_outcomes.jsonl', cohort)
     report = '# Impact report\n\n## Primary: baseline-goal success by randomized arm\n\n'
-    report += ('Measurement goals were frozen for every randomized user before the first intervention, '
+    report += ('I freeze measurement goals for every randomized user before the first intervention, '
                'using only already-arrived facts. They are separate from adaptive treatment goals. '
-               'All assigned users, including abstentions, remain in their arm. No eligible goal, '
+               'I keep all assigned users in their arm, including viewers who receive no action. No eligible goal, '
                'missing simulator follow-up, and incomplete goal windows are **inconclusive**, not failed. '
-               'Unknown outcomes prevent an identified full-population point estimate.\n\n')
+               'With these unknown outcomes, I cannot identify a full-population point estimate.\n\n')
     report += describe('All randomized users', goal_itt)
     report += describe('Pre-intervention eligible-goal cohort', eligible_itt)
     report += '\n### Baseline goal breakdown\n\n'
     for gid in sorted({r['goal']['id'] for r in cohort if r['goal']}):
         report += describe(gid, summarize([r for r in cohort if r['goal'] and r['goal']['id'] == gid]))
-    report += ('\nBounds assign every unknown outcome both possible values. The sampling envelope adds '
+    report += ('\nI calculate bounds by assigning each unknown outcome both possible values. The sampling envelope adds '
                'Newcombe/Wilson uncertainty at those extremes. It is not a missing-data correction or evidence '
-               'of rollout benefit. No served-only selection is used. See cohort_outcomes.jsonl for each denominator.\n\n'
+               'of rollout benefit. I retain unserved viewers too. The denominators are in cohort_outcomes.jsonl.\n\n'
                '## Secondary: seven-day recorded completion\n\n')
-    report += ('Endpoint fixed before analysis: at least one **recorded episode completion** in the seven days '
+    report += ('For my secondary endpoint, fixed before analysis, I use at least one **recorded episode completion** in the seven days '
                'from replay start. Every randomized user stays in their assigned arm, including abstentions. '
                'This endpoint does not depend on the goal or whether an action was served.\n\n')
     report += result_line('All randomized users: recorded-completion ITT', full)
@@ -126,7 +126,7 @@ def measure(pack, store, out, replay_start, horizon, sim_events, controls=(), ob
                'as population watch uplift in production. The triggered subset is selected before the first action '
                'but does not estimate impact on untriggered users. No causal claim beyond this synthetic experiment.\n\n')
     report += '## Initial goal outcomes (descriptive, by baseline goal)\n\n'
-    report += ('First-decision goals are frozen per viewer before their first intervention. No later goal is substituted. '
+    report += ('For this descriptive comparison, I keep each viewer\'s first-decision goal fixed before their first intervention. I do not substitute a later goal. '
                'Inconclusive outcomes remain in the denominator and are separately counted; these are recorded-success '
                'contrasts, not an estimate of success for censored goals. Goal groups are small; no multiple-testing correction.\n\n')
     goal_rows = defaultdict(list)
@@ -139,7 +139,7 @@ def measure(pack, store, out, replay_start, horizon, sim_events, controls=(), ob
     for gid, group in sorted(goal_rows.items()):
         report += result_line(gid, compare(group))
         report += f"  Outcome counts: {dict(Counter(r['status'] for r in group))}.\n"
-    report += '\nConfidence intervals use Newcombe differences of Wilson limits, independent viewers. '
+    report += '\nI calculate confidence intervals using Newcombe differences of Wilson limits, treating viewers as independent. '
     report += 'One simulation seed is not a production experiment; intervals omit simulator/model uncertainty.\n\n'
     report += pilot_report(pack)
     (out / 'impact_report.md').write_text(report, encoding='utf-8')
@@ -176,7 +176,7 @@ def write_walkthrough(out, decisions, judgments, events):
     candidates = [d for d in decisions if d['action'] == 'HOME_PAGE' and d['goal'] and
                   outcomes[d['goal']['instance_id']]['status'] == 'succeeded']
     candidates.sort(key=lambda d: d['goal']['id'] != 'G02')
-    lines = ['# Viewer walkthrough from this run\n']
+    lines = ['# How I trace a viewer through this run\n']
     if candidates:
         d = candidates[0]
         g = d['goal']
@@ -184,18 +184,18 @@ def write_walkthrough(out, decisions, judgments, events):
         event = events[d['viewer_id']][j['evidence'][0]]
         lines += [f"Viewer `{d['viewer_id']}`, decision `{d['decision_id']}`.\n",
                   f"1. Trigger `{d['trigger']['event_id']}` arrived at `{d['trigger']['deliver_at']}`.\n",
-                  f"2. App dialect `{d['dialect']['used']}` came from `{d['dialect']['source']}`. Inspect the decision's conflicts and source ages.\n",
+                  f"2. App dialect `{d['dialect']['used']}` came from `{d['dialect']['source']}`. I check the conflicts and source ages in the decision record.\n",
                   f"3. Goal `{g['id']}` ({g['name']}) started `{g['started_at']}`, with deadline `{g['deadline']}`. Its signal is `{g['success_signal']['event']}`.\n",
-                  f"4. Home page action `A-{d['trigger']['event_id']}` passed the independent checks. Find its hero and genre rows in actions.jsonl.\n",
+                  f"4. Home page action `A-{d['trigger']['event_id']}` passed the independent checks. I can trace its hero and genre rows in actions.jsonl.\n",
                   f"5. Judgment: `{j['status']}`. Event `{event['event_id']}` was `{event['event']}` at `{event['received_at']}`, inside the goal window.\n",
-                  '6. This is observed goal success, not proof the action caused it. See the randomized-arm impact report.\n',
+                  '6. I count this as observed goal success. To assess impact, I turn to the randomized-arm report; this single outcome cannot establish causation.\n',
                   f"\nOpen `viewer_state/{d['viewer_id']}.json`, decisions.jsonl, actions.jsonl, outcomes.jsonl and sim/outcome_events.jsonl to locate these records.\n"]
     else:
-        lines.append('No published goal succeeded in this run. Inspect failed/inconclusive outcomes rather than fabricating a success trace.\n')
+        lines.append('No published goal succeeded in this run, so my review starts with the failed and inconclusive outcomes.\n')
     abstained = next((d for d in decisions if d['no_action_reason'] == 'stale_trigger_over_600s'), None)
     if abstained:
         lines += ['\n## Abstention example\n',
                   f"Viewer `{abstained['viewer_id']}`, trigger `{abstained['trigger']['event_id']}`, "
                   f"estimated age {abstained['trigger']['event_age_s']} seconds. "
-                  f"Reason: `{abstained['no_action_reason']}`. There is no action for this trigger.\n"]
+                  f"Reason: `{abstained['no_action_reason']}`. My agent takes no action for this trigger.\n"]
     (out / 'viewer_walkthrough.md').write_text('\n'.join(lines), encoding='utf-8')
