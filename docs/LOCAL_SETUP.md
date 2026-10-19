@@ -4,7 +4,7 @@ This is my Windows/PowerShell setup guide, including the folder layout and comma
 
 ## 1. Get my latest project
 
-Open <https://github.com/prasad-25-5/stage-assessment>.
+Open <https://github.com/ruthick-7/stage-assessment>.
 
 - If you downloaded a ZIP previously: choose **Code → Download ZIP**, then extract the updated project into a new folder. Copy your existing `data_pack` folder into that new project folder if you want to run new replays.
 - If you cloned with Git: open a terminal inside the repository and run `git pull origin main`.
