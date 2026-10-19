@@ -1,32 +1,32 @@
 # How I used Codex
 
-I used Codex extensively for implementation, debugging, tests and documentation. This project reflects that collaboration. I keep this note alongside the code so the development process is clear.
+I worked with Codex to develop this project, combining my requirements, feedback and local checks with AI assistance for implementation, debugging, testing and documentation.
 
 ## My involvement
 
-I supplied the assignment and data pack, asked for a step-by-step explanation, and ran the original 16 tests and the full replay on my Windows machine. I shared the results, asked whether the project covered the requirements, and requested a closer review and fixes. I also requested the website and local setup instructions.
+I provided the assignment and data pack, guided the project’s scope, and requested explanations of how each part works. I ran the original 16 tests and the full replay on Windows, shared the results, and requested a closer review of requirement coverage.
 
-Those local runs helped me check the earlier version. My later review notes belong in [my review checklist](docs/OWNER_REVIEW.md), where I can record exactly what I have read, tested or changed.
+I also requested the website, account features and local setup instructions. I use [my review checklist](docs/OWNER_REVIEW.md) to record the code I have reviewed, tests I have run and changes I have made.
 
-## Where Codex helped
+## How Codex assisted me
 
-Codex generated substantial parts of the Python implementation, SQLite ledger, replay pipeline, verifier, tests and documentation. It also helped compare the implementation with the brief and fix gaps that the original tests had missed.
+Codex provided substantial implementation assistance, including code generation for the Python agent, SQLite persistence, replay pipeline, verifier, reports, tests and website.
 
-That work included delivery ordering, late series plays, actual storage failures, interrupted publication, a separate recovery journal, local page revocation and replacement, baseline-goal measurement, missing-outcome bounds, the load benchmark and the artifact auditor.
+I used that assistance to develop the project iteratively: checking results, identifying gaps and requesting improvements. Automated tests and browser checks helped validate the implementation during development.
 
-For the website, Codex helped produce the frontend, local account and session backend, viewer and report APIs, background replay jobs, setup guide and tests. Automated browser checks covered sign-up, sign-in, navigation, reports and a full replay.
+## What changed during development
 
-## What needed correction
+Review and testing identified several issues that needed correction:
 
-The first implementation passing its tests did not mean every requirement was covered. These issues came up during development:
+1. A missing-profile lookup changed a data-quality denominator. The lookup now leaves the collection unchanged.
+2. Goal eligibility was checked against newer evidence. It now uses the commitment-time snapshot, while publication checks use current facts.
+3. Buffered historical events affected follow-up measurement. They are now separated from simulator follow-up.
+4. G07 relied on arrival order. It now selects the latest server-received play, with a regression test for late-arriving older events.
+5. Storage tests initially missed actual SQLite failures. They now cover read, write and release failures, restart recovery and interrupted publication.
+6. Measurement and performance checks needed broader coverage. The project now includes frozen baseline goals, missing-outcome bounds, burst timing and an independent artifact audit.
 
-1. A missing-profile `defaultdict` lookup changed a data-quality denominator. The fix uses a lookup that leaves the collection unchanged.
-2. Active-goal evidence was compared with newer fact references. Eligibility is now checked against the commitment-time snapshot, while publication checks use current facts.
-3. Buffered historical receipts leaked into a follow-up endpoint. Simulator follow-up is now kept separate, and behavior estimated to predate commitment is excluded.
-4. G07 used arrival order instead of the latest server-received play. A regression test now delivers an older play after a more recent one.
-5. The original storage tests covered a fixture flag, but missed real SQLite errors. The suite now covers read, write and release failures, recovery after reopening, and interrupted pending publications.
-6. A successful replay left measurement and performance gaps. Frozen baseline goals, missing-data bounds, burst timing and an independent artifact audit make those gaps easier to inspect.
+## My review and understanding
 
-## How I use this for review
+I keep my personal checks separate from automated validation results. My goal is to understand the evidence, decisions and failure paths well enough to explain the implementation and make changes confidently.
 
-I use [OWNER_REVIEW.md](docs/OWNER_REVIEW.md) to separate checks I have personally completed from automated checks run during development. For a technical discussion, I need to understand the evidence, decisions and failure paths well enough to explain them and make changes. The assignment allows AI assistance; this record makes that assistance explicit without assigning an unsupported authorship percentage.
+This project was developed collaboratively with substantial Codex assistance. These notes describe that process alongside my own involvement and review.
