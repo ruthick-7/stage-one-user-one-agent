@@ -46,3 +46,7 @@ Both the basic browser check and its `--run-replay` variant passed with zero unc
 ## Limits
 
 These checks establish local browser/API behavior. They do not establish internet deployment, production HTTP-server suitability, real email verification/recovery, distributed authentication, multi-server jobs or streaming playback. Runtime accounts and generated private jobs are local and excluded from Git. The UI presents historical synthetic replay data, not live production viewing.
+
+## Clean-checkout startup
+
+A clean local Git clone of implementation commit `b024a9d` started with `python serve.py --port 8767`, using its default account-data location. No original data pack or pre-existing accounts were present. The browser smoke check passed against that server, confirming sign-up, included-sample exploration, reports, account changes and mobile navigation work without a dependency-install step or the input pack. Starting new replays still requires the original pack.
