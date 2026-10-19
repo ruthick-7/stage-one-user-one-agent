@@ -1,0 +1,17 @@
+{
+  "source_commit": "cb23e67",
+  "checkout": "clean local git clone",
+  "seed": "evaluation-check",
+  "tests_passed": 29,
+  "simulated_events": 31951,
+  "policy_problem_count": 0,
+  "max_durable_latency_ms": 40.881111000999226,
+  "over_60s": 0,
+  "artifact_audit": {
+    "decisions": 2679,
+    "actions": 917,
+    "randomized_users": 5000,
+    "errors": [],
+    "passed": true
+  }
+}

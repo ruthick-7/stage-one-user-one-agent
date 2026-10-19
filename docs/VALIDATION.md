@@ -28,3 +28,7 @@ The pilot randomized comparison is treatment 349/1,912 versus holdout 387/1,979 
 ## Limits
 
 The supplied simulator remains unchanged. Local revocation is tested directly because the simulator does not model pure revocation. Hosted models, external platform delivery, shared-database production load and unseen replay days are not validated. The original owner verified the earlier version on Windows; the revised version has been tested in this Linux environment. A Windows/Linux GitHub Actions matrix is configured, but a workflow run is not claimed until observed.
+
+## Clean-checkout / second-seed check
+
+A clean local Git clone of implementation commit `cb23e67` ran all 29 tests, then the full replay with seed `evaluation-check`, using the provided pack as an external read-only input. The simulator generated 31,951 events, reported 0 policy problems, and the independent artifact audit passed. The generated viewer walkthrough was present. No decision exceeded 60 seconds. See `sample_run/clean_checkout_validation.json` for the exact evidence. This is a clean-source reproduction check, not a claim about unseen replay-day evaluation or a remote cloud snapshot.
