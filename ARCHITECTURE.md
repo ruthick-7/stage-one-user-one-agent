@@ -68,3 +68,13 @@ The adaptive agent's goals and the experiment's measurement goals are separate. 
 Goal outcomes require attributable events inside committed windows: non-trial purchase for paid goals, the target slug for G07, release date for G08, and three IST dates for G09. Buffered evidence estimated to precede commitment is excluded. Incomplete windows and missing follow-up are inconclusive. Outcomes, evidence and conservative learning are saved to SQLite and per-viewer exports.
 
 The primary report retains every randomized user and breaks out baseline goals. Because the simulator follows triggered users only, full-population point estimates are not identified. The report shows observed success/failure/inconclusive counts, worst-case missing-outcome bounds and a sampling envelope using Newcombe/Wilson limits at both extremes. Baseline eligibility is established before treatment; it is not served-only selection. Secondary recorded-completion contrasts have their coverage caveat. Pilot ITT uses randomized assignment and retains unserved treatment viewers.
+
+## Local website
+
+`serve.py` starts a loopback-only Python HTTP server. `web/index.html`, `web/style.css` and `web/app.js` provide the responsive frontend without a Node build or external assets. The authenticated API reads completed artifacts through a bounded run cache, rather than inventing dashboard metrics. All chart and viewer data come from the selected run.
+
+`web_auth.py` keeps local accounts separate from the synthetic viewer ledger: salted PBKDF2-SHA256 password hashes, opaque cookie sessions stored as hashes, per-session CSRF tokens, expiry, sign-out and revocation of other sessions. Browser cookies are HTTP-only and SameSite=Lax. State-changing requests require JSON, a trusted local origin, and a CSRF token after authentication. Password changes revoke other sessions. The site does not implement email verification or password-reset delivery.
+
+The replay studio creates a background subprocess with fixed argument lists and a validated seed. Each job has an account owner and private output directory. Result access and cancellation check that owner. One job is active at a time in a server instance. A completed state requires the original CLI and independent audit to pass; partial outputs are not exposed as completed runs. The shared included sample is available to all signed-in local accounts.
+
+Runtime accounts, hashed credentials, sessions, private jobs and logs live under `.local/web/` and are ignored by Git. The website is a development adapter, not a production HTTP/authentication/worker deployment. Its setup and limitations are documented in `docs/LOCAL_SETUP.md`.

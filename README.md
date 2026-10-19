@@ -4,6 +4,27 @@ A local, evidence-driven lifecycle agent for the supplied STAGE assessment. Each
 
 The implementation chooses **a home page or explicit abstention**. No unsolicited messaging or hosted model is enabled. Read [known limitations](KNOWN_LIMITATIONS.md) before making deployment claims.
 
+## Start the website
+
+The project now includes sign-up/sign-in, a responsive dashboard, viewer and decision explorers, experiment results, report downloads, account settings, and a replay studio.
+
+```bash
+python serve.py
+```
+
+Open **http://127.0.0.1:8000**, select **Create account**, and sign in with your own local account. The included sample works immediately; the original data pack is needed only to run new replays. No npm, pip install, external database or model key is required.
+
+**Follow [LOCAL_SETUP.md](docs/LOCAL_SETUP.md) for complete Windows instructions, data-pack placement, troubleshooting, and the website workflow.**
+
+<details>
+<summary>Preview the website</summary>
+
+![STAGE dashboard showing actual included sample results](docs/screenshots/overview.png)
+
+![STAGE local sign-in page](docs/screenshots/signin.png)
+
+</details>
+
 ## Run on Windows, macOS or Linux
 
 Python 3.10+; no third-party runtime dependencies or API keys.
@@ -42,6 +63,7 @@ All benchmark requests are queued together. Reported end-to-end time includes pr
 - [Technical discussion notes](docs/TECHNICAL_DISCUSSION.md): defensible answers and a real viewer trace.
 - [Review exercises](docs/OWNER_REVIEW.md): changes and checks you can perform yourself.
 - [Validation](docs/VALIDATION.md): commands, evidence and limits.
+- [Website validation](docs/WEBSITE_VALIDATION.md): authentication, API, browser and replay checks.
 - [AI collaboration](AI_COLLABORATION.md): actual assistance and review history.
 
 ```text

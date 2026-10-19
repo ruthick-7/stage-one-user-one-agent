@@ -25,3 +25,7 @@ These are documented corrections, not invented accounts of the owner rejecting s
 ## Owner review still to record
 
 Use [OWNER_REVIEW.md](docs/OWNER_REVIEW.md). Add only checks and changes you actually perform: command, observed output, explanation, and any code revision you made. In discussion, distinguish what you implemented independently, what you adapted, and what Codex generated. The assignment explicitly permits AI assistance and evaluates understanding and verification.
+
+## Website addition
+
+At the owner's request, Codex added the website frontend, local account/session backend, viewer/report APIs, replay job management, Windows setup guide and website tests. Browser automation exercised real sign-up/sign-in, viewer navigation, reports and a full replay. This addition is AI-assisted; the owner can record their own subsequent local checks and improvements in the review worksheet.

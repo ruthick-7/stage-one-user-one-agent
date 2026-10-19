@@ -32,3 +32,7 @@ The supplied simulator remains unchanged. Local revocation is tested directly be
 ## Clean-checkout / second-seed check
 
 A clean local Git clone of implementation commit `cb23e67` ran all 29 tests, then the full replay with seed `evaluation-check`, using the provided pack as an external read-only input. The simulator generated 31,951 events, reported 0 policy problems, and the independent artifact audit passed. The generated viewer walkthrough was present. No decision exceeded 60 seconds. See `sample_run/clean_checkout_validation.json` for the exact evidence. This is a clean-source reproduction check, not a claim about unseen replay-day evaluation or a remote cloud snapshot.
+
+## Website addition
+
+The project now has 40 unit/HTTP tests, plus Chromium desktop/mobile and full replay checks. See [WEBSITE_VALIDATION.md](WEBSITE_VALIDATION.md) for website-specific evidence and scope. The earlier 29-test results above refer to the core release.
