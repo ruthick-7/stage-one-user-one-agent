@@ -31,7 +31,7 @@ class Pack:
     def profile(self, user, at):
         rows = [r for r in self.profiles.get(user, [])
                 if ts(r['snapshot_at']) <= at and ts(r['updated_at']) <= at]
-        return max(rows, key=lambda r: (r['updated_at'], r['snapshot_at'], r['_ref']), default=None)
+        return max(rows, key=lambda r: (ts(r['updated_at']), ts(r['snapshot_at']), r['_ref']), default=None)
 
     def available(self, title_id, at, dialect=None):
         t = self.catalogue.get(title_id)

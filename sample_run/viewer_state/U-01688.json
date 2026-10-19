@@ -1,0 +1,89 @@
+{
+  "viewer_id": "U-01688",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:2355",
+        "at": "2026-09-29T17:18:21.152Z",
+        "age_s": 1386698.848
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2355",
+        "at": "2026-09-29T17:18:21.152Z",
+        "age_s": 1386698.848
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2355",
+        "at": "2026-09-29T17:18:21.152Z",
+        "age_s": 1386698.848
+      },
+      "signup_at": {
+        "value": "2025-07-26T16:31:57.404Z",
+        "source": "profiles_snapshot.csv:line:2355",
+        "at": "2026-09-29T17:18:21.152Z",
+        "age_s": 1386698.848
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-011137",
+        "at": "2026-10-08T17:09:24.000Z",
+        "age_s": 609636.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 38,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01688:eef13c2b-1470-47de-9038-e63f45c07cc8:G07",
+      "user_id": "U-01688",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T13:43:34.462000Z",
+      "deadline": "2026-10-04T13:43:34.462000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "hapibha-d1",
+        "next_episode_id": "hapibha-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:14d491ee-a885-4451-93ca-cf255e3ae3c3",
+        "episodes:hapibha-d1",
+        "catalogue:T0004"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-eef13c2b-1470-47de-9038-e63f45c07cc8"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-01688:eef13c2b-1470-47de-9038-e63f45c07cc8:G07",
+      "user_id": "U-01688",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T13:43:34.462000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

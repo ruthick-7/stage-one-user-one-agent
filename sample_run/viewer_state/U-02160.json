@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-02160",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:3558",
+        "at": "2026-09-29T15:19:15.402Z",
+        "age_s": 1393844.598
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3558",
+        "at": "2026-09-29T15:19:15.402Z",
+        "age_s": 1393844.598
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3558",
+        "at": "2026-09-29T15:19:15.402Z",
+        "age_s": 1393844.598
+      },
+      "signup_at": {
+        "value": "2025-10-17T07:54:45.484Z",
+        "source": "profiles_snapshot.csv:line:3558",
+        "at": "2026-09-29T15:19:15.402Z",
+        "age_s": 1393844.598
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-013908",
+        "at": "2026-10-12T17:28:19.000Z",
+        "age_s": 262901.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d2",
+          "source": "profiles_snapshot.csv:line:3558",
+          "at": "2026-09-29T15:19:15.402Z",
+          "age_s": 1393844.598
+        },
+        "selected_source": "app_setting:event:oua-013908"
+      }
+    ],
+    "observed_event_count": 34,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02160:04cc0147-5066-4b73-a7e5-c1227cc8d289:G07",
+      "user_id": "U-02160",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T14:28:55.192000Z",
+      "deadline": "2026-10-04T14:28:55.192000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bagugu-gigupi-d1",
+        "next_episode_id": "bagugu-gigupi-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:d55725dc-dbeb-473c-9925-23c18d52cbf2",
+        "episodes:bagugu-gigupi-d1",
+        "catalogue:T1504"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-04cc0147-5066-4b73-a7e5-c1227cc8d289"
+  ],
+  "action_ids": [
+    "A-04cc0147-5066-4b73-a7e5-c1227cc8d289"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-02160:04cc0147-5066-4b73-a7e5-c1227cc8d289:G07",
+      "user_id": "U-02160",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T14:28:55.192000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

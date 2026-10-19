@@ -1,0 +1,97 @@
+{
+  "viewer_id": "U-03298",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:1345",
+        "at": "2026-09-29T01:48:10.311Z",
+        "age_s": 1442509.689
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1345",
+        "at": "2026-09-29T01:48:10.311Z",
+        "age_s": 1442509.689
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1345",
+        "at": "2026-09-29T01:48:10.311Z",
+        "age_s": 1442509.689
+      },
+      "signup_at": {
+        "value": "2025-09-30T10:21:22.373Z",
+        "source": "profiles_snapshot.csv:line:1345",
+        "at": "2026-09-29T01:48:10.311Z",
+        "age_s": 1442509.689
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-020814",
+        "at": "2026-10-14T15:54:15.000Z",
+        "age_s": 95745.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 149,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03298:297d70d2-1640-4582-97fd-e7c1f7103588:G07",
+      "user_id": "U-03298",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-09-30T23:38:20.154000Z",
+      "deadline": "2026-10-03T23:38:20.154000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bala-naja-d2",
+        "next_episode_id": "bala-naja-d2-s1e4"
+      },
+      "eligibility_evidence": [
+        "event:9f4252b7-d742-458c-9204-08b4c48f1aec",
+        "episodes:bala-naja-d2",
+        "catalogue:T0581"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-297d70d2-1640-4582-97fd-e7c1f7103588",
+    "D-c19ed3bf-3434-4d0e-acf2-ac995240d234",
+    "D-72672287-fda8-475d-be4b-35972387d243",
+    "D-1f6bff85-94ee-4fce-8902-0227843b3e7e"
+  ],
+  "action_ids": [
+    "A-297d70d2-1640-4582-97fd-e7c1f7103588",
+    "A-c19ed3bf-3434-4d0e-acf2-ac995240d234",
+    "A-72672287-fda8-475d-be4b-35972387d243",
+    "A-1f6bff85-94ee-4fce-8902-0227843b3e7e"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03298:297d70d2-1640-4582-97fd-e7c1f7103588:G07",
+      "user_id": "U-03298",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-03T23:38:20.154000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

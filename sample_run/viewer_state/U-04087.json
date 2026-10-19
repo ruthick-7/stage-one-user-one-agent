@@ -1,0 +1,97 @@
+{
+  "viewer_id": "U-04087",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:1884",
+        "at": "2026-09-29T16:34:17.596Z",
+        "age_s": 1389342.404
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1884",
+        "at": "2026-09-29T16:34:17.596Z",
+        "age_s": 1389342.404
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1884",
+        "at": "2026-09-29T16:34:17.596Z",
+        "age_s": 1389342.404
+      },
+      "signup_at": {
+        "value": "2025-06-27T08:19:57.437Z",
+        "source": "profiles_snapshot.csv:line:1884",
+        "at": "2026-09-29T16:34:17.596Z",
+        "age_s": 1389342.404
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-025876",
+        "at": "2026-10-07T15:25:29.000Z",
+        "age_s": 702271.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 38,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04087:ba60df9c-d49c-4fac-a535-9bcc6e0935c5:G07",
+      "user_id": "U-04087",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T09:20:39.963000Z",
+      "deadline": "2026-10-04T09:20:39.963000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bhaja-moguba-d2",
+        "next_episode_id": "bhaja-moguba-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:7c5ec66d-3eac-4ad3-baeb-a64db7681581",
+        "episodes:bhaja-moguba-d2",
+        "catalogue:T0524"
+      ],
+      "status": "succeeded",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [
+        "oua-025865"
+      ],
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "decision_ids": [
+    "D-de94d823-1518-411b-a83d-7cd91b986a18",
+    "D-ba60df9c-d49c-4fac-a535-9bcc6e0935c5",
+    "D-27ceccae-997a-4315-b2f5-9c65dad1ef81",
+    "D-9e00e7f8-fb91-49df-ac58-677fc57834a4",
+    "D-e5cfe4e7-10a7-4992-8468-c7f4933cad22"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-04087:ba60df9c-d49c-4fac-a535-9bcc6e0935c5:G07",
+      "user_id": "U-04087",
+      "goal_id": "G07",
+      "status": "succeeded",
+      "evidence": [
+        "oua-025865"
+      ],
+      "deadline": "2026-10-04T09:20:39.963000Z",
+      "rule_version": "2026-09-30",
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "learnings": [
+    "Goal success is observed, not proof this action caused it."
+  ]
+}

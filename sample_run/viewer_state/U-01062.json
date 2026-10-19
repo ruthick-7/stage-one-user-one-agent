@@ -1,0 +1,89 @@
+{
+  "viewer_id": "U-01062",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:1818",
+        "at": "2026-09-29T06:54:00.267Z",
+        "age_s": 1424159.733
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1818",
+        "at": "2026-09-29T06:54:00.267Z",
+        "age_s": 1424159.733
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1818",
+        "at": "2026-09-29T06:54:00.267Z",
+        "age_s": 1424159.733
+      },
+      "signup_at": {
+        "value": "2025-07-08T15:58:08.298Z",
+        "source": "profiles_snapshot.csv:line:1818",
+        "at": "2026-09-29T06:54:00.267Z",
+        "age_s": 1424159.733
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-007049",
+        "at": "2026-10-15T15:34:36.000Z",
+        "age_s": 10524.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 68,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01062:bb31d4b6-a0e4-45c1-91a3-27a6f2dd22f6:G07",
+      "user_id": "U-01062",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T07:39:01.868000Z",
+      "deadline": "2026-10-04T07:39:01.868000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "guka-kosusa-d2",
+        "next_episode_id": "guka-kosusa-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:a1469049-44bb-47d5-8c98-544f681483bb",
+        "episodes:guka-kosusa-d2",
+        "catalogue:T0522"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-bb31d4b6-a0e4-45c1-91a3-27a6f2dd22f6"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-01062:bb31d4b6-a0e4-45c1-91a3-27a6f2dd22f6:G07",
+      "user_id": "U-01062",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T07:39:01.868000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

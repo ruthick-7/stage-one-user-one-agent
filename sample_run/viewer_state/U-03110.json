@@ -1,0 +1,100 @@
+{
+  "viewer_id": "U-03110",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:4421",
+        "at": "2026-09-29T16:17:30.926Z",
+        "age_s": 1390349.074
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4421",
+        "at": "2026-09-29T16:17:30.926Z",
+        "age_s": 1390349.074
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4421",
+        "at": "2026-09-29T16:17:30.926Z",
+        "age_s": 1390349.074
+      },
+      "signup_at": {
+        "value": "2025-08-24T07:14:21.723Z",
+        "source": "profiles_snapshot.csv:line:4421",
+        "at": "2026-09-29T16:17:30.926Z",
+        "age_s": 1390349.074
+      },
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-019434",
+        "at": "2026-10-03T14:17:32.000Z",
+        "age_s": 1051948.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:4421",
+          "at": "2026-09-29T16:17:30.926Z",
+          "age_s": 1390349.074
+        },
+        "selected_source": "app_setting:event:oua-019434"
+      }
+    ],
+    "observed_event_count": 21,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03110:695b0c5c-d35a-4fc2-8f0d-3594a9a7a664:G07",
+      "user_id": "U-03110",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T06:23:33.861000Z",
+      "deadline": "2026-10-04T06:23:33.861000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "tiko-subava-d4",
+        "next_episode_id": "tiko-subava-d4-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:7a0cc782-a8fe-40f8-aba5-75ec0daec084",
+        "episodes:tiko-subava-d4",
+        "catalogue:T0932"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-695b0c5c-d35a-4fc2-8f0d-3594a9a7a664"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03110:695b0c5c-d35a-4fc2-8f0d-3594a9a7a664:G07",
+      "user_id": "U-03110",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T06:23:33.861000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

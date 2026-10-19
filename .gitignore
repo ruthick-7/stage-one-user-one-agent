@@ -2,5 +2,8 @@ __pycache__/
 *.py[cod]
 .venv/
 data_pack/
-sample_run/
 *.sqlite3*
+sample_run/recovery/
+run_output*/
+practice_run*/
+load_run*/

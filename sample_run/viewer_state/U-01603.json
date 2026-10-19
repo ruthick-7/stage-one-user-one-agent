@@ -1,0 +1,69 @@
+{
+  "viewer_id": "U-01603",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:2119:plan_ends_at",
+        "at": "2026-10-01T15:44:29.948Z",
+        "age_s": 1219530.052
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2119",
+        "at": "2026-09-28T22:51:20.638Z",
+        "age_s": 1453119.362
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2119",
+        "at": "2026-09-28T22:51:20.638Z",
+        "age_s": 1453119.362
+      },
+      "signup_at": {
+        "value": "2025-04-20T07:37:18.571Z",
+        "source": "profiles_snapshot.csv:line:2119",
+        "at": "2026-09-28T22:51:20.638Z",
+        "age_s": 1453119.362
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:720305ca-19af-4c74-9b35-36c8b2a3fc16",
+        "at": "2026-10-01T08:49:12.470Z",
+        "age_s": 1244447.53
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:2119",
+          "at": "2026-09-28T22:51:20.638Z",
+          "age_s": 1453119.362
+        },
+        "selected_source": "profiles_snapshot.csv:line:2119:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d4",
+          "source": "profiles_snapshot.csv:line:2119",
+          "at": "2026-09-28T22:51:20.638Z",
+          "age_s": 1453119.362
+        },
+        "selected_source": "app_setting:event:720305ca-19af-4c74-9b35-36c8b2a3fc16"
+      }
+    ],
+    "observed_event_count": 25,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [],
+  "decision_ids": [
+    "D-720305ca-19af-4c74-9b35-36c8b2a3fc16"
+  ],
+  "action_ids": [],
+  "outcomes": [],
+  "learnings": []
+}

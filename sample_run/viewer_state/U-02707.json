@@ -1,0 +1,106 @@
+{
+  "viewer_id": "U-02707",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:2725",
+        "at": "2026-09-29T10:01:16.051Z",
+        "age_s": 1412923.949
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2725",
+        "at": "2026-09-29T10:01:16.051Z",
+        "age_s": 1412923.949
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2725",
+        "at": "2026-09-29T10:01:16.051Z",
+        "age_s": 1412923.949
+      },
+      "signup_at": {
+        "value": "2025-03-01T11:55:26.632Z",
+        "source": "profiles_snapshot.csv:line:2725",
+        "at": "2026-09-29T10:01:16.051Z",
+        "age_s": 1412923.949
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-017005",
+        "at": "2026-10-14T13:13:21.000Z",
+        "age_s": 105399.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d4",
+          "source": "profiles_snapshot.csv:line:2725",
+          "at": "2026-09-29T10:01:16.051Z",
+          "age_s": 1412923.949
+        },
+        "selected_source": "app_setting:event:oua-017005"
+      }
+    ],
+    "observed_event_count": 66,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02707:f238e564-416f-4650-a502-9409be98d5f8:G07",
+      "user_id": "U-02707",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T12:47:06.776000Z",
+      "deadline": "2026-10-04T12:47:06.776000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "tidha-dakachu-d1",
+        "next_episode_id": "tidha-dakachu-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:b9f3da3c-454f-4a8a-821d-df81db05d663",
+        "episodes:tidha-dakachu-d1",
+        "catalogue:T0005"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-f238e564-416f-4650-a502-9409be98d5f8",
+    "D-23e7dbfd-4119-452e-9922-5b4dc95f3378",
+    "D-8b12b1d8-1447-48c4-ad37-ffc831a9607e"
+  ],
+  "action_ids": [
+    "A-f238e564-416f-4650-a502-9409be98d5f8",
+    "A-23e7dbfd-4119-452e-9922-5b4dc95f3378",
+    "A-8b12b1d8-1447-48c4-ad37-ffc831a9607e"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-02707:f238e564-416f-4650-a502-9409be98d5f8:G07",
+      "user_id": "U-02707",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T12:47:06.776000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

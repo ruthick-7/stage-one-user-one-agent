@@ -1,0 +1,89 @@
+{
+  "viewer_id": "U-00722",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:4757",
+        "at": "2026-09-29T05:21:02.276Z",
+        "age_s": 1429737.724
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4757",
+        "at": "2026-09-29T05:21:02.276Z",
+        "age_s": 1429737.724
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4757",
+        "at": "2026-09-29T05:21:02.276Z",
+        "age_s": 1429737.724
+      },
+      "signup_at": {
+        "value": "2025-11-03T23:23:07.637Z",
+        "source": "profiles_snapshot.csv:line:4757",
+        "at": "2026-09-29T05:21:02.276Z",
+        "age_s": 1429737.724
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-004698",
+        "at": "2026-10-12T16:12:11.000Z",
+        "age_s": 267469.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 138,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00722:fae798e6-4f62-4028-bec2-a662d493ed44:G07",
+      "user_id": "U-00722",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T11:38:48.821000Z",
+      "deadline": "2026-10-04T11:38:48.821000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "gula-tete-d3",
+        "next_episode_id": "gula-tete-d3-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:f81551fe-0929-432c-9b98-6031e9080c51",
+        "episodes:gula-tete-d3",
+        "catalogue:T0912"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-fae798e6-4f62-4028-bec2-a662d493ed44"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00722:fae798e6-4f62-4028-bec2-a662d493ed44:G07",
+      "user_id": "U-00722",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T11:38:48.821000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

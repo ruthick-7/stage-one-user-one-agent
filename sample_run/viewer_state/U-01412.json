@@ -1,0 +1,116 @@
+{
+  "viewer_id": "U-01412",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:3623:plan_ends_at",
+        "at": "2026-10-14T02:27:54.349Z",
+        "age_s": 144125.651
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3623",
+        "at": "2026-09-29T01:31:56.603Z",
+        "age_s": 1443483.397
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3623",
+        "at": "2026-09-29T01:31:56.603Z",
+        "age_s": 1443483.397
+      },
+      "signup_at": {
+        "value": "2025-10-12T15:56:15.371Z",
+        "source": "profiles_snapshot.csv:line:3623",
+        "at": "2026-09-29T01:31:56.603Z",
+        "age_s": 1443483.397
+      },
+      "dialect": {
+        "value": "d6",
+        "source": "app_setting:event:oua-009514",
+        "at": "2026-10-15T15:36:14.000Z",
+        "age_s": 10426.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:3623",
+          "at": "2026-09-29T01:31:56.603Z",
+          "age_s": 1443483.397
+        },
+        "selected_source": "profiles_snapshot.csv:line:3623:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:3623",
+          "at": "2026-09-29T01:31:56.603Z",
+          "age_s": 1443483.397
+        },
+        "selected_source": "app_setting:event:oua-009514"
+      }
+    ],
+    "observed_event_count": 119,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01412:e96f32e6-599d-42cc-852c-53fdc342cbe3:G07",
+      "user_id": "U-01412",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T14:11:17.434000Z",
+      "deadline": "2026-10-04T14:11:17.434000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "loyate-d6",
+        "next_episode_id": "loyate-d6-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:420e9e77-9b26-48cc-bcf5-d0ea33b601c9",
+        "episodes:loyate-d6",
+        "catalogue:T1407"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-e96f32e6-599d-42cc-852c-53fdc342cbe3",
+    "D-7af7ca57-b327-4b74-85ce-b7ed0c70ff68",
+    "D-38ed20ac-f937-405f-ba79-8d7eb8718bff"
+  ],
+  "action_ids": [
+    "A-e96f32e6-599d-42cc-852c-53fdc342cbe3",
+    "A-7af7ca57-b327-4b74-85ce-b7ed0c70ff68",
+    "A-38ed20ac-f937-405f-ba79-8d7eb8718bff"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-01412:e96f32e6-599d-42cc-852c-53fdc342cbe3:G07",
+      "user_id": "U-01412",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T14:11:17.434000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "viewer_id": "U-02693",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:83dcdfd9-35d2-455d-b03d-8ea7a065b9ce",
+        "at": "2026-09-21T15:08:50.716Z",
+        "age_s": 2085669.284
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-016817",
+        "at": "2026-10-14T15:43:10.000Z",
+        "age_s": 96410.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 66,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02693:6db3f545-336f-4d6a-bd43-afa4fbd96f95:G07",
+      "user_id": "U-02693",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T02:58:00.124000Z",
+      "deadline": "2026-10-04T02:58:00.124000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "hapibha-d1",
+        "next_episode_id": "hapibha-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:aca4c93c-d4d3-4241-a259-54f2730d0ef2",
+        "episodes:hapibha-d1",
+        "catalogue:T0004"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-6db3f545-336f-4d6a-bd43-afa4fbd96f95"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-02693:6db3f545-336f-4d6a-bd43-afa4fbd96f95:G07",
+      "user_id": "U-02693",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T02:58:00.124000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

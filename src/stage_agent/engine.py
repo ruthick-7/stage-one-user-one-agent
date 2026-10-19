@@ -1,6 +1,7 @@
 """One serialized owner per viewer; plans, reactions and atomic ledger publication."""
 import copy
-import json
+import hashlib
+import sqlite3
 import time
 from collections import defaultdict
 from datetime import timedelta
@@ -18,6 +19,8 @@ class Engine:
         self.max_model, self.max_tools = max_model, max_tools
         self.provider = MockProvider()
         self.dependencies = {}
+        self.storage_failed = False
+        self.timings = {}
         self.actions = defaultdict(list)
         for a in store.rows('actions'):
             self.actions[a['user_id']].append(a)
@@ -72,12 +75,28 @@ class Engine:
             self.store.audit({'at': c['at'], 'type': c['type'], 'affected_instances': affected})
         elif c['type'] == 'title_withdrawn':
             self.pack.withdrawn[c['title_id']] = c['at']
-            affected = [a['action_id'] for rows in self.actions.values() for a in rows
+            affected = [a for rows in self.actions.values() for a in rows
                         if a['type'] == 'home_page' and ts(a['published_at']) + timedelta(minutes=120) > at
+                        and not a.get('revoked_at')
                         and c['title_id'] in [a.get('hero_title_id')] +
                         [t for r in a['rows'] for t in r['title_ids']]]
-            self.store.audit({'at': c['at'], 'type': c['type'], 'affected_live_pages': affected,
-                              'note': 'Future publication blocked; existing pages require platform revocation (not implemented).'})
+            for action in affected:
+                self.store.revoke(action, c['at'], 'title_withdrawn:' + c['title_id'])
+            self.store.db.commit()
+            replacements = []
+            for user in sorted({a['user_id'] for a in affected}):
+                if not self.active(user):
+                    continue  # serving falls back to default when there is no active plan
+                state = resolve(self.pack, self.store.history[user], user, at)
+                eid = 'withdraw-' + hashlib.sha256((user + c['title_id'] + c['at']).encode()).hexdigest()[:24]
+                d = self.decide({'event_id': eid, 'user_id': user, 'event': 'catalogue_changed',
+                                 'occurred_at': c['at'], 'sent_at': c['at'], 'received_at': c['at'],
+                                 'deliver_at': c['at'], 'app_dialect': value(state, 'dialect'), 'properties': {}})
+                if d['action'] == 'HOME_PAGE':
+                    replacements.append(d['decision_id'])
+            self.store.audit({'at': c['at'], 'type': c['type'],
+                              'affected_live_pages': [a['action_id'] for a in affected],
+                              'replacement_decisions': replacements, 'fallback': 'default_page_if_no_replacement'})
         elif c['type'] in ('dependency_unavailable', 'dependency_degraded'):
             self.dependencies[c['dependency']] = c
             self.store.audit(c)
@@ -88,13 +107,80 @@ class Engine:
         c = self.dependencies.get(name)
         return bool(c and ts(c['at']) <= at < ts(c['until']))
 
+    def current_page(self, user, at):
+        """Local serving contract: a revoked or expired page can never be shown."""
+        if self.storage_failed:
+            return None
+        pages = [a for a in self.actions[user] if a['type'] == 'home_page'
+                 and a.get('publication_state', 'ready') == 'ready'
+                 and ts(a['published_at']) <= at < ts(a['published_at']) + timedelta(minutes=a['ttl_minutes'])
+                 and (not a.get('revoked_at') or at < ts(a['revoked_at']))]
+        page = max(pages, key=lambda a: a['published_at'], default=None)
+        if not page:
+            return None
+        ids = [page['hero_title_id']] + [t for row in page['rows'] for t in row['title_ids']]
+        return page if all(self.pack.available(t, at, page['dialect']) for t in ids) else None
+
     def decide(self, e):
+        """Fail closed into a separate durable journal if any primary-store operation fails."""
+        started = time.perf_counter()
+        recovered = self.store.recovery.get(e['event_id'])
+        if recovered:
+            return recovered
+        user = e['user_id']
+        old_goals = copy.deepcopy([g for g in self.store.goals if g['user_id'] == user])
+        old_history = list(self.store.history[user])
+        old_actions = copy.deepcopy(self.actions[user])
+        self._current_budget = None
+        try:
+            if self.storage_failed:
+                raise sqlite3.OperationalError('primary_store_circuit_open_after_actual_failure')
+            decision = self._decide(e)
+            self.timings.setdefault(e['event_id'], {'trigger_event_id': e['event_id'],
+                                    'durable_completion_ms': (time.perf_counter()-started)*1000})
+            return decision
+        except (sqlite3.Error, OSError) as exc:
+            self.storage_failed = True
+            try:
+                self.store.db.rollback()
+            except sqlite3.Error:
+                pass
+            self.store.goals[:] = [g for g in self.store.goals if g['user_id'] != user] + old_goals
+            self.store.history[user] = old_history
+            self.actions[user] = old_actions
+            elapsed = (time.perf_counter() - started) * 1000
+            d = {'decision_id': 'D-' + e['event_id'], 'viewer_id': user,
+                 'trigger': {'event_id': e['event_id'], 'event': e['event'],
+                             'received_at': e['received_at'], 'deliver_at': e['deliver_at'],
+                             'event_age_s': trigger_age(e)},
+                 'goal': None, 'action': 'NO_ACTION', 'no_action_reason': 'primary_storage_failure',
+                 'dialect': {'used': None, 'source': None, 'conflicts': []}, 'content': [],
+                 'facts': {}, 'conflicts': [], 'evidence': [], 'assumptions': [],
+                 'confidence': 0, 'confidence_reason': 'Required primary state could not be trusted or persisted.',
+                 'checks': {'passed': [], 'failed': ['primary_storage']}, 'fallback_used': True,
+                 'proposal_rejections': [type(exc).__name__],
+                 'model_calls': self._current_budget.model_calls if self._current_budget else 0,
+                 'tool_calls': self._current_budget.tool_calls if self._current_budget else 0,
+                 'decided_in_ms': elapsed,
+                 'published_at': iso(ts(e['deliver_at']) + timedelta(milliseconds=elapsed)),
+                 'status': 'ABSTAINED', 'publication_state': 'ready', 'durability': 'recovery_journal',
+                 'rule_version': None}
+            # Failure here is intentionally fatal: never claim durability if both stores fail.
+            decision = self.store.recovery.save(d)
+            self.timings.setdefault(e['event_id'], {'trigger_event_id': e['event_id'],
+                                    'durable_completion_ms': (time.perf_counter()-started)*1000})
+            return decision
+
+    def _decide(self, e):
         previous = self.store.decision(e['event_id'])
         if previous:
+            if previous.get('publication_state') == 'pending':
+                raise sqlite3.OperationalError('interrupted publication requires recovery')
             return previous
         started = time.perf_counter()
         at, user = ts(e['deliver_at']), e['user_id']
         budget = Budget(self.max_model, self.max_tools)
+        self._current_budget = budget
         self.ingest(e)
         state = resolve(self.pack, self.store.history[user], user, at, e)
         goal = self.active(user)
@@ -163,6 +249,14 @@ class Engine:
             if checks['failed'] or elapsed > 60000:
                 no_action, action = 'publication_gate_rejected', None
         content = ([action['hero_title_id']] + [t for r in action['rows'] for t in r['title_ids']]) if action else []
+        goal_evidence = []
+        known_events = {x['event_id']: x for x in self.store.history[user]}
+        for ref in (goal or {}).get('eligibility_evidence', []):
+            event = known_events.get(ref.removeprefix('event:')) if ref.startswith('event:') else None
+            when = event['received_at'] if event else (goal or {}).get('started_at', iso(at))
+            goal_evidence.append({'source': ref, 'at': when,
+                                  'age_s': max(0, (published-ts(when)).total_seconds()),
+                                  'time_meaning': 'server_receipt' if event else 'checked_at_goal_commitment'})
         decision = {'decision_id': d_id, 'viewer_id': user,
                     'trigger': {'event_id': e['event_id'], 'event': e['event'], 'received_at': e['received_at'],
                                 'deliver_at': e['deliver_at'], 'event_age_s': trigger_age(e)},
@@ -172,7 +266,7 @@ class Engine:
                         'conflicts': [c for c in state['conflicts'] if c['fact'] == 'dialect']},
                     'facts': state['facts'], 'conflicts': state['conflicts'],
                     'content': ['title:' + t for t in content],
-                    'evidence': list(state['facts'].values()) +
+                    'evidence': list(state['facts'].values()) + goal_evidence +
                         [{'source': 'catalogue:' + t, 'at': iso(published), 'age_s': 0} for t in content],
                     'confidence': 0.65 if action else 0.3,
                     'confidence_reason': 'Heuristic evidence sufficiency, not a calibrated success probability; history is limited.',
@@ -184,6 +278,9 @@ class Engine:
                     'model_calls': budget.model_calls, 'tool_calls': budget.tool_calls,
                     'decided_in_ms': elapsed, 'published_at': iso(published),
                     'status': 'PUBLISHED' if action else 'ABSTAINED', 'rule_version': goal['rule_version'] if goal else None}
+        decision['publication_state'] = 'pending'
+        if action:
+            action['publication_state'] = 'pending'
         self.store.publish(e, decision, action)
         if action:
             self.actions[user].append(action)
@@ -201,10 +298,6 @@ class Engine:
                 self.store.db.execute('DELETE FROM actions WHERE action_id=?', (action['action_id'],))
                 decision.update(action='NO_ACTION', content=[], status='ABSTAINED',
                                 no_action_reason='post_commit_publication_gate', checks=final)
-            else:
-                self.store.db.execute('UPDATE actions SET payload=? WHERE action_id=?',
-                                      (json.dumps(action), action['action_id']))
-        self.store.db.execute('UPDATE decisions SET payload=? WHERE trigger_id=?',
-                              (json.dumps(decision), e['event_id']))
-        self.store.db.commit()
+                action = None
+        self.store.release(e, decision, action)
         return decision

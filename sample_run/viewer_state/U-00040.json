@@ -1,0 +1,91 @@
+{
+  "viewer_id": "U-00040",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:3274",
+        "at": "2026-09-29T06:02:58.828Z",
+        "age_s": 1427221.172
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3274",
+        "at": "2026-09-29T06:02:58.828Z",
+        "age_s": 1427221.172
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3274",
+        "at": "2026-09-29T06:02:58.828Z",
+        "age_s": 1427221.172
+      },
+      "signup_at": {
+        "value": "2024-10-02T03:10:33.195Z",
+        "source": "profiles_snapshot.csv:line:3274",
+        "at": "2026-09-29T06:02:58.828Z",
+        "age_s": 1427221.172
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-000304",
+        "at": "2026-10-13T14:02:15.000Z",
+        "age_s": 188865.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 41,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00040:31d68c2b-a50a-4636-acbc-acccd6e66825:G02",
+      "user_id": "U-00040",
+      "id": "G02",
+      "name": "first_full_episode_3d",
+      "started_at": "2026-10-01T16:41:32.827000Z",
+      "deadline": "2026-10-04T16:41:32.827000Z",
+      "success_signal": {
+        "event": "episode_completed",
+        "condition": "any episode",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": null,
+      "eligibility_evidence": [
+        "profiles_snapshot.csv:line:3274",
+        "profiles_snapshot.csv:line:3274",
+        "profiles_snapshot.csv:line:3274",
+        "profiles_snapshot.csv:line:3274",
+        "app_setting:event:31d68c2b-a50a-4636-acbc-acccd6e66825"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-bb7c8d75-03b9-47a7-b6c6-a1082de8a2d3",
+    "D-31d68c2b-a50a-4636-acbc-acccd6e66825"
+  ],
+  "action_ids": [
+    "A-31d68c2b-a50a-4636-acbc-acccd6e66825"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-00040:31d68c2b-a50a-4636-acbc-acccd6e66825:G02",
+      "user_id": "U-00040",
+      "goal_id": "G02",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T16:41:32.827000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

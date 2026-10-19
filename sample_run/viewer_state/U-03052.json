@@ -1,0 +1,117 @@
+{
+  "viewer_id": "U-03052",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:3682:plan_ends_at",
+        "at": "2026-10-02T23:55:18.012Z",
+        "age_s": 1103681.988
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3682",
+        "at": "2026-09-29T12:44:34.818Z",
+        "age_s": 1403125.182
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:3682",
+        "at": "2026-09-29T12:44:34.818Z",
+        "age_s": 1403125.182
+      },
+      "signup_at": {
+        "value": "2025-09-17T06:46:11.295Z",
+        "source": "profiles_snapshot.csv:line:3682",
+        "at": "2026-09-29T12:44:34.818Z",
+        "age_s": 1403125.182
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-019077",
+        "at": "2026-10-15T16:13:50.000Z",
+        "age_s": 8170.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:3682",
+          "at": "2026-09-29T12:44:34.818Z",
+          "age_s": 1403125.182
+        },
+        "selected_source": "profiles_snapshot.csv:line:3682:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:3682",
+          "at": "2026-09-29T12:44:34.818Z",
+          "age_s": 1403125.182
+        },
+        "selected_source": "app_setting:event:oua-019077"
+      }
+    ],
+    "observed_event_count": 72,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03052:1b32a4c3-8c93-4036-a1a5-4bf953c3274b:G07",
+      "user_id": "U-03052",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T05:16:35.456000Z",
+      "deadline": "2026-10-04T05:16:35.456000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bhaja-moguba-d2",
+        "next_episode_id": "bhaja-moguba-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:1c15646f-e0eb-489f-99c6-11f501df15d1",
+        "episodes:bhaja-moguba-d2",
+        "catalogue:T1678"
+      ],
+      "status": "succeeded",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [
+        "oua-019067"
+      ],
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "decision_ids": [
+    "D-2b5922e5-03a6-476e-b012-2918f885c219",
+    "D-1b32a4c3-8c93-4036-a1a5-4bf953c3274b"
+  ],
+  "action_ids": [
+    "A-1b32a4c3-8c93-4036-a1a5-4bf953c3274b"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03052:1b32a4c3-8c93-4036-a1a5-4bf953c3274b:G07",
+      "user_id": "U-03052",
+      "goal_id": "G07",
+      "status": "succeeded",
+      "evidence": [
+        "oua-019067"
+      ],
+      "deadline": "2026-10-04T05:16:35.456000Z",
+      "rule_version": "2026-09-30",
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "learnings": [
+    "Goal success is observed, not proof this action caused it."
+  ]
+}

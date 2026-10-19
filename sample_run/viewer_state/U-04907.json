@@ -1,0 +1,108 @@
+{
+  "viewer_id": "U-04907",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:200",
+        "at": "2026-09-28T20:23:31.884Z",
+        "age_s": 1461988.116
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:200",
+        "at": "2026-09-28T20:23:31.884Z",
+        "age_s": 1461988.116
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:200",
+        "at": "2026-09-28T20:23:31.884Z",
+        "age_s": 1461988.116
+      },
+      "signup_at": {
+        "value": "2026-04-21T20:50:45.091Z",
+        "source": "profiles_snapshot.csv:line:200",
+        "at": "2026-09-28T20:23:31.884Z",
+        "age_s": 1461988.116
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-030754",
+        "at": "2026-10-12T07:45:16.000Z",
+        "age_s": 297884.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:200",
+          "at": "2026-09-28T20:23:31.884Z",
+          "age_s": 1461988.116
+        },
+        "selected_source": "app_setting:event:oua-030754"
+      }
+    ],
+    "observed_event_count": 85,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04907:087cbe45-b781-4f1c-9e03-51ab0bee8731:G07",
+      "user_id": "U-04907",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T05:54:06.805000Z",
+      "deadline": "2026-10-04T05:54:06.805000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "lomobha-moni-d3",
+        "next_episode_id": "lomobha-moni-d3-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:bc5609e4-489b-4bdf-a3a4-5a03f9b99ab0",
+        "episodes:lomobha-moni-d3",
+        "catalogue:T0908"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-087cbe45-b781-4f1c-9e03-51ab0bee8731",
+    "D-cf63d049-2839-4114-b672-a7a0c2885eae",
+    "D-b0f1d3b4-f079-4b58-84a8-7c9ec06cf866",
+    "D-79721469-47e9-457a-b3ee-d05dc3cc4012"
+  ],
+  "action_ids": [
+    "A-087cbe45-b781-4f1c-9e03-51ab0bee8731",
+    "A-cf63d049-2839-4114-b672-a7a0c2885eae",
+    "A-b0f1d3b4-f079-4b58-84a8-7c9ec06cf866",
+    "A-79721469-47e9-457a-b3ee-d05dc3cc4012"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-04907:087cbe45-b781-4f1c-9e03-51ab0bee8731:G07",
+      "user_id": "U-04907",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T05:54:06.805000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "viewer_id": "U-04709",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:oua-029338",
+        "at": "2026-10-01T15:23:58.216Z",
+        "age_s": 1220761.784
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2926",
+        "at": "2026-09-28T20:33:43.907Z",
+        "age_s": 1461376.093
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2926",
+        "at": "2026-09-28T20:33:43.907Z",
+        "age_s": 1461376.093
+      },
+      "signup_at": {
+        "value": "2026-02-20T09:10:19.107Z",
+        "source": "profiles_snapshot.csv:line:2926",
+        "at": "2026-09-28T20:33:43.907Z",
+        "age_s": 1461376.093
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-029363",
+        "at": "2026-10-15T15:36:24.000Z",
+        "age_s": 10416.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "never",
+          "source": "profiles_snapshot.csv:line:2926",
+          "at": "2026-09-28T20:33:43.907Z",
+          "age_s": 1461376.093
+        },
+        "selected_source": "event:oua-029338"
+      }
+    ],
+    "observed_event_count": 84,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04709:40e973c8-b1be-4362-9842-943ec79dad7a:G07",
+      "user_id": "U-04709",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T15:17:58.216000Z",
+      "deadline": "2026-10-04T15:17:58.216000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "jakasa-dapi-d3",
+        "next_episode_id": "jakasa-dapi-d3-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:d0531500-1659-4536-929c-234a6dfafca5",
+        "episodes:jakasa-dapi-d3",
+        "catalogue:T0904"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-40e973c8-b1be-4362-9842-943ec79dad7a"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-04709:40e973c8-b1be-4362-9842-943ec79dad7a:G07",
+      "user_id": "U-04709",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T15:17:58.216000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

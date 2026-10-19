@@ -1,0 +1,114 @@
+{
+  "viewer_id": "U-02002",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:2990:plan_ends_at",
+        "at": "2026-10-02T13:25:42.940Z",
+        "age_s": 1141457.06
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2990",
+        "at": "2026-09-28T19:24:40.999Z",
+        "age_s": 1465519.001
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2990",
+        "at": "2026-09-28T19:24:40.999Z",
+        "age_s": 1465519.001
+      },
+      "signup_at": {
+        "value": "2026-04-15T11:06:50.912Z",
+        "source": "profiles_snapshot.csv:line:2990",
+        "at": "2026-09-28T19:24:40.999Z",
+        "age_s": 1465519.001
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-013106",
+        "at": "2026-10-15T07:28:00.000Z",
+        "age_s": 39720.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:2990",
+          "at": "2026-09-28T19:24:40.999Z",
+          "age_s": 1465519.001
+        },
+        "selected_source": "profiles_snapshot.csv:line:2990:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d6",
+          "source": "profiles_snapshot.csv:line:2990",
+          "at": "2026-09-28T19:24:40.999Z",
+          "age_s": 1465519.001
+        },
+        "selected_source": "app_setting:event:oua-013106"
+      }
+    ],
+    "observed_event_count": 115,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02002:aef5d792-c486-4bcd-b9f0-f50f86a6307b:G07",
+      "user_id": "U-02002",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T13:45:25.217000Z",
+      "deadline": "2026-10-04T13:45:25.217000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "dhada-bhate-d1",
+        "next_episode_id": "dhada-bhate-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:084b9218-f347-468a-8358-7d86cf9701c9",
+        "episodes:dhada-bhate-d1",
+        "catalogue:T1510"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-aef5d792-c486-4bcd-b9f0-f50f86a6307b",
+    "D-714e2a08-4c67-45f0-8aaf-fd5fd651cb6a"
+  ],
+  "action_ids": [
+    "A-aef5d792-c486-4bcd-b9f0-f50f86a6307b",
+    "A-714e2a08-4c67-45f0-8aaf-fd5fd651cb6a"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-02002:aef5d792-c486-4bcd-b9f0-f50f86a6307b:G07",
+      "user_id": "U-02002",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T13:45:25.217000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

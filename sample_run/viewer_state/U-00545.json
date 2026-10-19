@@ -1,0 +1,86 @@
+{
+  "viewer_id": "U-00545",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "signup_at": {
+        "value": "2026-10-01T05:30:14.668Z",
+        "source": "event:3abecc3b-d25d-4312-8246-30d6bcffc763",
+        "at": "2026-10-01T05:30:14.668Z",
+        "age_s": 1256385.332
+      },
+      "subscription_status": {
+        "value": "active",
+        "source": "event:oua-003572",
+        "at": "2026-10-07T07:41:00.000Z",
+        "age_s": 730140.0
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-003576",
+        "at": "2026-10-11T13:42:03.000Z",
+        "age_s": 362877.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "never",
+          "source": "event:3abecc3b-d25d-4312-8246-30d6bcffc763",
+          "at": "2026-10-01T05:30:14.668Z",
+          "age_s": 1256385.332
+        },
+        "selected_source": "event:oua-003572"
+      }
+    ],
+    "observed_event_count": 14,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00545:e638bf34-000d-4b8d-85f7-88df420bbafc:G01",
+      "user_id": "U-00545",
+      "id": "G01",
+      "name": "first_play_24h",
+      "started_at": "2026-10-01T05:30:34.936000Z",
+      "deadline": "2026-10-02T05:30:34.936000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "any title",
+        "window_hours": 24
+      },
+      "rule_version": "2026-09-30",
+      "context": null,
+      "eligibility_evidence": [
+        "event:3abecc3b-d25d-4312-8246-30d6bcffc763",
+        "event:3abecc3b-d25d-4312-8246-30d6bcffc763",
+        "app_setting:event:3abecc3b-d25d-4312-8246-30d6bcffc763"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-e638bf34-000d-4b8d-85f7-88df420bbafc",
+    "D-5ee78e61-a5b2-418f-a291-9c4bb8f1ccec"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00545:e638bf34-000d-4b8d-85f7-88df420bbafc:G01",
+      "user_id": "U-00545",
+      "goal_id": "G01",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-02T05:30:34.936000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

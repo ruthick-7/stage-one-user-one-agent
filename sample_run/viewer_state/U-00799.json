@@ -1,0 +1,101 @@
+{
+  "viewer_id": "U-00799",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:4593:plan_ends_at",
+        "at": "2026-10-12T17:42:13.627Z",
+        "age_s": 262066.373
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4593",
+        "at": "2026-09-29T02:59:15.772Z",
+        "age_s": 1438244.228
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "event:e573ace3-c07c-44c1-b098-a800b54aedb0",
+        "at": "2026-09-09T12:03:43.887Z",
+        "age_s": 3133576.113
+      },
+      "signup_at": {
+        "value": "2026-08-24T11:23:57.667Z",
+        "source": "profiles_snapshot.csv:line:4593",
+        "at": "2026-09-29T02:59:15.772Z",
+        "age_s": 1438244.228
+      },
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-005394",
+        "at": "2026-10-15T16:46:15.000Z",
+        "age_s": 6225.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:4593",
+          "at": "2026-09-29T02:59:15.772Z",
+          "age_s": 1438244.228
+        },
+        "selected_source": "profiles_snapshot.csv:line:4593:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 121,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00799:d1946831-7196-4f7e-b3b4-4dab8210caf6:G07",
+      "user_id": "U-00799",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T04:25:20.754000Z",
+      "deadline": "2026-10-04T04:25:20.754000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bagi-baya-d4",
+        "next_episode_id": "bagi-baya-d4-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:95141a4d-8739-4858-aa9b-52e4dcacafd6",
+        "episodes:bagi-baya-d4",
+        "catalogue:T1811"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-d1946831-7196-4f7e-b3b4-4dab8210caf6",
+    "D-c3d6e380-7d3e-4087-9f23-8ea095602175"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00799:d1946831-7196-4f7e-b3b4-4dab8210caf6:G07",
+      "user_id": "U-00799",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T04:25:20.754000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

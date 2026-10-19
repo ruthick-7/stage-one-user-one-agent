@@ -1,0 +1,100 @@
+{
+  "viewer_id": "U-04910",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:444",
+        "at": "2026-09-28T18:33:56.925Z",
+        "age_s": 1468563.075
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:444",
+        "at": "2026-09-28T18:33:56.925Z",
+        "age_s": 1468563.075
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:444",
+        "at": "2026-09-28T18:33:56.925Z",
+        "age_s": 1468563.075
+      },
+      "signup_at": {
+        "value": "2025-03-18T06:52:36.343Z",
+        "source": "profiles_snapshot.csv:line:444",
+        "at": "2026-09-28T18:33:56.925Z",
+        "age_s": 1468563.075
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-030782",
+        "at": "2026-10-14T03:55:12.000Z",
+        "age_s": 138888.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:444",
+          "at": "2026-09-28T18:33:56.925Z",
+          "age_s": 1468563.075
+        },
+        "selected_source": "app_setting:event:oua-030782"
+      }
+    ],
+    "observed_event_count": 75,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04910:3a0e06b7-1633-48a7-9fdd-ad91fa6dfebe:G07",
+      "user_id": "U-04910",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T16:29:47.553000Z",
+      "deadline": "2026-10-04T16:29:47.553000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "ladi-chuba-d1",
+        "next_episode_id": "ladi-chuba-d1-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:e6cf6081-d48e-42b7-9ee7-921db61ee9a6",
+        "episodes:ladi-chuba-d1",
+        "catalogue:T1675"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-3a0e06b7-1633-48a7-9fdd-ad91fa6dfebe"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-04910:3a0e06b7-1633-48a7-9fdd-ad91fa6dfebe:G07",
+      "user_id": "U-04910",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T16:29:47.553000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

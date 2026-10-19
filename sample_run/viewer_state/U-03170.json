@@ -1,0 +1,101 @@
+{
+  "viewer_id": "U-03170",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:1434",
+        "at": "2026-09-29T01:02:55.254Z",
+        "age_s": 1445224.746
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1434",
+        "at": "2026-09-29T01:02:55.254Z",
+        "age_s": 1445224.746
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1434",
+        "at": "2026-09-29T01:02:55.254Z",
+        "age_s": 1445224.746
+      },
+      "signup_at": {
+        "value": "2025-01-10T14:23:36.067Z",
+        "source": "profiles_snapshot.csv:line:1434",
+        "at": "2026-09-29T01:02:55.254Z",
+        "age_s": 1445224.746
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-019789",
+        "at": "2026-10-15T13:41:53.000Z",
+        "age_s": 17287.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d5",
+          "source": "profiles_snapshot.csv:line:1434",
+          "at": "2026-09-29T01:02:55.254Z",
+          "age_s": 1445224.746
+        },
+        "selected_source": "app_setting:event:oua-019789"
+      }
+    ],
+    "observed_event_count": 43,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03170:27a3566b-e76d-417c-af7c-0d592f1d176f:G07",
+      "user_id": "U-03170",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T07:23:13.336000Z",
+      "deadline": "2026-10-04T07:23:13.336000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "hate-d1",
+        "next_episode_id": "hate-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:757b280d-20d8-4b42-a41f-34eaec7de795",
+        "episodes:hate-d1",
+        "catalogue:T1503"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-80859c48-1363-4296-9f60-011d51d14137",
+    "D-27a3566b-e76d-417c-af7c-0d592f1d176f"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03170:27a3566b-e76d-417c-af7c-0d592f1d176f:G07",
+      "user_id": "U-03170",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T07:23:13.336000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

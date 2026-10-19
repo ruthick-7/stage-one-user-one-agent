@@ -1,0 +1,24 @@
+{
+  "viewer_id": "U-04950",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-031212",
+        "at": "2026-10-15T14:53:10.000Z",
+        "age_s": 13010.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 32,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [],
+  "decision_ids": [
+    "D-0d56dd8a-bb0c-420e-8db6-78c5f2612cbd"
+  ],
+  "action_ids": [],
+  "outcomes": [],
+  "learnings": []
+}

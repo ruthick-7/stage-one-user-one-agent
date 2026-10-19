@@ -1,0 +1,105 @@
+{
+  "viewer_id": "U-02344",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:1452",
+        "at": "2026-09-29T10:55:14.640Z",
+        "age_s": 1409685.36
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1452",
+        "at": "2026-09-29T10:55:14.640Z",
+        "age_s": 1409685.36
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1452",
+        "at": "2026-09-29T10:55:14.640Z",
+        "age_s": 1409685.36
+      },
+      "signup_at": {
+        "value": "2025-01-09T02:54:51.862Z",
+        "source": "profiles_snapshot.csv:line:1452",
+        "at": "2026-09-29T10:55:14.640Z",
+        "age_s": 1409685.36
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-014949",
+        "at": "2026-10-15T12:38:15.000Z",
+        "age_s": 21105.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d1",
+          "source": "profiles_snapshot.csv:line:1452",
+          "at": "2026-09-29T10:55:14.640Z",
+          "age_s": 1409685.36
+        },
+        "selected_source": "app_setting:event:oua-014949"
+      }
+    ],
+    "observed_event_count": 106,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02344:9ffd7200-d9e5-4fd0-8106-bb555fdf33cb:G07",
+      "user_id": "U-02344",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-09-30T18:32:59.458000Z",
+      "deadline": "2026-10-03T18:32:59.458000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "digi-mone-d3",
+        "next_episode_id": "digi-mone-d3-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:4dea672f-a784-40d0-a118-6d24dc1d1c87",
+        "episodes:digi-mone-d3",
+        "catalogue:T0910"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-9ffd7200-d9e5-4fd0-8106-bb555fdf33cb",
+    "D-af345733-f9f3-4243-b5bf-c2cf0d2a4860",
+    "D-3dbabf70-3e9b-4998-b397-9eb4b859decf",
+    "D-818de0a8-8e86-4bc3-b00a-2bb62d48bf17",
+    "D-77ff802d-30f5-4f8d-a694-f8132a6ab2f4",
+    "D-df7e6c25-339c-4e40-9a61-de037f1d15ac"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-02344:9ffd7200-d9e5-4fd0-8106-bb555fdf33cb:G07",
+      "user_id": "U-02344",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-03T18:32:59.458000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

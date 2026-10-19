@@ -1,0 +1,106 @@
+{
+  "viewer_id": "U-04817",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:4568",
+        "at": "2026-09-28T20:48:33.417Z",
+        "age_s": 1460486.583
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4568",
+        "at": "2026-09-28T20:48:33.417Z",
+        "age_s": 1460486.583
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4568",
+        "at": "2026-09-28T20:48:33.417Z",
+        "age_s": 1460486.583
+      },
+      "signup_at": {
+        "value": "2025-12-05T13:18:36.660Z",
+        "source": "profiles_snapshot.csv:line:4568",
+        "at": "2026-09-28T20:48:33.417Z",
+        "age_s": 1460486.583
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-030096",
+        "at": "2026-10-14T14:53:00.000Z",
+        "age_s": 99420.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d4",
+          "source": "profiles_snapshot.csv:line:4568",
+          "at": "2026-09-28T20:48:33.417Z",
+          "age_s": 1460486.583
+        },
+        "selected_source": "app_setting:event:oua-030096"
+      }
+    ],
+    "observed_event_count": 64,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04817:61a35067-8350-4d13-9da5-f93aa8b9f882:G07",
+      "user_id": "U-04817",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T13:23:06.219000Z",
+      "deadline": "2026-10-04T13:23:06.219000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "labha-d1",
+        "next_episode_id": "labha-d1-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:d6945532-8bbe-46b9-9980-070e8312ebfa",
+        "episodes:labha-d1",
+        "catalogue:T0034"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-61a35067-8350-4d13-9da5-f93aa8b9f882",
+    "D-3502a6c3-94cb-4f83-b99e-4248b56a7095",
+    "D-36d5355b-8c6b-442a-8d81-ef916ed35f0d"
+  ],
+  "action_ids": [
+    "A-61a35067-8350-4d13-9da5-f93aa8b9f882",
+    "A-3502a6c3-94cb-4f83-b99e-4248b56a7095",
+    "A-36d5355b-8c6b-442a-8d81-ef916ed35f0d"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-04817:61a35067-8350-4d13-9da5-f93aa8b9f882:G07",
+      "user_id": "U-04817",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T13:23:06.219000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

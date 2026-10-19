@@ -1,0 +1,89 @@
+{
+  "viewer_id": "U-03642",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:3528",
+        "at": "2026-09-29T08:21:38.707Z",
+        "age_s": 1418901.293
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3528",
+        "at": "2026-09-29T08:21:38.707Z",
+        "age_s": 1418901.293
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "event:af482a8c-988e-471b-b7d6-e3c654fbd368",
+        "at": "2026-09-21T12:11:09.783Z",
+        "age_s": 2096330.217
+      },
+      "signup_at": {
+        "value": "2026-08-11T14:15:51.080Z",
+        "source": "profiles_snapshot.csv:line:3528",
+        "at": "2026-09-29T08:21:38.707Z",
+        "age_s": 1418901.293
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-023168",
+        "at": "2026-10-15T14:28:16.000Z",
+        "age_s": 14504.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 259,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03642:99aceee7-209d-4dfd-9b91-69c9d3df958b:G07",
+      "user_id": "U-03642",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T13:29:41.187000Z",
+      "deadline": "2026-10-04T13:29:41.187000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "hama-chudibha-d1",
+        "next_episode_id": "hama-chudibha-d1-s1e6"
+      },
+      "eligibility_evidence": [
+        "event:0011c03e-57e3-4647-8afd-370e24ea3306",
+        "episodes:hama-chudibha-d1",
+        "catalogue:T0002"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-99aceee7-209d-4dfd-9b91-69c9d3df958b"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03642:99aceee7-209d-4dfd-9b91-69c9d3df958b:G07",
+      "user_id": "U-03642",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T13:29:41.187000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

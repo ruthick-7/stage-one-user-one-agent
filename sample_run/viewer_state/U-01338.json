@@ -1,0 +1,100 @@
+{
+  "viewer_id": "U-01338",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:2343",
+        "at": "2026-09-28T22:11:07.592Z",
+        "age_s": 1455532.408
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2343",
+        "at": "2026-09-28T22:11:07.592Z",
+        "age_s": 1455532.408
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2343",
+        "at": "2026-09-28T22:11:07.592Z",
+        "age_s": 1455532.408
+      },
+      "signup_at": {
+        "value": "2025-10-05T21:34:51.639Z",
+        "source": "profiles_snapshot.csv:line:2343",
+        "at": "2026-09-28T22:11:07.592Z",
+        "age_s": 1455532.408
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-008863",
+        "at": "2026-10-03T15:48:14.000Z",
+        "age_s": 1046506.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d2",
+          "source": "profiles_snapshot.csv:line:2343",
+          "at": "2026-09-28T22:11:07.592Z",
+          "age_s": 1455532.408
+        },
+        "selected_source": "app_setting:event:oua-008863"
+      }
+    ],
+    "observed_event_count": 24,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01338:493787c0-d3e2-4f37-8816-01f7e04bbbeb:G07",
+      "user_id": "U-01338",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T11:26:16.713000Z",
+      "deadline": "2026-10-04T11:26:16.713000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "chunasu-loba-d1",
+        "next_episode_id": "chunasu-loba-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:e6407ffe-c960-4d0d-99a2-896aa103c476",
+        "episodes:chunasu-loba-d1",
+        "catalogue:T0352"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-493787c0-d3e2-4f37-8816-01f7e04bbbeb"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-01338:493787c0-d3e2-4f37-8816-01f7e04bbbeb:G07",
+      "user_id": "U-01338",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T11:26:16.713000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

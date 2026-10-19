@@ -13,7 +13,9 @@ ASSUMPTIONS = [
 
 
 def eligibility(pack, state, history, gid, at, trigger_id=None):
-    events = [e for e in history if ts(e['received_at']) <= at and e['event_id'] != trigger_id]
+    events = sorted((e for e in history if ts(e['received_at']) <= at and e['event_id'] != trigger_id
+                     and ts(e.get('deliver_at', e['received_at'])) <= at),
+                    key=lambda e: (ts(e['received_at']), e['event_id']))
     ev = lambda name: [e for e in events if e['event'] == name]
     status = value(state, 'subscription_status')
     signup = ts(value(state, 'signup_at'))
@@ -59,9 +61,11 @@ def eligibility(pack, state, history, gid, at, trigger_id=None):
                 by_slug[title['content_slug']] = e
         for slug, last in sorted(by_slug.items()):
             completed = {e['properties'].get('episode_id') for e in ev('episode_completed')}
-            remaining = [ep['episode_id'] for ep in pack.episodes[slug] if ep['episode_id'] not in completed]
+            remaining = [ep['episode_id'] for ep in pack.episodes.get(slug, []) if ep['episode_id'] not in completed]
             if remaining and at - ts(last['received_at']) >= timedelta(days=3):
-                return True, {'content_slug': slug, 'next_episode_id': remaining[0]}, ['event:' + last['event_id']]
+                return True, {'content_slug': slug, 'next_episode_id': remaining[0]}, [
+                    'event:' + last['event_id'], 'episodes:' + slug,
+                    'catalogue:' + last['properties']['title_id']]
         return False, None, refs
     if gid == 'G12':
         # Absence needs at least 14 days of known history, not merely an empty new profile.

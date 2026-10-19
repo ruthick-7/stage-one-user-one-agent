@@ -1,0 +1,73 @@
+{
+  "viewer_id": "U-02266",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:07e2a20c-f503-44cb-abc9-40d86751a5ef",
+        "at": "2026-09-13T18:54:01.391Z",
+        "age_s": 2763358.609
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-014623",
+        "at": "2026-10-03T07:18:54.000Z",
+        "age_s": 1077066.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 22,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02266:3d5eb7bc-8951-4f5e-9932-59c31981cc65:G07",
+      "user_id": "U-02266",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T08:02:01.097000Z",
+      "deadline": "2026-10-04T08:02:01.097000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bagugu-gigupi-d1",
+        "next_episode_id": "bagugu-gigupi-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:8d79a9ca-6219-4757-b87b-2680c7ed1da3",
+        "episodes:bagugu-gigupi-d1",
+        "catalogue:T1504"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-3d5eb7bc-8951-4f5e-9932-59c31981cc65"
+  ],
+  "action_ids": [
+    "A-3d5eb7bc-8951-4f5e-9932-59c31981cc65"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-02266:3d5eb7bc-8951-4f5e-9932-59c31981cc65:G07",
+      "user_id": "U-02266",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T08:02:01.097000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

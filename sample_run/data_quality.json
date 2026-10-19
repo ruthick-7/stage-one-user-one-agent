@@ -1,0 +1,24 @@
+{
+  "historical_lines": 142906,
+  "duplicate_historical_events": 2176,
+  "duplicate_profile_rows": 30,
+  "catalogue_records": 2014,
+  "extra_content_variants": 514,
+  "suspicious_description_title_ids": [
+    "T0002",
+    "T0522"
+  ],
+  "no_action_reasons": {
+    "insufficient_valid_content": 158,
+    "randomized_holdout": 1083,
+    "stale_trigger_over_600s": 423,
+    "no_eligible_measurable_goal": 80,
+    "safe_fallback_no_action": 2,
+    "required_data_unavailable": 16
+  },
+  "fallback_decisions": 39,
+  "unobservable_goals": [
+    "G10",
+    "G11"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "viewer_id": "U-00500",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:1849:plan_ends_at",
+        "at": "2026-10-05T10:09:23.043Z",
+        "age_s": 894036.957
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1849",
+        "at": "2026-09-29T05:14:10.929Z",
+        "age_s": 1430149.071
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1849",
+        "at": "2026-09-29T05:14:10.929Z",
+        "age_s": 1430149.071
+      },
+      "signup_at": {
+        "value": "2025-01-04T11:35:40.151Z",
+        "source": "profiles_snapshot.csv:line:1849",
+        "at": "2026-09-29T05:14:10.929Z",
+        "age_s": 1430149.071
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-003440",
+        "at": "2026-10-15T16:14:18.000Z",
+        "age_s": 8142.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:1849",
+          "at": "2026-09-29T05:14:10.929Z",
+          "age_s": 1430149.071
+        },
+        "selected_source": "profiles_snapshot.csv:line:1849:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d6",
+          "source": "profiles_snapshot.csv:line:1849",
+          "at": "2026-09-29T05:14:10.929Z",
+          "age_s": 1430149.071
+        },
+        "selected_source": "app_setting:event:oua-003440"
+      }
+    ],
+    "observed_event_count": 66,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00500:e5c2558f-e0ef-4ee7-a5ec-5fd70d6166fd:G07",
+      "user_id": "U-00500",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T09:08:01.492000Z",
+      "deadline": "2026-10-04T09:08:01.492000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "gune-halo-d1",
+        "next_episode_id": "gune-halo-d1-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:f34c3f2b-582c-452b-b05c-170503d626e4",
+        "episodes:gune-halo-d1",
+        "catalogue:T0016"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-e5c2558f-e0ef-4ee7-a5ec-5fd70d6166fd"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00500:e5c2558f-e0ef-4ee7-a5ec-5fd70d6166fd:G07",
+      "user_id": "U-00500",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T09:08:01.492000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

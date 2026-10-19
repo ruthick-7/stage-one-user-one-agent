@@ -1,0 +1,71 @@
+{
+  "viewer_id": "U-01147",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:2291:plan_ends_at",
+        "at": "2026-10-08T08:38:12.381Z",
+        "age_s": 640307.619
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2291",
+        "at": "2026-09-29T14:10:27.324Z",
+        "age_s": 1397972.676
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2291",
+        "at": "2026-09-29T14:10:27.324Z",
+        "age_s": 1397972.676
+      },
+      "signup_at": {
+        "value": "2025-11-16T19:18:40.477Z",
+        "source": "profiles_snapshot.csv:line:2291",
+        "at": "2026-09-29T14:10:27.324Z",
+        "age_s": 1397972.676
+      },
+      "dialect": {
+        "value": "d6",
+        "source": "app_setting:event:oua-007658",
+        "at": "2026-10-11T07:07:34.000Z",
+        "age_s": 386546.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:2291",
+          "at": "2026-09-29T14:10:27.324Z",
+          "age_s": 1397972.676
+        },
+        "selected_source": "profiles_snapshot.csv:line:2291:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d5",
+          "source": "profiles_snapshot.csv:line:2291",
+          "at": "2026-09-29T14:10:27.324Z",
+          "age_s": 1397972.676
+        },
+        "selected_source": "app_setting:event:oua-007658"
+      }
+    ],
+    "observed_event_count": 112,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [],
+  "decision_ids": [
+    "D-6fa7e19c-798d-43df-89fa-a7f7d50033e2",
+    "D-967902bb-7d42-48e6-b838-180a9020d771",
+    "D-4ad0b71a-076b-4de4-a075-f89d978d9592"
+  ],
+  "action_ids": [],
+  "outcomes": [],
+  "learnings": []
+}

@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-03792",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:3895",
+        "at": "2026-09-29T11:05:36.705Z",
+        "age_s": 1409063.295
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3895",
+        "at": "2026-09-29T11:05:36.705Z",
+        "age_s": 1409063.295
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3895",
+        "at": "2026-09-29T11:05:36.705Z",
+        "age_s": 1409063.295
+      },
+      "signup_at": {
+        "value": "2025-12-13T14:02:36.266Z",
+        "source": "profiles_snapshot.csv:line:3895",
+        "at": "2026-09-29T11:05:36.705Z",
+        "age_s": 1409063.295
+      },
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-024163",
+        "at": "2026-10-14T15:11:23.000Z",
+        "age_s": 98317.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d1",
+          "source": "profiles_snapshot.csv:line:3895",
+          "at": "2026-09-29T11:05:36.705Z",
+          "age_s": 1409063.295
+        },
+        "selected_source": "app_setting:event:oua-024163"
+      }
+    ],
+    "observed_event_count": 102,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03792:b9de07b0-0f2e-4966-bfdb-3782026c8a5e:G07",
+      "user_id": "U-03792",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T06:38:30.125000Z",
+      "deadline": "2026-10-04T06:38:30.125000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "nisu-sapapa-d4",
+        "next_episode_id": "nisu-sapapa-d4-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:3a4fdb33-557b-4dd6-904d-2714308cf9d0",
+        "episodes:nisu-sapapa-d4",
+        "catalogue:T0928"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-b9de07b0-0f2e-4966-bfdb-3782026c8a5e"
+  ],
+  "action_ids": [
+    "A-b9de07b0-0f2e-4966-bfdb-3782026c8a5e"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03792:b9de07b0-0f2e-4966-bfdb-3782026c8a5e:G07",
+      "user_id": "U-03792",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T06:38:30.125000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

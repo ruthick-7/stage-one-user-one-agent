@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-00374",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:2152",
+        "at": "2026-09-28T18:50:35.131Z",
+        "age_s": 1467564.869
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2152",
+        "at": "2026-09-28T18:50:35.131Z",
+        "age_s": 1467564.869
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2152",
+        "at": "2026-09-28T18:50:35.131Z",
+        "age_s": 1467564.869
+      },
+      "signup_at": {
+        "value": "2026-09-03T03:29:53.128Z",
+        "source": "event:28b3582b-9249-4485-9dad-fdeda30854b1",
+        "at": "2026-09-03T03:29:53.128Z",
+        "age_s": 3682806.872
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-002503",
+        "at": "2026-10-14T13:50:16.000Z",
+        "age_s": 103184.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "signup_at",
+        "rejected": {
+          "value": "2026-09-03T03:29:52.506Z",
+          "source": "profiles_snapshot.csv:line:2152",
+          "at": "2026-09-28T18:50:35.131Z",
+          "age_s": 1467564.869
+        },
+        "selected_source": "event:28b3582b-9249-4485-9dad-fdeda30854b1"
+      }
+    ],
+    "observed_event_count": 51,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00374:945a9820-19de-4d26-ab2a-bb05477cb7d6:G07",
+      "user_id": "U-00374",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T05:58:29.304000Z",
+      "deadline": "2026-10-04T05:58:29.304000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "pate-kari-d3",
+        "next_episode_id": "pate-kari-d3-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:83f15e25-bfcf-40c3-93dc-36c138898c0d",
+        "episodes:pate-kari-d3",
+        "catalogue:T0909"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-945a9820-19de-4d26-ab2a-bb05477cb7d6",
+    "D-01164be9-bd08-47ed-9963-9110194cffbd",
+    "D-681620ab-be42-4736-b8a0-091e39a477b9"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00374:945a9820-19de-4d26-ab2a-bb05477cb7d6:G07",
+      "user_id": "U-00374",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T05:58:29.304000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

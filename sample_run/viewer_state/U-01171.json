@@ -1,0 +1,119 @@
+{
+  "viewer_id": "U-01171",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:oua-007762",
+        "at": "2026-10-01T15:06:33.807Z",
+        "age_s": 1221806.193
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3732",
+        "at": "2026-09-29T04:57:48.028Z",
+        "age_s": 1431131.972
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:3732",
+        "at": "2026-09-29T04:57:48.028Z",
+        "age_s": 1431131.972
+      },
+      "signup_at": {
+        "value": "2025-01-03T03:16:02.766Z",
+        "source": "profiles_snapshot.csv:line:3732",
+        "at": "2026-09-29T04:57:48.028Z",
+        "age_s": 1431131.972
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-007782",
+        "at": "2026-10-15T15:45:23.000Z",
+        "age_s": 9877.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "lapsed",
+          "source": "profiles_snapshot.csv:line:3732",
+          "at": "2026-09-29T04:57:48.028Z",
+          "age_s": 1431131.972
+        },
+        "selected_source": "event:oua-007762"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d2",
+          "source": "profiles_snapshot.csv:line:3732",
+          "at": "2026-09-29T04:57:48.028Z",
+          "age_s": 1431131.972
+        },
+        "selected_source": "app_setting:event:oua-007782"
+      }
+    ],
+    "observed_event_count": 77,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01171:ee72d061-c55c-4c6b-83d0-80c0f5d86519:G07",
+      "user_id": "U-01171",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T10:02:20.706000Z",
+      "deadline": "2026-10-04T10:02:20.706000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bhama-chunapi-d5",
+        "next_episode_id": "bhama-chunapi-d5-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:25eb04dc-a3c1-4557-b939-53c482e4c8db",
+        "episodes:bhama-chunapi-d5",
+        "catalogue:T1221"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-602852dd-58ed-4d43-8a85-61e67a58aeb2",
+    "D-ee72d061-c55c-4c6b-83d0-80c0f5d86519",
+    "D-e7dffcbe-f9f0-4ad2-bdfd-6e9bb6d83c7e",
+    "D-812a5b2c-f25f-4f1b-adb8-0b08d1f73b40",
+    "D-c70443f8-c1a1-4543-b832-3ca93acc26ff"
+  ],
+  "action_ids": [
+    "A-ee72d061-c55c-4c6b-83d0-80c0f5d86519",
+    "A-e7dffcbe-f9f0-4ad2-bdfd-6e9bb6d83c7e",
+    "A-812a5b2c-f25f-4f1b-adb8-0b08d1f73b40",
+    "A-c70443f8-c1a1-4543-b832-3ca93acc26ff"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-01171:ee72d061-c55c-4c6b-83d0-80c0f5d86519:G07",
+      "user_id": "U-01171",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T10:02:20.706000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

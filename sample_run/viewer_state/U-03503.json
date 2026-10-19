@@ -1,0 +1,110 @@
+{
+  "viewer_id": "U-03503",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:4500:plan_ends_at",
+        "at": "2026-10-08T08:58:28.365Z",
+        "age_s": 639091.635
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4500",
+        "at": "2026-09-29T15:28:33.919Z",
+        "age_s": 1393286.081
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4500",
+        "at": "2026-09-29T15:28:33.919Z",
+        "age_s": 1393286.081
+      },
+      "signup_at": {
+        "value": "2025-11-25T22:25:59.874Z",
+        "source": "profiles_snapshot.csv:line:4500",
+        "at": "2026-09-29T15:28:33.919Z",
+        "age_s": 1393286.081
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-022071",
+        "at": "2026-10-14T16:54:27.000Z",
+        "age_s": 92133.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:4500",
+          "at": "2026-09-29T15:28:33.919Z",
+          "age_s": 1393286.081
+        },
+        "selected_source": "profiles_snapshot.csv:line:4500:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d2",
+          "source": "profiles_snapshot.csv:line:4500",
+          "at": "2026-09-29T15:28:33.919Z",
+          "age_s": 1393286.081
+        },
+        "selected_source": "app_setting:event:oua-022071"
+      }
+    ],
+    "observed_event_count": 170,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03503:9660acfb-2004-4da6-9cf6-5f1b14bc9827:G07",
+      "user_id": "U-03503",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T15:10:58.747000Z",
+      "deadline": "2026-10-04T15:10:58.747000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bahana-dhagu-d1",
+        "next_episode_id": "bahana-dhagu-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:da284ce9-0cfa-49a5-8c27-ff9defb6ac52",
+        "episodes:bahana-dhagu-d1",
+        "catalogue:T0020"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-9660acfb-2004-4da6-9cf6-5f1b14bc9827"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03503:9660acfb-2004-4da6-9cf6-5f1b14bc9827:G07",
+      "user_id": "U-03503",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T15:10:58.747000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

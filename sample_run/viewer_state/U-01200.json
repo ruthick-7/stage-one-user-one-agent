@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-01200",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:3eaa17f3-cf5d-4219-b6ef-cf5ef0f11b42",
+        "at": "2026-10-01T05:13:08.794Z",
+        "age_s": 1257411.206
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2122",
+        "at": "2026-09-29T09:53:59.988Z",
+        "age_s": 1413360.012
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2122",
+        "at": "2026-09-29T09:53:59.988Z",
+        "age_s": 1413360.012
+      },
+      "signup_at": {
+        "value": "2026-03-16T07:42:07.434Z",
+        "source": "profiles_snapshot.csv:line:2122",
+        "at": "2026-09-29T09:53:59.988Z",
+        "age_s": 1413360.012
+      },
+      "dialect": {
+        "value": "d6",
+        "source": "app_setting:event:oua-007905",
+        "at": "2026-10-07T07:20:22.000Z",
+        "age_s": 731378.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "never",
+          "source": "profiles_snapshot.csv:line:2122",
+          "at": "2026-09-29T09:53:59.988Z",
+          "age_s": 1413360.012
+        },
+        "selected_source": "event:3eaa17f3-cf5d-4219-b6ef-cf5ef0f11b42"
+      }
+    ],
+    "observed_event_count": 28,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01200:0a45d078-c92c-4df8-b036-629f188814cf:G07",
+      "user_id": "U-01200",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T05:10:59.583000Z",
+      "deadline": "2026-10-04T05:10:59.583000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "rasuya-moni-d6",
+        "next_episode_id": "rasuya-moni-d6-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:c961a324-c5fa-488e-a948-244320c27719",
+        "episodes:rasuya-moni-d6",
+        "catalogue:T1976"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-0a45d078-c92c-4df8-b036-629f188814cf"
+  ],
+  "action_ids": [
+    "A-0a45d078-c92c-4df8-b036-629f188814cf"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-01200:0a45d078-c92c-4df8-b036-629f188814cf:G07",
+      "user_id": "U-01200",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T05:10:59.583000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

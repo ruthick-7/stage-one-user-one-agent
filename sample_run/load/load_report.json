@@ -1,0 +1,16 @@
+{
+  "requests": 1000,
+  "workers": 4,
+  "elapsed_s": 2.6713870860003226,
+  "throughput_requests_per_s": 374.33736400112224,
+  "p50_end_to_end_ms": 1954.35598900076,
+  "p95_end_to_end_ms": 2366.317557000002,
+  "p99_end_to_end_ms": 2425.1111180001317,
+  "max_end_to_end_ms": 2461.9796550014144,
+  "over_60s": 0,
+  "actions": {
+    "NO_ACTION": 703,
+    "HOME_PAGE": 297
+  },
+  "scope": "All selected triggers queued at once; includes process startup, pack loading, history ingestion, queue wait and durable decision release. Stable viewer hashing gives one owner per viewer. Separate SQLite per shard; mock provider; not shared-database or production load."
+}

@@ -1,0 +1,100 @@
+{
+  "viewer_id": "U-03403",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:98",
+        "at": "2026-09-29T11:14:58.035Z",
+        "age_s": 1408501.965
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:98",
+        "at": "2026-09-29T11:14:58.035Z",
+        "age_s": 1408501.965
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:98",
+        "at": "2026-09-29T11:14:58.035Z",
+        "age_s": 1408501.965
+      },
+      "signup_at": {
+        "value": "2025-02-05T12:43:41.494Z",
+        "source": "profiles_snapshot.csv:line:98",
+        "at": "2026-09-29T11:14:58.035Z",
+        "age_s": 1408501.965
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-021330",
+        "at": "2026-10-12T15:03:35.000Z",
+        "age_s": 271585.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d1",
+          "source": "profiles_snapshot.csv:line:98",
+          "at": "2026-09-29T11:14:58.035Z",
+          "age_s": 1408501.965
+        },
+        "selected_source": "app_setting:event:oua-021330"
+      }
+    ],
+    "observed_event_count": 74,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03403:a143babf-0afd-4a86-b40f-f35706314c67:G07",
+      "user_id": "U-03403",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T12:04:30.017000Z",
+      "deadline": "2026-10-04T12:04:30.017000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "pate-kari-d3",
+        "next_episode_id": "pate-kari-d3-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:95170d12-c635-4dd7-b304-9dfc2f82dc80",
+        "episodes:pate-kari-d3",
+        "catalogue:T0909"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-a143babf-0afd-4a86-b40f-f35706314c67"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03403:a143babf-0afd-4a86-b40f-f35706314c67:G07",
+      "user_id": "U-03403",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T12:04:30.017000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

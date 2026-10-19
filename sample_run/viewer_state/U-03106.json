@@ -1,0 +1,59 @@
+{
+  "viewer_id": "U-03106",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:c12c7afc-627b-41d6-8c92-3a694a6d9598",
+        "at": "2026-10-01T16:10:21.466Z",
+        "age_s": 1217978.534
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:951",
+        "at": "2026-09-28T18:08:01.917Z",
+        "age_s": 1470118.083
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:951",
+        "at": "2026-09-28T18:08:01.917Z",
+        "age_s": 1470118.083
+      },
+      "signup_at": {
+        "value": "2026-07-23T00:11:40.338Z",
+        "source": "profiles_snapshot.csv:line:951",
+        "at": "2026-09-28T18:08:01.917Z",
+        "age_s": 1470118.083
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-019422",
+        "at": "2026-10-14T14:20:22.000Z",
+        "age_s": 101378.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "never",
+          "source": "profiles_snapshot.csv:line:951",
+          "at": "2026-09-28T18:08:01.917Z",
+          "age_s": 1470118.083
+        },
+        "selected_source": "event:c12c7afc-627b-41d6-8c92-3a694a6d9598"
+      }
+    ],
+    "observed_event_count": 80,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [],
+  "decision_ids": [
+    "D-48ba10f6-f9a6-4543-bd94-e00008a93694"
+  ],
+  "action_ids": [],
+  "outcomes": [],
+  "learnings": []
+}

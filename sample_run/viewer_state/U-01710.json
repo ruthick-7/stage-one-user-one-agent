@@ -1,0 +1,119 @@
+{
+  "viewer_id": "U-01710",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:db12d41c-6b62-4514-aeac-37a401bf58ee",
+        "at": "2026-09-30T18:57:08.958Z",
+        "age_s": 1294371.042
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4690",
+        "at": "2026-09-29T09:33:40.169Z",
+        "age_s": 1414579.831
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4690",
+        "at": "2026-09-29T09:33:40.169Z",
+        "age_s": 1414579.831
+      },
+      "signup_at": {
+        "value": "2026-09-22T20:17:27.527Z",
+        "source": "event:4f93b37e-4581-4e47-acad-53f9b29e4ebd",
+        "at": "2026-09-22T20:17:27.527Z",
+        "age_s": 1980752.473
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:db12d41c-6b62-4514-aeac-37a401bf58ee",
+        "at": "2026-09-30T18:57:08.958Z",
+        "age_s": 1294371.042
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "signup_at",
+        "rejected": {
+          "value": "2026-09-22T20:17:25.564Z",
+          "source": "profiles_snapshot.csv:line:4690",
+          "at": "2026-09-29T09:33:40.169Z",
+          "age_s": 1414579.831
+        },
+        "selected_source": "event:4f93b37e-4581-4e47-acad-53f9b29e4ebd"
+      },
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "never",
+          "source": "profiles_snapshot.csv:line:4690",
+          "at": "2026-09-29T09:33:40.169Z",
+          "age_s": 1414579.831
+        },
+        "selected_source": "event:db12d41c-6b62-4514-aeac-37a401bf58ee"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d6",
+          "source": "profiles_snapshot.csv:line:4690",
+          "at": "2026-09-29T09:33:40.169Z",
+          "age_s": 1414579.831
+        },
+        "selected_source": "app_setting:event:db12d41c-6b62-4514-aeac-37a401bf58ee"
+      }
+    ],
+    "observed_event_count": 11,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01710:800ad67a-f186-442e-85d3-1bdfd3515916:G02",
+      "user_id": "U-01710",
+      "id": "G02",
+      "name": "first_full_episode_3d",
+      "started_at": "2026-09-30T18:55:04.610000Z",
+      "deadline": "2026-10-03T18:55:04.610000Z",
+      "success_signal": {
+        "event": "episode_completed",
+        "condition": "any episode",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": null,
+      "eligibility_evidence": [
+        "profiles_snapshot.csv:line:4690",
+        "profiles_snapshot.csv:line:4690",
+        "profiles_snapshot.csv:line:4690",
+        "event:4f93b37e-4581-4e47-acad-53f9b29e4ebd",
+        "app_setting:event:800ad67a-f186-442e-85d3-1bdfd3515916"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-800ad67a-f186-442e-85d3-1bdfd3515916"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-01710:800ad67a-f186-442e-85d3-1bdfd3515916:G02",
+      "user_id": "U-01710",
+      "goal_id": "G02",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-03T18:55:04.610000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

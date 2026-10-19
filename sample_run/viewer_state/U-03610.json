@@ -1,0 +1,119 @@
+{
+  "viewer_id": "U-03610",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:1209",
+        "at": "2026-09-29T12:48:58.164Z",
+        "age_s": 1402861.836
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1209",
+        "at": "2026-09-29T12:48:58.164Z",
+        "age_s": 1402861.836
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1209",
+        "at": "2026-09-29T12:48:58.164Z",
+        "age_s": 1402861.836
+      },
+      "signup_at": {
+        "value": "2026-09-13T18:46:29.477Z",
+        "source": "event:4ec2f987-40d7-421f-9f97-623b77cddf43",
+        "at": "2026-09-13T18:46:29.477Z",
+        "age_s": 2763810.523
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-022739",
+        "at": "2026-10-11T15:59:33.000Z",
+        "age_s": 354627.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "signup_at",
+        "rejected": {
+          "value": "2026-09-13T18:46:27.481Z",
+          "source": "profiles_snapshot.csv:line:1209",
+          "at": "2026-09-29T12:48:58.164Z",
+          "age_s": 1402861.836
+        },
+        "selected_source": "event:4ec2f987-40d7-421f-9f97-623b77cddf43"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "",
+          "source": "profiles_snapshot.csv:line:1209",
+          "at": "2026-09-29T12:48:58.164Z",
+          "age_s": 1402861.836
+        },
+        "selected_source": "app_setting:event:oua-022739"
+      }
+    ],
+    "observed_event_count": 68,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03610:d19d7513-8a6a-4715-8839-a0934d55e26e:G08",
+      "user_id": "U-03610",
+      "id": "G08",
+      "name": "try_new_release_7d",
+      "started_at": "2026-10-01T00:30:46.943000Z",
+      "deadline": "2026-10-08T00:30:46.943000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "a title released in the 30 days before the goal start",
+        "window_hours": 168
+      },
+      "rule_version": "2026-09-30",
+      "context": null,
+      "eligibility_evidence": [
+        "profiles_snapshot.csv:line:1209",
+        "profiles_snapshot.csv:line:1209",
+        "profiles_snapshot.csv:line:1209",
+        "event:4ec2f987-40d7-421f-9f97-623b77cddf43",
+        "app_setting:event:d19d7513-8a6a-4715-8839-a0934d55e26e"
+      ],
+      "status": "succeeded",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [
+        "oua-022726"
+      ],
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "decision_ids": [
+    "D-d19d7513-8a6a-4715-8839-a0934d55e26e",
+    "D-17d2b6d9-a9dd-4635-9d1c-9a604fbe3c3c",
+    "D-0af4882a-395c-46f1-adb2-2ac5de3c6d98"
+  ],
+  "action_ids": [
+    "A-d19d7513-8a6a-4715-8839-a0934d55e26e",
+    "A-17d2b6d9-a9dd-4635-9d1c-9a604fbe3c3c",
+    "A-0af4882a-395c-46f1-adb2-2ac5de3c6d98"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03610:d19d7513-8a6a-4715-8839-a0934d55e26e:G08",
+      "user_id": "U-03610",
+      "goal_id": "G08",
+      "status": "succeeded",
+      "evidence": [
+        "oua-022726"
+      ],
+      "deadline": "2026-10-08T00:30:46.943000Z",
+      "rule_version": "2026-09-30",
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "learnings": [
+    "Goal success is observed, not proof this action caused it."
+  ]
+}

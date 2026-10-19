@@ -1,0 +1,110 @@
+{
+  "viewer_id": "U-02789",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:2712:plan_ends_at",
+        "at": "2026-10-15T02:27:48.282Z",
+        "age_s": 57731.718
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2712",
+        "at": "2026-09-29T07:15:33.634Z",
+        "age_s": 1422866.366
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2712",
+        "at": "2026-09-29T07:15:33.634Z",
+        "age_s": 1422866.366
+      },
+      "signup_at": {
+        "value": "2025-08-04T19:47:16.188Z",
+        "source": "profiles_snapshot.csv:line:2712",
+        "at": "2026-09-29T07:15:33.634Z",
+        "age_s": 1422866.366
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-017389",
+        "at": "2026-10-15T16:53:39.000Z",
+        "age_s": 5781.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:2712",
+          "at": "2026-09-29T07:15:33.634Z",
+          "age_s": 1422866.366
+        },
+        "selected_source": "profiles_snapshot.csv:line:2712:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d6",
+          "source": "profiles_snapshot.csv:line:2712",
+          "at": "2026-09-29T07:15:33.634Z",
+          "age_s": 1422866.366
+        },
+        "selected_source": "app_setting:event:oua-017389"
+      }
+    ],
+    "observed_event_count": 109,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02789:86d3ad97-a5ce-4290-b0e0-2e31b2abbcf2:G07",
+      "user_id": "U-02789",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T11:06:03.506000Z",
+      "deadline": "2026-10-04T11:06:03.506000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "guka-kosusa-d2",
+        "next_episode_id": "guka-kosusa-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:ccb65c6c-1369-412c-a550-cbeac6e7e494",
+        "episodes:guka-kosusa-d2",
+        "catalogue:T0522"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-86d3ad97-a5ce-4290-b0e0-2e31b2abbcf2"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-02789:86d3ad97-a5ce-4290-b0e0-2e31b2abbcf2:G07",
+      "user_id": "U-02789",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T11:06:03.506000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "viewer_id": "U-01343",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:3780:plan_ends_at",
+        "at": "2026-10-02T22:44:50.588Z",
+        "age_s": 1107909.412
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3780",
+        "at": "2026-09-29T17:23:51.109Z",
+        "age_s": 1386368.891
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3780",
+        "at": "2026-09-29T17:23:51.109Z",
+        "age_s": 1386368.891
+      },
+      "signup_at": {
+        "value": "2025-11-25T15:45:11.262Z",
+        "source": "profiles_snapshot.csv:line:3780",
+        "at": "2026-09-29T17:23:51.109Z",
+        "age_s": 1386368.891
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-008954",
+        "at": "2026-10-15T14:29:23.000Z",
+        "age_s": 14437.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:3780",
+          "at": "2026-09-29T17:23:51.109Z",
+          "age_s": 1386368.891
+        },
+        "selected_source": "profiles_snapshot.csv:line:3780:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 96,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01343:472ef509-7f32-4a01-8879-1f60ffad6252:G07",
+      "user_id": "U-01343",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T15:02:30.477000Z",
+      "deadline": "2026-10-04T15:02:30.477000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "yane-tegi-d3",
+        "next_episode_id": "yane-tegi-d3-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:0a44e546-251e-4909-960b-559048e075f5",
+        "episodes:yane-tegi-d3",
+        "catalogue:T0903"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-e8568552-c636-4f58-97dc-fd6d93251da6",
+    "D-472ef509-7f32-4a01-8879-1f60ffad6252"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-01343:472ef509-7f32-4a01-8879-1f60ffad6252:G07",
+      "user_id": "U-01343",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T15:02:30.477000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

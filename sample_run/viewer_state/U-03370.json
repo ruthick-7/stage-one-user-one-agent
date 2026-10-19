@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-03370",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:570",
+        "at": "2026-09-28T18:08:22.041Z",
+        "age_s": 1470097.959
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:570",
+        "at": "2026-09-28T18:08:22.041Z",
+        "age_s": 1470097.959
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:570",
+        "at": "2026-09-28T18:08:22.041Z",
+        "age_s": 1470097.959
+      },
+      "signup_at": {
+        "value": "2025-01-13T23:33:55.379Z",
+        "source": "profiles_snapshot.csv:line:570",
+        "at": "2026-09-28T18:08:22.041Z",
+        "age_s": 1470097.959
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-021188",
+        "at": "2026-10-11T14:07:27.000Z",
+        "age_s": 361353.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d4",
+          "source": "profiles_snapshot.csv:line:570",
+          "at": "2026-09-28T18:08:22.041Z",
+          "age_s": 1470097.959
+        },
+        "selected_source": "app_setting:event:oua-021188"
+      }
+    ],
+    "observed_event_count": 75,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03370:2e4d680f-bd63-4253-ac23-41027079ddb9:G07",
+      "user_id": "U-03370",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T06:42:54.901000Z",
+      "deadline": "2026-10-04T06:42:54.901000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "salosa-valo-d1",
+        "next_episode_id": "salosa-valo-d1-s1e3"
+      },
+      "eligibility_evidence": [
+        "event:4ee55b6b-98f2-4a29-8ba4-7107028936b2",
+        "episodes:salosa-valo-d1",
+        "catalogue:T0015"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-2e4d680f-bd63-4253-ac23-41027079ddb9"
+  ],
+  "action_ids": [
+    "A-2e4d680f-bd63-4253-ac23-41027079ddb9"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03370:2e4d680f-bd63-4253-ac23-41027079ddb9:G07",
+      "user_id": "U-03370",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T06:42:54.901000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "baseline_goal_itt": {
+    "counts": {
+      "agent": {
+        "n": 2513,
+        "succeeded": 52,
+        "failed": 747,
+        "inconclusive": 1714,
+        "success_rate_bounds": [
+          0.020692399522483088,
+          0.7027457222443295
+        ]
+      },
+      "holdout": {
+        "n": 2487,
+        "succeeded": 50,
+        "failed": 782,
+        "inconclusive": 1655,
+        "success_rate_bounds": [
+          0.02010454362685967,
+          0.6855649376759148
+        ]
+      }
+    },
+    "difference": null,
+    "difference_bounds": [
+      -0.6648725381534316,
+      0.6826411786174699
+    ],
+    "ci95_envelope": [
+      -0.6834728445167867,
+      0.7008406307675548
+    ]
+  },
+  "baseline_eligible_goal_itt": {
+    "counts": {
+      "agent": {
+        "n": 2379,
+        "succeeded": 52,
+        "failed": 747,
+        "inconclusive": 1580,
+        "success_rate_bounds": [
+          0.02185792349726776,
+          0.6860025220680959
+        ]
+      },
+      "holdout": {
+        "n": 2357,
+        "succeeded": 50,
+        "failed": 782,
+        "inconclusive": 1525,
+        "success_rate_bounds": [
+          0.021213406873143825,
+          0.6682223165040305
+        ]
+      }
+    },
+    "difference": null,
+    "difference_bounds": [
+      -0.6463643930067627,
+      0.6647891151949521
+    ],
+    "ci95_envelope": [
+      -0.6657814221506934,
+      0.6838186382529831
+    ]
+  },
+  "all_randomized": {
+    "counts": {
+      "agent": {
+        "n": 2513,
+        "successes": 373,
+        "rate": 0.14842817349781137
+      },
+      "holdout": {
+        "n": 2487,
+        "successes": 374,
+        "rate": 0.15038198632891034
+      }
+    },
+    "difference": -0.0019538128310989666,
+    "ci95": [
+      -0.021736528662914017,
+      0.017817208462400355
+    ]
+  },
+  "triggered": {
+    "counts": {
+      "agent": {
+        "n": 863,
+        "successes": 373,
+        "rate": 0.4322132097334878
+      },
+      "holdout": {
+        "n": 883,
+        "successes": 374,
+        "rate": 0.42355605889014725
+      }
+    },
+    "difference": 0.008657150843340566,
+    "ci95": [
+      -0.037681195601873836,
+      0.05495827567184656
+    ]
+  },
+  "untriggered_without_simulated_outcomes": 3254
+}

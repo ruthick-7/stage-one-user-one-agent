@@ -1,0 +1,101 @@
+{
+  "viewer_id": "U-03171",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:1812:plan_ends_at",
+        "at": "2026-10-13T01:08:56.349Z",
+        "age_s": 235263.651
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1812",
+        "at": "2026-09-28T23:18:12.701Z",
+        "age_s": 1451507.299
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1812",
+        "at": "2026-09-28T23:18:12.701Z",
+        "age_s": 1451507.299
+      },
+      "signup_at": {
+        "value": "2025-09-19T08:03:14.485Z",
+        "source": "profiles_snapshot.csv:line:1812",
+        "at": "2026-09-28T23:18:12.701Z",
+        "age_s": 1451507.299
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-019821",
+        "at": "2026-10-12T16:26:16.000Z",
+        "age_s": 266624.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:1812",
+          "at": "2026-09-28T23:18:12.701Z",
+          "age_s": 1451507.299
+        },
+        "selected_source": "profiles_snapshot.csv:line:1812:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 121,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03171:691e814a-4b1c-4c1a-b7c3-2aadd6a7d49d:G07",
+      "user_id": "U-03171",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T06:14:21.003000Z",
+      "deadline": "2026-10-04T06:14:21.003000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "gima-bhadaba-d1",
+        "next_episode_id": "gima-bhadaba-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:6a79a728-571c-4081-b4c3-e509356afce8",
+        "episodes:gima-bhadaba-d1",
+        "catalogue:T1502"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-aac7fc6d-adc5-4f4d-b5f4-ac42f07bc6ed",
+    "D-691e814a-4b1c-4c1a-b7c3-2aadd6a7d49d"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03171:691e814a-4b1c-4c1a-b7c3-2aadd6a7d49d:G07",
+      "user_id": "U-03171",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T06:14:21.003000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

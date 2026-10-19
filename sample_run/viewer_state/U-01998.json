@@ -1,0 +1,114 @@
+{
+  "viewer_id": "U-01998",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:1215",
+        "at": "2026-09-28T19:05:06.974Z",
+        "age_s": 1466693.026
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1215",
+        "at": "2026-09-28T19:05:06.974Z",
+        "age_s": 1466693.026
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1215",
+        "at": "2026-09-28T19:05:06.974Z",
+        "age_s": 1466693.026
+      },
+      "signup_at": {
+        "value": "2026-09-09T05:05:30.438Z",
+        "source": "event:2ae9d15b-d158-4965-99cc-abe19e7bf8b0",
+        "at": "2026-09-09T05:05:30.438Z",
+        "age_s": 3158669.562
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-013037",
+        "at": "2026-10-15T15:46:31.000Z",
+        "age_s": 9809.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "signup_at",
+        "rejected": {
+          "value": "2026-09-09T05:05:27.947Z",
+          "source": "profiles_snapshot.csv:line:1215",
+          "at": "2026-09-28T19:05:06.974Z",
+          "age_s": 1466693.026
+        },
+        "selected_source": "event:2ae9d15b-d158-4965-99cc-abe19e7bf8b0"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "",
+          "source": "profiles_snapshot.csv:line:1215",
+          "at": "2026-09-28T19:05:06.974Z",
+          "age_s": 1466693.026
+        },
+        "selected_source": "app_setting:event:oua-013037"
+      }
+    ],
+    "observed_event_count": 50,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01998:c2ac1e27-21e3-46a4-a6db-d08d090ffd47:G07",
+      "user_id": "U-01998",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T08:49:34.062000Z",
+      "deadline": "2026-10-04T08:49:34.062000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "kova-sako-d5",
+        "next_episode_id": "kova-sako-d5-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:50fbd825-f450-46b1-af8a-2a2abf61b4ea",
+        "episodes:kova-sako-d5",
+        "catalogue:T1902"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-c2ac1e27-21e3-46a4-a6db-d08d090ffd47",
+    "D-086046e7-33c5-41c3-a025-acc113524081"
+  ],
+  "action_ids": [
+    "A-c2ac1e27-21e3-46a4-a6db-d08d090ffd47",
+    "A-086046e7-33c5-41c3-a025-acc113524081"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-01998:c2ac1e27-21e3-46a4-a6db-d08d090ffd47:G07",
+      "user_id": "U-01998",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T08:49:34.062000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

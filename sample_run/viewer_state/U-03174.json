@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-03174",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:2410:plan_ends_at",
+        "at": "2026-10-15T15:06:16.304Z",
+        "age_s": 12223.696
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2410",
+        "at": "2026-09-28T18:31:56.483Z",
+        "age_s": 1468683.517
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2410",
+        "at": "2026-09-28T18:31:56.483Z",
+        "age_s": 1468683.517
+      },
+      "signup_at": {
+        "value": "2025-08-05T07:19:20.070Z",
+        "source": "profiles_snapshot.csv:line:2410",
+        "at": "2026-09-28T18:31:56.483Z",
+        "age_s": 1468683.517
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-019904",
+        "at": "2026-10-15T16:06:15.000Z",
+        "age_s": 8625.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:2410",
+          "at": "2026-09-28T18:31:56.483Z",
+          "age_s": 1468683.517
+        },
+        "selected_source": "profiles_snapshot.csv:line:2410:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 207,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03174:7a417549-415e-497c-a773-e2d00e8a4ec5:G07",
+      "user_id": "U-03174",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T03:39:18.452000Z",
+      "deadline": "2026-10-04T03:39:18.452000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "pima-pana-d3",
+        "next_episode_id": "pima-pana-d3-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:7f6d2649-7094-47e0-8c23-aad3c94d3382",
+        "episodes:pima-pana-d3",
+        "catalogue:T0913"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-7a417549-415e-497c-a773-e2d00e8a4ec5"
+  ],
+  "action_ids": [
+    "A-7a417549-415e-497c-a773-e2d00e8a4ec5"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03174:7a417549-415e-497c-a773-e2d00e8a4ec5:G07",
+      "user_id": "U-03174",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T03:39:18.452000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

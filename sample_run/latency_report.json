@@ -1,0 +1,15 @@
+{
+  "unique_decisions": 2679,
+  "input_triggers": 2769,
+  "duplicate_triggers": 90,
+  "p50_ms": 8.956177000072785,
+  "p95_ms": 16.18605699877662,
+  "p99_ms": 20.015737998619443,
+  "max_ms": 48.39604700100608,
+  "over_60s": 0,
+  "over_5min": 0,
+  "max_model_calls": 1,
+  "max_tool_calls": 2,
+  "scope": "Measured entry-to-durable-release processing, including both commits and recovery writes; accelerated single-worker replay, excluding production queue latency. Decision published_at marks the release request; latency_observations.jsonl measures its completed commit.",
+  "fault_timing": "45s model timeout bounded to 20ms; 8s store reads rejected by fail-fast circuit, no external I/O."
+}

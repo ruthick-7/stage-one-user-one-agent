@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-00028",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:4521",
+        "at": "2026-09-29T02:46:45.504Z",
+        "age_s": 1438994.496
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4521",
+        "at": "2026-09-29T02:46:45.504Z",
+        "age_s": 1438994.496
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4521",
+        "at": "2026-09-29T02:46:45.504Z",
+        "age_s": 1438994.496
+      },
+      "signup_at": {
+        "value": "2025-05-24T17:36:03.647Z",
+        "source": "profiles_snapshot.csv:line:4521",
+        "at": "2026-09-29T02:46:45.504Z",
+        "age_s": 1438994.496
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-000198",
+        "at": "2026-10-13T15:13:12.000Z",
+        "age_s": 184608.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:4521",
+          "at": "2026-09-29T02:46:45.504Z",
+          "age_s": 1438994.496
+        },
+        "selected_source": "app_setting:event:oua-000198"
+      }
+    ],
+    "observed_event_count": 55,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00028:5de7835c-7576-45d3-bb84-4145cac5b534:G07",
+      "user_id": "U-00028",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T11:57:01.494000Z",
+      "deadline": "2026-10-04T11:57:01.494000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "lala-gunesa-d5",
+        "next_episode_id": "lala-gunesa-d5-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:dd1d4898-9b9e-4cbc-a4bd-8d399fdd96b3",
+        "episodes:lala-gunesa-d5",
+        "catalogue:T1194"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-5de7835c-7576-45d3-bb84-4145cac5b534"
+  ],
+  "action_ids": [
+    "A-5de7835c-7576-45d3-bb84-4145cac5b534"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-00028:5de7835c-7576-45d3-bb84-4145cac5b534:G07",
+      "user_id": "U-00028",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T11:57:01.494000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

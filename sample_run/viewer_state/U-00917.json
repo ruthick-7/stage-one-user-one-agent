@@ -1,0 +1,104 @@
+{
+  "viewer_id": "U-00917",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:2394",
+        "at": "2026-09-29T08:21:04.986Z",
+        "age_s": 1418935.014
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2394",
+        "at": "2026-09-29T08:21:04.986Z",
+        "age_s": 1418935.014
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2394",
+        "at": "2026-09-29T08:21:04.986Z",
+        "age_s": 1418935.014
+      },
+      "signup_at": {
+        "value": "2025-01-03T07:46:31.861Z",
+        "source": "profiles_snapshot.csv:line:2394",
+        "at": "2026-09-29T08:21:04.986Z",
+        "age_s": 1418935.014
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-006120",
+        "at": "2026-10-14T04:25:08.000Z",
+        "age_s": 137092.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d6",
+          "source": "profiles_snapshot.csv:line:2394",
+          "at": "2026-09-29T08:21:04.986Z",
+          "age_s": 1418935.014
+        },
+        "selected_source": "app_setting:event:oua-006120"
+      }
+    ],
+    "observed_event_count": 72,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00917:9d07a079-1e4c-4b78-842a-449fd3043635:G07",
+      "user_id": "U-00917",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T05:03:08.399000Z",
+      "deadline": "2026-10-04T05:03:08.399000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "nini-namoko-d1",
+        "next_episode_id": "nini-namoko-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:a2b6720c-71a2-42d9-9a6e-11ad2db5f3f1",
+        "episodes:nini-namoko-d1",
+        "catalogue:T0012"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-9d07a079-1e4c-4b78-842a-449fd3043635",
+    "D-8b0d517a-fc5e-4e01-bc68-a2a4bca12eec"
+  ],
+  "action_ids": [
+    "A-9d07a079-1e4c-4b78-842a-449fd3043635",
+    "A-8b0d517a-fc5e-4e01-bc68-a2a4bca12eec"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-00917:9d07a079-1e4c-4b78-842a-449fd3043635:G07",
+      "user_id": "U-00917",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T05:03:08.399000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

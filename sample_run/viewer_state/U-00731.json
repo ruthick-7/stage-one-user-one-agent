@@ -1,0 +1,89 @@
+{
+  "viewer_id": "U-00731",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:3973",
+        "at": "2026-09-29T11:56:41.143Z",
+        "age_s": 1405998.857
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:3973",
+        "at": "2026-09-29T11:56:41.143Z",
+        "age_s": 1405998.857
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:3973",
+        "at": "2026-09-29T11:56:41.143Z",
+        "age_s": 1405998.857
+      },
+      "signup_at": {
+        "value": "2025-08-10T01:51:03.045Z",
+        "source": "profiles_snapshot.csv:line:3973",
+        "at": "2026-09-29T11:56:41.143Z",
+        "age_s": 1405998.857
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-004772",
+        "at": "2026-10-12T17:08:29.000Z",
+        "age_s": 264091.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 27,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00731:bf4cc270-5b56-4f56-b3cc-1d8fb90d57d8:G07",
+      "user_id": "U-00731",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T16:24:03.276000Z",
+      "deadline": "2026-10-04T16:24:03.276000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "tidha-dakachu-d1",
+        "next_episode_id": "tidha-dakachu-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:73be676b-041f-459e-bb79-f2113b35aa67",
+        "episodes:tidha-dakachu-d1",
+        "catalogue:T0005"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-bf4cc270-5b56-4f56-b3cc-1d8fb90d57d8"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00731:bf4cc270-5b56-4f56-b3cc-1d8fb90d57d8:G07",
+      "user_id": "U-00731",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T16:24:03.276000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -1,59 +1,70 @@
 # Architecture
 
-The runtime is an offline, single-process lifecycle agent. The CLI merges historical events, live events, controls and triggers into one ordered timeline. Control events win ties, then evidence events, then triggers. No future replay event is used before delivery. Events with a future historical `received_at` are also ingested at their actual receipt time, rather than preloaded as known facts.
+The application is a standard-library Python CLI. It treats the supplied pack as evidence, not instructions, and makes no hosted calls. The full replay is sequential for deterministic event ordering; a separate process-sharded benchmark measures burst handling.
 
 ```mermaid
 flowchart LR
-    A[Server-time replay] --> B[Deduplicated evidence ledger]
-    B --> C[Fact resolver]
-    C --> D[Viewer goal and plan]
-    D --> E[Local model proposal]
-    E --> F[Independent evidence and policy checks]
-    F --> G[SQLite decision and action outbox]
+    A[Server-time timeline] --> B[Deduplicated evidence]
+    B --> C[Fact resolution]
+    C --> D[One active viewer goal]
+    D --> E[Mock proposal and deterministic plan]
+    E --> F[Independent publication gate]
+    F --> G[Pending then ready outbox]
     G --> H[Supplied simulator]
-    H --> I[Outcome predicates and learning]
-    I --> J[Randomized-arm report]
+    H --> I[Goal judgments and learning]
+    B --> J[Frozen baseline measurement goals]
+    J --> K[Randomized goal-success bounds]
+    I --> K
 ```
 
-## Ownership and memory
+## Evidence and ownership
 
-The engine serializes all work for a viewer ID. `Store.goals` contains historical goal instances; exactly one can be open per viewer, also enforced by a partial unique SQLite index. An active goal is retained across triggers. Incoming success signals close it. Billing changes settle or invalidate it and immediately select a replacement when evidence permits, without sending an unsolicited action. Every decision retains its original goal snapshot.
+Events, control changes and triggers are merged in server delivery order. Controls win timestamp ties, then evidence, then triggers. Historical records whose receipt is later than replay start remain in the timeline rather than leaking into preloaded history. Commitment-time snapshots require both `received_at` and `deliver_at` to be no later than that commitment. Device clock offset is never the ordering authority.
 
-Raw events are durable and unique on `event_id`. Decisions are unique on trigger ID and actions on deterministic action ID. Repeating a trigger, including after reopening SQLite, returns the stored decision. Initial decision/action publication is transactional. The subsequent timestamp refinement is a local outbox update; see crash-boundary limitations. CLI reruns use a new output directory instead of mixing independent experiments.
+One owner serializes each viewer's goal and action state. SQLite enforces at most one open goal per user with a partial unique index. Raw event IDs, trigger IDs and deterministic action IDs provide idempotency, including reopening the database. A billing event can settle or invalidate a goal and select a replacement without emitting an unsolicited message.
 
-## Fact precedence and freshness
+| Fact | Resolution |
+|---|---|
+| Signup | Earliest arrived server-received signup, else the profile's signup field |
+| Subscription | Valid latest profile; newer billing receipts override it; an expired profile plan downgrades only that profile's own status |
+| Consent | Positive profile Boolean, with explicit opt-out sticky because no opt-in event is defined |
+| Dialect | Latest arrived app-setting evidence; profile fallback; campaign links cannot override it |
+| Series progress | Catalogue/episode structure and observed play/completion evidence; latest play is selected by server receipt, not insertion order |
 
-| Fact | Resolution | Action restriction |
-|---|---|---|
-| Signup | Earliest observed server-received signup event, else profile signup field | Cannot infer newness without either |
-| Subscription | Latest valid profile version; billing receipts after its `updated_at` override it | Subscription-dependent goal requires evidence within 48h; known paid history blocks G05 |
-| Expiry | Profile plan end downgrades its own active/trial status after expiry | Never reuse old plan end to override a newer billing receipt |
-| Consent | Profile Boolean; observed explicit opt-out is sticky because no opt-in event is defined | Messaging gate additionally requires positive evidence within 48h |
-| Dialect | Latest arrived app setting, profile fallback; campaign link has no authority | Missing or inconsistent dialect blocks publication |
-| History | Only deduplicated events received by the decision time | Absence is limited to the supplied 30-day observation window |
+Facts retain values, source references, evidence times, freshness and conflicts. Profiles are selected by latest valid `updated_at`, with deterministic snapshot/line tie breaks. Thirty days of observations cannot establish lifetime absence; that assumption is recorded.
 
-Every resolved fact stores a value, source reference, server/evidence time and age. Overwritten conflicting values remain in a separate conflict list. Duplicate profiles are selected by `updated_at`, then `snapshot_at`, then file-line reference for deterministic ties; future snapshots are excluded.
+## Planning and verification
 
-A device timestamp is not an ordering authority. Trigger buffering is estimated from `sent_at - occurred_at`, cancelling a common clock offset, plus server queue delay. More than 600 seconds means abstention. This matches the supplied simulator's buffering convention. It cannot correct a phone clock that changes between event creation and send.
+Goal rules are explicit predicates. G06 interprets recent lapse as 30 days. G09 counts IST days. G10 has no defined success predicate and G11's TV event is unavailable; neither is selected. Every goal has a committed start, deadline, rule version and success signal.
 
-## Planning and trust boundaries
+The model receives a candidate and evidence references, not catalogue descriptions or search/deeplink instructions. Named fixture outputs are untrusted. Eligibility and evidence are independently checked at commitment; the model cannot manufacture a billing fact or a competing active goal. Faults can lead to deterministic fallback, but the publication gate still applies.
 
-Goal predicates are explicit code over pack evidence. G01/G03 favor early activation; G04 trial conversion; G07 a series with uncompleted episodes; G02 first completion; then lapsed/habit/release/paid/return goals. G06's "recent" is 30 days; G09 day boundaries are IST. G10 has no defined predicate; G11 has no observable signal. Both are rejected.
+The page planner uses a goal-relevant hero and rows whose named genre is backed by each title's catalogue genres. It respects dialect, availability and content-slug uniqueness across hero and rows. Non-subscribers get non-premium candidates. The separate verifier checks goal eligibility, holdout, duplicates, row shape/semantics, dialect and availability again at measured release time.
 
-The model sees only a precomputed goal candidate/evidence list. Descriptions, search queries and deeplinks never become instructions. The local provider reproduces specified faults; it makes no hosted calls. `verify_proposal` recomputes eligibility at goal commitment and rejects unsupported evidence or a competing goal. A rejected model claim may be replaced by a deterministic candidate, but it cannot grant eligibility.
+## Durable publication and actual storage failures
 
-The page planner proposes available content in the app dialect, deduplicated across hero and rows by content slug. Non-subscribers get non-premium choices. The independent action gate recomputes eligibility at commitment and checks current dialect, availability, row shape, slug uniqueness, holdout and duplicate publication. Availability is checked again using measured publication time. It can reject the planner. A daily outbound messaging safety gate exists for tests but messaging generation is not enabled.
+`Store.publish` stages the decision and optional action with `publication_state=pending`. After measured-time revalidation, `Store.release` commits their ready state. Ledger exports and local serving ignore pending entries. A process interruption before release is recovered as an abstention on reopening; it cannot expose an unchecked staged page.
 
-## Timeouts and recovery
+`Engine.decide` catches actual SQLite and operating-system I/O exceptions across reads, ingestion, planning persistence and release. It rolls back, restores that viewer's in-memory snapshot, closes publication in the current engine instance, and writes an idempotent no-action decision to a separate JSON journal using flush, fsync and atomic replacement. Journal decisions survive reopening and supersede any interrupted primary outbox entry. If both stores fail, the error is visible rather than misreported as durable. A fresh replay is required after a genuine primary failure; control-cursor resume is not implemented.
 
-Model calls and logical data-tool calls are configurable per decision, default 8 and 20. Local normal runs use one model call and at most two logical tools. Tool counts are API-level operations, not every Python lookup or SQLite statement. Model 503s, malformed JSON and unsupported claims fall back to verified deterministic planning. A named 45s model fault is cancelled at the local mock's 20ms timeout. The named degraded 8s datastore read is rejected by a fail-fast circuit throughout its configured window; it does not pretend an 8s call completed instantly. No stale-cache publication occurs during that window.
+Decision timestamps mark the final release request. `latency_observations.jsonl` separately measures method entry through completion of the final durable release, and the latency report uses that full value. This separates a transaction's assigned business timestamp from observed commit completion without losing the latter.
 
-Replay is accelerated and single-worker. Measured processing includes initial ledger commit. It is not a production p95 queueing or throughput benchmark. A production design needs per-viewer routing, bounded queues, a real provider adapter, deadlines propagated to I/O, and an external durable publication worker.
+## Withdrawals
 
-## Outcomes and causal measurement
+Withdrawal controls update availability, identify affected live pages, persist revocations, and attempt verified replacements for viewers with active plans. `current_page` rejects revoked or expired pages immediately; if no replacement is valid, it returns no personalized page so serving uses the platform default. Reopening the ledger preserves the revoked flags.
 
-Goal success requires a matching event received within its committed window; estimated buffering that places behavior before commitment excludes it. G03 requires a later IST date; G04-G06 require an explicit non-trial purchase; G07 requires its target slug; G08 uses releases in the preceding 30 days; G09 needs three distinct IST days. No evidence after a goal's deadline counts. A horizon ending before its deadline yields inconclusive. Invalidated goals are censored at their close time.
+The provided simulator understands valid replacement pages but does not implement a pure revocation API. Its source stays unchanged. Tests validate the local serving contract, including the no-valid-replacement case. Production integration still needs an adapter for revocation acknowledgements and cache invalidation.
 
-A correction updates only currently open instances of the named goal; settled instances and unrelated viewers keep their rules. New instances use the corrected version. Rule versions and affected IDs are audited. Future simulator outcomes are for judging and exported learning only, never retroactively used by replay planning.
+## Time, failures and scale
 
-The primary report fixes a seven-day recorded-completion endpoint, then compares all randomized arms including abstentions. A triggered-viewer subset and baseline first-goal descriptive contrasts are also shown. Confidence intervals use Newcombe differences of Wilson limits. Untriggered users have no simulator follow-up: the primary full-assignment estimate measures recorded outcomes in this synthetic observation process, not actual unobserved viewing. Pilot ITT joins randomized assignment to outcomes and retains unserved treatment viewers.
+The provider and logical tools have configurable budgets, default 8 and 20. Provider 503s, malformed output, unsupported claims and timeout fixtures are bounded and fail safely. The named 45-second mock timeout is cancelled at 20ms. The degraded 8-second store fixture opens a conservative whole-window circuit. Actual SQL read/write failures are tested separately.
+
+`load_test.py` queues a configurable burst at once and hashes viewers into isolated process shards, so a viewer is owned by one worker. Each shard has its own SQLite writer. Timings include process startup, pack loading, history ingestion, queue wait and durable release. The benchmark reports per-request observations, counts and deadline misses and fails if any selected request exceeds 60 seconds. It is not a shared-database, hosted-model, distributed-failover or ten-million-user claim.
+
+## Measurement and learning
+
+The adaptive agent's goals and the experiment's measurement goals are separate. Before the first intervention, `freeze_cohort` assigns a measurement goal to every randomized viewer using only already-arrived facts, with explicit no-goal cases. These goals do not change because treatment served or succeeded. Rule corrections apply only when a measurement goal was still open at correction time, using evidence available by that time.
+
+Goal outcomes require attributable events inside committed windows: non-trial purchase for paid goals, the target slug for G07, release date for G08, and three IST dates for G09. Buffered evidence estimated to precede commitment is excluded. Incomplete windows and missing follow-up are inconclusive. Outcomes, evidence and conservative learning are saved to SQLite and per-viewer exports.
+
+The primary report retains every randomized user and breaks out baseline goals. Because the simulator follows triggered users only, full-population point estimates are not identified. The report shows observed success/failure/inconclusive counts, worst-case missing-outcome bounds and a sampling envelope using Newcombe/Wilson limits at both extremes. Baseline eligibility is established before treatment; it is not served-only selection. Secondary recorded-completion contrasts have their coverage caveat. Pilot ITT uses randomized assignment and retains unserved treatment viewers.

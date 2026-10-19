@@ -1,0 +1,101 @@
+{
+  "viewer_id": "U-03274",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:909",
+        "at": "2026-09-28T23:06:39.903Z",
+        "age_s": 1452200.097
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:909",
+        "at": "2026-09-28T23:06:39.903Z",
+        "age_s": 1452200.097
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:909",
+        "at": "2026-09-28T23:06:39.903Z",
+        "age_s": 1452200.097
+      },
+      "signup_at": {
+        "value": "2024-10-26T09:19:56.448Z",
+        "source": "profiles_snapshot.csv:line:909",
+        "at": "2026-09-28T23:06:39.903Z",
+        "age_s": 1452200.097
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-020610",
+        "at": "2026-10-15T12:44:22.000Z",
+        "age_s": 20738.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d5",
+          "source": "profiles_snapshot.csv:line:909",
+          "at": "2026-09-28T23:06:39.903Z",
+          "age_s": 1452200.097
+        },
+        "selected_source": "app_setting:event:oua-020610"
+      }
+    ],
+    "observed_event_count": 72,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03274:cbd49bee-1daf-42c3-a67f-4762031ebca7:G07",
+      "user_id": "U-03274",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T15:04:42.395000Z",
+      "deadline": "2026-10-04T15:04:42.395000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "piropa-moguti-d2",
+        "next_episode_id": "piropa-moguti-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:a47ddbec-84d3-4f88-9cb2-b21c26d6cb82",
+        "episodes:piropa-moguti-d2",
+        "catalogue:T0539"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-49780c4e-9908-4ee1-8280-91c769ad953e",
+    "D-cbd49bee-1daf-42c3-a67f-4762031ebca7"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03274:cbd49bee-1daf-42c3-a67f-4762031ebca7:G07",
+      "user_id": "U-03274",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T15:04:42.395000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

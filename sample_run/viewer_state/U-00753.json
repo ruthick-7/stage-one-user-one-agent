@@ -1,0 +1,89 @@
+{
+  "viewer_id": "U-00753",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:4886",
+        "at": "2026-09-28T22:18:12.237Z",
+        "age_s": 1455107.763
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4886",
+        "at": "2026-09-28T22:18:12.237Z",
+        "age_s": 1455107.763
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4886",
+        "at": "2026-09-28T22:18:12.237Z",
+        "age_s": 1455107.763
+      },
+      "signup_at": {
+        "value": "2025-10-22T06:31:01.915Z",
+        "source": "profiles_snapshot.csv:line:4886",
+        "at": "2026-09-28T22:18:12.237Z",
+        "age_s": 1455107.763
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-004995",
+        "at": "2026-10-14T17:02:17.000Z",
+        "age_s": 91663.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 138,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00753:3ed168b7-ad8f-481d-822f-3f2025e11f24:G07",
+      "user_id": "U-00753",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T09:29:35.981000Z",
+      "deadline": "2026-10-04T09:29:35.981000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bhaja-moguba-d2",
+        "next_episode_id": "bhaja-moguba-d2-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:a771d686-5144-486c-92dc-b04f345a4b4e",
+        "episodes:bhaja-moguba-d2",
+        "catalogue:T1678"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-3ed168b7-ad8f-481d-822f-3f2025e11f24"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00753:3ed168b7-ad8f-481d-822f-3f2025e11f24:G07",
+      "user_id": "U-00753",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T09:29:35.981000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

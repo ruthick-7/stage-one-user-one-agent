@@ -1,0 +1,104 @@
+{
+  "viewer_id": "U-03831",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:110:plan_ends_at",
+        "at": "2026-10-09T06:54:33.610Z",
+        "age_s": 560126.39
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:110",
+        "at": "2026-09-28T21:02:42.717Z",
+        "age_s": 1459637.283
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:110",
+        "at": "2026-09-28T21:02:42.717Z",
+        "age_s": 1459637.283
+      },
+      "signup_at": {
+        "value": "2025-05-15T18:51:44.661Z",
+        "source": "profiles_snapshot.csv:line:110",
+        "at": "2026-09-28T21:02:42.717Z",
+        "age_s": 1459637.283
+      },
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-024342",
+        "at": "2026-10-13T16:04:36.000Z",
+        "age_s": 181524.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:110",
+          "at": "2026-09-28T21:02:42.717Z",
+          "age_s": 1459637.283
+        },
+        "selected_source": "profiles_snapshot.csv:line:110:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 77,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03831:6eed8764-7f26-4c63-b64a-d4c46c78d9c7:G07",
+      "user_id": "U-03831",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T03:18:02.647000Z",
+      "deadline": "2026-10-04T03:18:02.647000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "baguti-gida-d4",
+        "next_episode_id": "baguti-gida-d4-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:e573858e-5889-4f6d-bd63-59166491217d",
+        "episodes:baguti-gida-d4",
+        "catalogue:T1814"
+      ],
+      "status": "succeeded",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [
+        "oua-024332"
+      ],
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "decision_ids": [
+    "D-6eed8764-7f26-4c63-b64a-d4c46c78d9c7"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03831:6eed8764-7f26-4c63-b64a-d4c46c78d9c7:G07",
+      "user_id": "U-03831",
+      "goal_id": "G07",
+      "status": "succeeded",
+      "evidence": [
+        "oua-024332"
+      ],
+      "deadline": "2026-10-04T03:18:02.647000Z",
+      "rule_version": "2026-09-30",
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "learnings": [
+    "Goal success is observed, not proof this action caused it."
+  ]
+}

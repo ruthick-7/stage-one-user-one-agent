@@ -1,0 +1,95 @@
+{
+  "viewer_id": "U-01399",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:2775",
+        "at": "2026-09-29T03:03:18.963Z",
+        "age_s": 1438001.037
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2775",
+        "at": "2026-09-29T03:03:18.963Z",
+        "age_s": 1438001.037
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2775",
+        "at": "2026-09-29T03:03:18.963Z",
+        "age_s": 1438001.037
+      },
+      "signup_at": {
+        "value": "2025-12-02T06:38:02.375Z",
+        "source": "profiles_snapshot.csv:line:2775",
+        "at": "2026-09-29T03:03:18.963Z",
+        "age_s": 1438001.037
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-009413",
+        "at": "2026-10-15T06:41:12.000Z",
+        "age_s": 42528.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 121,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01399:5340cde3-671c-4778-82dd-f47520327068:G07",
+      "user_id": "U-01399",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T06:17:48.821000Z",
+      "deadline": "2026-10-04T06:17:48.821000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "gubava-gihaya-d5",
+        "next_episode_id": "gubava-gihaya-d5-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:ba2a197e-6a27-46ca-b8bd-8fe28f275e36",
+        "episodes:gubava-gihaya-d5",
+        "catalogue:T1177"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-5340cde3-671c-4778-82dd-f47520327068",
+    "D-601a4280-95ba-41c1-8afc-daea91538a1b",
+    "D-76f186ab-4c36-49df-92c5-2a4faab76ff0"
+  ],
+  "action_ids": [
+    "A-5340cde3-671c-4778-82dd-f47520327068",
+    "A-601a4280-95ba-41c1-8afc-daea91538a1b",
+    "A-76f186ab-4c36-49df-92c5-2a4faab76ff0"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-01399:5340cde3-671c-4778-82dd-f47520327068:G07",
+      "user_id": "U-01399",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T06:17:48.821000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

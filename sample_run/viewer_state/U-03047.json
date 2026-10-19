@@ -1,0 +1,97 @@
+{
+  "viewer_id": "U-03047",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:2450",
+        "at": "2026-09-29T15:54:36.063Z",
+        "age_s": 1391723.937
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2450",
+        "at": "2026-09-29T15:54:36.063Z",
+        "age_s": 1391723.937
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2450",
+        "at": "2026-09-29T15:54:36.063Z",
+        "age_s": 1391723.937
+      },
+      "signup_at": {
+        "value": "2026-05-08T04:26:15.658Z",
+        "source": "profiles_snapshot.csv:line:2450",
+        "at": "2026-09-29T15:54:36.063Z",
+        "age_s": 1391723.937
+      },
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-019034",
+        "at": "2026-10-13T08:24:35.000Z",
+        "age_s": 209125.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 175,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03047:843f28f6-b538-4346-b5ca-220c42b01def:G08",
+      "user_id": "U-03047",
+      "id": "G08",
+      "name": "try_new_release_7d",
+      "started_at": "2026-10-01T07:08:12.201000Z",
+      "deadline": "2026-10-08T07:08:12.201000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "a title released in the 30 days before the goal start",
+        "window_hours": 168
+      },
+      "rule_version": "2026-09-30",
+      "context": null,
+      "eligibility_evidence": [
+        "profiles_snapshot.csv:line:2450",
+        "profiles_snapshot.csv:line:2450",
+        "profiles_snapshot.csv:line:2450",
+        "profiles_snapshot.csv:line:2450",
+        "app_setting:event:843f28f6-b538-4346-b5ca-220c42b01def"
+      ],
+      "status": "succeeded",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [
+        "oua-019004",
+        "oua-019013"
+      ],
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "decision_ids": [
+    "D-1f783e3a-80c8-45ff-8849-acad1c08375b",
+    "D-843f28f6-b538-4346-b5ca-220c42b01def",
+    "D-994411d9-f860-46b1-996c-953544363396",
+    "D-58fe9b67-09b6-46a5-8f24-c6186d2c743c"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03047:843f28f6-b538-4346-b5ca-220c42b01def:G08",
+      "user_id": "U-03047",
+      "goal_id": "G08",
+      "status": "succeeded",
+      "evidence": [
+        "oua-019004",
+        "oua-019013"
+      ],
+      "deadline": "2026-10-08T07:08:12.201000Z",
+      "rule_version": "2026-09-30",
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "learnings": [
+    "Goal success is observed, not proof this action caused it."
+  ]
+}

@@ -1,0 +1,5 @@
+{"at": "2026-10-01T07:00:00.000Z", "type": "title_withdrawn", "affected_live_pages": [], "replacement_decisions": [], "fallback": "default_page_if_no_replacement"}
+{"at": "2026-10-01T08:30:00.000Z", "type": "goal_rule_corrected", "affected_instances": []}
+{"at": "2026-10-01T10:35:00.000Z", "type": "dependency_unavailable", "dependency": "model_provider", "until": "2026-10-01T10:42:00.000Z", "detail": "every model call fails with HTTP 503"}
+{"at": "2026-10-01T12:54:22.923000Z", "type": "billing_replan", "user_id": "U-01275", "old_instance": "U-01275:13aa6ee5-d601-43f4-924b-f8494f8a4428:G05", "new_instance": "U-01275:a95bec4c-c68e-4c77-a682-f5b56959b85d:G09"}
+{"at": "2026-10-01T13:10:00.000Z", "type": "dependency_degraded", "dependency": "user_data_store", "until": "2026-10-01T13:17:00.000Z", "detail": "p95 read latency 8 s and 20% of reads time out"}

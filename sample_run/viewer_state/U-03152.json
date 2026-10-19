@@ -1,0 +1,100 @@
+{
+  "viewer_id": "U-03152",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:2279:plan_ends_at",
+        "at": "2026-10-06T00:55:19.406Z",
+        "age_s": 840880.594
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2279",
+        "at": "2026-09-29T00:30:56.973Z",
+        "age_s": 1447143.027
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2279",
+        "at": "2026-09-29T00:30:56.973Z",
+        "age_s": 1447143.027
+      },
+      "signup_at": {
+        "value": "2025-03-09T09:10:29.531Z",
+        "source": "profiles_snapshot.csv:line:2279",
+        "at": "2026-09-29T00:30:56.973Z",
+        "age_s": 1447143.027
+      },
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-019667",
+        "at": "2026-10-15T16:21:31.000Z",
+        "age_s": 7709.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:2279",
+          "at": "2026-09-29T00:30:56.973Z",
+          "age_s": 1447143.027
+        },
+        "selected_source": "profiles_snapshot.csv:line:2279:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 102,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03152:cc4c5a16-0d19-4e88-8f05-336838e2022c:G07",
+      "user_id": "U-03152",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T11:01:40.803000Z",
+      "deadline": "2026-10-04T11:01:40.803000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bharipa-lanaro-d4",
+        "next_episode_id": "bharipa-lanaro-d4-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:2621ab12-1e53-4df7-950f-b02af4996bd3",
+        "episodes:bharipa-lanaro-d4",
+        "catalogue:T0946"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-cc4c5a16-0d19-4e88-8f05-336838e2022c"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-03152:cc4c5a16-0d19-4e88-8f05-336838e2022c:G07",
+      "user_id": "U-03152",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T11:01:40.803000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

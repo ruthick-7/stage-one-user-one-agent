@@ -1,0 +1,110 @@
+{
+  "viewer_id": "U-02357",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:3110:plan_ends_at",
+        "at": "2026-10-04T18:37:50.441Z",
+        "age_s": 949929.559
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3110",
+        "at": "2026-09-29T16:24:32.534Z",
+        "age_s": 1389927.466
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3110",
+        "at": "2026-09-29T16:24:32.534Z",
+        "age_s": 1389927.466
+      },
+      "signup_at": {
+        "value": "2024-11-04T15:29:48.458Z",
+        "source": "profiles_snapshot.csv:line:3110",
+        "at": "2026-09-29T16:24:32.534Z",
+        "age_s": 1389927.466
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-014997",
+        "at": "2026-10-09T15:47:09.000Z",
+        "age_s": 528171.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:3110",
+          "at": "2026-09-29T16:24:32.534Z",
+          "age_s": 1389927.466
+        },
+        "selected_source": "profiles_snapshot.csv:line:3110:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d6",
+          "source": "profiles_snapshot.csv:line:3110",
+          "at": "2026-09-29T16:24:32.534Z",
+          "age_s": 1389927.466
+        },
+        "selected_source": "app_setting:event:oua-014997"
+      }
+    ],
+    "observed_event_count": 17,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02357:42d291a6-0a29-4f5b-99af-e43c2ae403c2:G07",
+      "user_id": "U-02357",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T16:33:12.366000Z",
+      "deadline": "2026-10-04T16:33:12.366000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "yatite-roloda-d3",
+        "next_episode_id": "yatite-roloda-d3-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:7a300486-759d-4b4c-8f6b-691c758735c1",
+        "episodes:yatite-roloda-d3",
+        "catalogue:T0901"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-42d291a6-0a29-4f5b-99af-e43c2ae403c2"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-02357:42d291a6-0a29-4f5b-99af-e43c2ae403c2:G07",
+      "user_id": "U-02357",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T16:33:12.366000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

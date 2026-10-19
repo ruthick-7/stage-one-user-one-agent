@@ -1,0 +1,102 @@
+{
+  "viewer_id": "U-01810",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:1194",
+        "at": "2026-09-29T00:38:38.663Z",
+        "age_s": 1446681.337
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1194",
+        "at": "2026-09-29T00:38:38.663Z",
+        "age_s": 1446681.337
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1194",
+        "at": "2026-09-29T00:38:38.663Z",
+        "age_s": 1446681.337
+      },
+      "signup_at": {
+        "value": "2025-12-12T03:28:05.791Z",
+        "source": "profiles_snapshot.csv:line:1194",
+        "at": "2026-09-29T00:38:38.663Z",
+        "age_s": 1446681.337
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-012110",
+        "at": "2026-10-15T14:31:49.000Z",
+        "age_s": 14291.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:1194",
+          "at": "2026-09-29T00:38:38.663Z",
+          "age_s": 1446681.337
+        },
+        "selected_source": "app_setting:event:oua-012110"
+      }
+    ],
+    "observed_event_count": 160,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-01810:32f37464-fde4-4ee9-abbc-35bbab32fe31:G07",
+      "user_id": "U-01810",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T06:28:21.549000Z",
+      "deadline": "2026-10-04T06:28:21.549000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "gidha-sudhako-d1",
+        "next_episode_id": "gidha-sudhako-d1-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:18ba78ae-81a7-4ee8-b1f7-45997ab4fc2d",
+        "episodes:gidha-sudhako-d1",
+        "catalogue:T0010"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-32f37464-fde4-4ee9-abbc-35bbab32fe31"
+  ],
+  "action_ids": [
+    "A-32f37464-fde4-4ee9-abbc-35bbab32fe31"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-01810:32f37464-fde4-4ee9-abbc-35bbab32fe31:G07",
+      "user_id": "U-01810",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T06:28:21.549000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "viewer_id": "U-00061",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:1431",
+        "at": "2026-09-29T04:42:03.401Z",
+        "age_s": 1432076.599
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1431",
+        "at": "2026-09-29T04:42:03.401Z",
+        "age_s": 1432076.599
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1431",
+        "at": "2026-09-29T04:42:03.401Z",
+        "age_s": 1432076.599
+      },
+      "signup_at": {
+        "value": "2026-09-15T08:29:44.367Z",
+        "source": "event:00eed3fc-605c-402e-b1be-84b763153ded",
+        "at": "2026-09-15T08:29:44.367Z",
+        "age_s": 2628015.633
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-000408",
+        "at": "2026-10-14T15:52:42.000Z",
+        "age_s": 95838.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "signup_at",
+        "rejected": {
+          "value": "2026-09-15T08:29:42.961Z",
+          "source": "profiles_snapshot.csv:line:1431",
+          "at": "2026-09-29T04:42:03.401Z",
+          "age_s": 1432076.599
+        },
+        "selected_source": "event:00eed3fc-605c-402e-b1be-84b763153ded"
+      }
+    ],
+    "observed_event_count": 123,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00061:59d4886f-11be-40f6-90dc-50f70842ac37:G07",
+      "user_id": "U-00061",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T15:01:01.249000Z",
+      "deadline": "2026-10-04T15:01:01.249000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "bala-naja-d2",
+        "next_episode_id": "bala-naja-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:92d745d5-cd6d-4765-a00d-73d8ef383d17",
+        "episodes:bala-naja-d2",
+        "catalogue:T0581"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-59d4886f-11be-40f6-90dc-50f70842ac37",
+    "D-96c3a20b-ec6d-4867-b307-9f3ea08e5dc9"
+  ],
+  "action_ids": [
+    "A-59d4886f-11be-40f6-90dc-50f70842ac37",
+    "A-96c3a20b-ec6d-4867-b307-9f3ea08e5dc9"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-00061:59d4886f-11be-40f6-90dc-50f70842ac37:G07",
+      "user_id": "U-00061",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T15:01:01.249000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

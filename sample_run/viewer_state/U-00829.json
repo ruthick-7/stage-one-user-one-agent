@@ -1,0 +1,93 @@
+{
+  "viewer_id": "U-00829",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:3996",
+        "at": "2026-09-29T12:11:49.757Z",
+        "age_s": 1405090.243
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:3996",
+        "at": "2026-09-29T12:11:49.757Z",
+        "age_s": 1405090.243
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:3996",
+        "at": "2026-09-29T12:11:49.757Z",
+        "age_s": 1405090.243
+      },
+      "signup_at": {
+        "value": "2025-08-08T15:12:51.311Z",
+        "source": "profiles_snapshot.csv:line:3996",
+        "at": "2026-09-29T12:11:49.757Z",
+        "age_s": 1405090.243
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-005503",
+        "at": "2026-10-15T15:59:13.000Z",
+        "age_s": 9047.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 35,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00829:e944b53a-74d7-4da0-9e76-5daa8fde8e99:G07",
+      "user_id": "U-00829",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T17:51:18.512000Z",
+      "deadline": "2026-10-04T17:51:18.512000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "guka-kosusa-d2",
+        "next_episode_id": "guka-kosusa-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:daed0ef2-3c10-4dea-98ae-55eacab18df3",
+        "episodes:guka-kosusa-d2",
+        "catalogue:T0522"
+      ],
+      "status": "succeeded",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [
+        "oua-005501"
+      ],
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "decision_ids": [
+    "D-e944b53a-74d7-4da0-9e76-5daa8fde8e99"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00829:e944b53a-74d7-4da0-9e76-5daa8fde8e99:G07",
+      "user_id": "U-00829",
+      "goal_id": "G07",
+      "status": "succeeded",
+      "evidence": [
+        "oua-005501"
+      ],
+      "deadline": "2026-10-04T17:51:18.512000Z",
+      "rule_version": "2026-09-30",
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "learnings": [
+    "Goal success is observed, not proof this action caused it."
+  ]
+}

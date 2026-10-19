@@ -1,0 +1,89 @@
+{
+  "viewer_id": "U-04793",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:4655",
+        "at": "2026-09-29T02:31:26.149Z",
+        "age_s": 1439913.851
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4655",
+        "at": "2026-09-29T02:31:26.149Z",
+        "age_s": 1439913.851
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4655",
+        "at": "2026-09-29T02:31:26.149Z",
+        "age_s": 1439913.851
+      },
+      "signup_at": {
+        "value": "2025-09-28T19:03:49.094Z",
+        "source": "profiles_snapshot.csv:line:4655",
+        "at": "2026-09-29T02:31:26.149Z",
+        "age_s": 1439913.851
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-029932",
+        "at": "2026-10-01T14:24:32.413Z",
+        "age_s": 1224327.587
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 24,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04793:bae66fff-fb19-4c42-b58f-cdd9ef37d92d:G07",
+      "user_id": "U-04793",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T14:24:14.413000Z",
+      "deadline": "2026-10-04T14:24:14.413000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "yatite-roloda-d3",
+        "next_episode_id": "yatite-roloda-d3-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:a72b07c6-05ca-4393-8100-9f83848f3e2f",
+        "episodes:yatite-roloda-d3",
+        "catalogue:T0901"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-bae66fff-fb19-4c42-b58f-cdd9ef37d92d"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-04793:bae66fff-fb19-4c42-b58f-cdd9ef37d92d:G07",
+      "user_id": "U-04793",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T14:24:14.413000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

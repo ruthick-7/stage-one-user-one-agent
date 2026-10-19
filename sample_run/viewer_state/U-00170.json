@@ -1,0 +1,79 @@
+{
+  "viewer_id": "U-00170",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "signup_at": {
+        "value": "2026-10-01T10:30:02.964Z",
+        "source": "event:82650a9e-5178-43ab-a4ef-d3df7181a1dc",
+        "at": "2026-10-01T10:30:02.964Z",
+        "age_s": 1238397.036
+      },
+      "subscription_status": {
+        "value": "never",
+        "source": "event:82650a9e-5178-43ab-a4ef-d3df7181a1dc",
+        "at": "2026-10-01T10:30:02.964Z",
+        "age_s": 1238397.036
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-001040",
+        "at": "2026-10-01T11:08:57.272Z",
+        "age_s": 1236062.728
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 7,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00170:14303361-d0fa-4fbf-92e2-199655e0abde:G01",
+      "user_id": "U-00170",
+      "id": "G01",
+      "name": "first_play_24h",
+      "started_at": "2026-10-01T10:30:09.272000Z",
+      "deadline": "2026-10-02T10:30:09.272000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "any title",
+        "window_hours": 24
+      },
+      "rule_version": "2026-09-30",
+      "context": null,
+      "eligibility_evidence": [
+        "event:82650a9e-5178-43ab-a4ef-d3df7181a1dc",
+        "event:82650a9e-5178-43ab-a4ef-d3df7181a1dc",
+        "app_setting:event:14303361-d0fa-4fbf-92e2-199655e0abde"
+      ],
+      "status": "succeeded",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [
+        "oua-001039"
+      ],
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "decision_ids": [
+    "D-14303361-d0fa-4fbf-92e2-199655e0abde",
+    "D-8cd96665-aaaa-4e90-949f-e960453502ee"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-00170:14303361-d0fa-4fbf-92e2-199655e0abde:G01",
+      "user_id": "U-00170",
+      "goal_id": "G01",
+      "status": "succeeded",
+      "evidence": [
+        "oua-001039"
+      ],
+      "deadline": "2026-10-02T10:30:09.272000Z",
+      "rule_version": "2026-09-30",
+      "learning": "Goal success is observed, not proof this action caused it."
+    }
+  ],
+  "learnings": [
+    "Goal success is observed, not proof this action caused it."
+  ]
+}

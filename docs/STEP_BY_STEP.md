@@ -12,7 +12,7 @@ The assignment needs a runnable lifecycle loop, not a web UI. A CLI makes time o
 python run.py --pack data_pack --out my_run
 ```
 
-`data_pack/` is read-only input. `my_run/` is output. We preserve old runs rather than silently overwrite them. Both data and personal-data output are ignored by Git. Application code and synthetic unit-test fixtures are shareable separately.
+`data_pack/` is read-only input. `my_run/` is output. We preserve old runs rather than silently overwrite them. The provided pack and databases are ignored by Git; a verified sample run is included in the submission. Application code and synthetic unit-test fixtures are shareable separately.
 
 **Practice:** Why no FastAPI or LangChain? Because this problem's hard parts are lifecycle correctness, evidence, replay ordering and measurement. A framework would not establish those invariants. A real service interface can wrap the engine later.
 
@@ -55,7 +55,7 @@ The engine also checks the invariant in memory. Database enforcement protects ag
 
 Before processing a trigger, the engine asks `Store.decision(event_id)`. If already present, it returns the original result. The restart test closes and reopens SQLite and verifies that only one action exists.
 
-**Practice:** Is this exactly-once delivery? No. It is durable idempotent decision creation in one local process. External delivery requires an outbox worker and an idempotency contract with the receiving service. See the documented two-transaction timestamp refinement limitation.
+**Practice:** Is this exactly-once delivery? No. It is durable idempotent decision creation in one local process. The local outbox stages pending entries and exposes only ready ones. An interrupted pending publication becomes an abstention. An external receiving service still needs its own idempotency and delivery contract.
 
 ## Step 4 — Resolve facts with provenance
 
@@ -118,7 +118,7 @@ The verifier is called after planning. It independently recomputes eligibility a
 
 A checker that just reads `proposal['eligible']` would not be independent. Here the model's injected "billing confirmed" claim is rejected because it has no evidence in the pack.
 
-This version emits only `home_page` or `NO_ACTION`. The messaging gate is tested, but outbound generation/scheduling is not implemented. That restriction and live-page revocation are explicit limitations, not hidden completions.
+This version emits only `home_page` or `NO_ACTION`. The messaging gate is tested, but outbound generation/scheduling is not implemented. Outbound messaging remains out of scope. Local page revocation and safe rebuilding are implemented and tested.
 
 **Practice:** Why is no action a first-class result? It preserves the reason, facts and timing for a safe abstention. Missing output cannot tell you whether the system was cautious or crashed.
 
@@ -142,11 +142,11 @@ deliver event/control/trigger in server-time order
   -> persist decision and action
 ```
 
-A goal-rule correction changes the policy and only open instances of that goal. Closed instances keep their prior rule. A withdrawal blocks future promotion and identifies affected live pages in the audit. The baseline does not have an external revocation API, which remains a real limitation.
+A goal-rule correction changes the policy and only open instances of that goal. Closed instances keep their prior rule. A withdrawal blocks future promotion, revokes affected local pages and attempts verified replacements. If there is insufficient valid content, serving uses the default page. External platform revocation remains an integration boundary.
 
-Model failures fall back to deterministic planning with the same gate. Required-data failures abstain. The mock times out the 45-second fault at 20ms; the degraded-store window is a fail-fast circuit. No long real network dependency was benchmarked.
+Model failures fall back to deterministic planning with the same gate. Required-data failures abstain. Actual SQLite failures are caught across the decision and recorded in a separate fsynced recovery journal; further publication closes until a fresh engine/replay is prepared. The mock times out the 45-second fault at 20ms; the degraded-store window is a fail-fast circuit. No long real network dependency was benchmarked.
 
-**Practice:** Can this handle a production evening spike? This run measures sequential local processing, not concurrent production capacity. Explain the partitioned per-viewer queue, bounded admission, timeouts and shared database changes you would need. Do not equate low local latency with a proven load test.
+**Practice:** Can this handle a production evening spike? The main replay is sequential; `load_test.py` separately measures a burst across isolated process shards, including queue and startup time. Neither establishes distributed production capacity. Explain the partitioned per-viewer queue, bounded admission, timeouts and shared database changes you would need. Do not equate low local latency with a proven load test.
 
 ## Step 9 — Judge outcomes and measure impact honestly
 
@@ -154,15 +154,15 @@ Model failures fall back to deterministic planning with the same gate. Required-
 
 The CLI runs the supplied simulator unchanged. `judge()` applies each committed goal's predicate to evidence inside its window. It returns succeeded, failed or inconclusive. A goal with incomplete follow-up is not automatically failed. Invalidated goals have a censored observation window.
 
-The report's fixed endpoint is recorded episode completion within seven days of replay start. All randomized agent/holdout users remain in the arm comparison. It additionally shows triggered viewers and initial-goal subgroups. It uses user-level binary outcomes so a heavy viewer's 50 plays do not become 50 independent experimental observations.
+The primary report freezes a baseline measurement goal for every randomized viewer before intervention (`cohort.py`). It records success, failure and inconclusive outcomes and reports missing-outcome bounds by randomized arm and goal. Recorded completion within seven days is a secondary endpoint. All randomized agent/holdout users remain in the arm comparison. It additionally shows triggered viewers and initial-goal subgroups. It uses user-level binary outcomes so a heavy viewer's 50 plays do not become 50 independent experimental observations.
 
 ```text
-rate_agent   = successful agent viewers / randomized agent viewers
-rate_holdout = successful holdout viewers / randomized holdout viewers
-difference   = rate_agent - rate_holdout
+known_success_rate = observed successes / all assigned viewers in arm
+possible_success_rate = (observed successes + inconclusive) / all assigned viewers
+difference_bounds = [agent_lower - holdout_upper, agent_upper - holdout_lower]
 ```
 
-Confidence intervals express sampling uncertainty under the stated model; they do not fix observation bias. Untriggered users have no simulator follow-up. The full-arm endpoint therefore measures recorded outcomes in this observation process, and cannot establish their actual watching behavior. Read this caveat aloud when presenting the result.
+With complete observed binary outcomes, confidence intervals express sampling uncertainty. When follow-up is missing, the primary goal report gives worst-case outcome bounds and a sampling envelope; it does not turn missing observations into failures. Untriggered users have no simulator follow-up. The secondary full-arm recorded-completion endpoint measures the observation process. The primary goal analysis keeps unavailable follow-up inconclusive and does not claim an identified population uplift. Read this caveat aloud when presenting the result.
 
 The pilot report is recomputed by randomized assignment. Served vs everyone else is biased because being served depends on viewer activity and reachability.
 

@@ -1,0 +1,104 @@
+{
+  "viewer_id": "U-00461",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "profiles_snapshot.csv:line:911",
+        "at": "2026-09-29T15:40:50.243Z",
+        "age_s": 1392549.757
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:911",
+        "at": "2026-09-29T15:40:50.243Z",
+        "age_s": 1392549.757
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:911",
+        "at": "2026-09-29T15:40:50.243Z",
+        "age_s": 1392549.757
+      },
+      "signup_at": {
+        "value": "2024-10-31T13:04:28.598Z",
+        "source": "profiles_snapshot.csv:line:911",
+        "at": "2026-09-29T15:40:50.243Z",
+        "age_s": 1392549.757
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-003170",
+        "at": "2026-10-14T15:52:26.000Z",
+        "age_s": 95854.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d1",
+          "source": "profiles_snapshot.csv:line:911",
+          "at": "2026-09-29T15:40:50.243Z",
+          "age_s": 1392549.757
+        },
+        "selected_source": "app_setting:event:oua-003170"
+      }
+    ],
+    "observed_event_count": 112,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00461:7052b4b0-8722-44df-ae21-bf7cd5d2d4ba:G07",
+      "user_id": "U-00461",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T02:01:49.817000Z",
+      "deadline": "2026-10-04T02:01:49.817000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "jamo-hasa-d5",
+        "next_episode_id": "jamo-hasa-d5-s1e3"
+      },
+      "eligibility_evidence": [
+        "event:a9bada7a-812c-417a-988a-130f53e46123",
+        "episodes:jamo-hasa-d5",
+        "catalogue:T1179"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-7052b4b0-8722-44df-ae21-bf7cd5d2d4ba",
+    "D-c2c24cef-cf33-42f3-988a-3a3832d98dd3"
+  ],
+  "action_ids": [
+    "A-7052b4b0-8722-44df-ae21-bf7cd5d2d4ba",
+    "A-c2c24cef-cf33-42f3-988a-3a3832d98dd3"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-00461:7052b4b0-8722-44df-ae21-bf7cd5d2d4ba:G07",
+      "user_id": "U-00461",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T02:01:49.817000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -5,8 +5,9 @@ from .common import ts, iso
 
 def resolve(pack, history, user, at, trigger=None):
     p = pack.profile(user, at)
-    events = sorted((e for e in history if ts(e['received_at']) <= at),
-                    key=lambda e: (e['received_at'], e['event_id']))
+    events = sorted((e for e in history if ts(e['received_at']) <= at
+                     and ts(e.get('deliver_at', e['received_at'])) <= at),
+                    key=lambda e: (ts(e['received_at']), e['event_id']))
     facts, conflicts = {}, []
 
     def put(key, value, source, when):

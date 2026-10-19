@@ -1,0 +1,110 @@
+{
+  "viewer_id": "U-04835",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:1537:plan_ends_at",
+        "at": "2026-10-03T22:48:02.071Z",
+        "age_s": 1021317.929
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:1537",
+        "at": "2026-09-29T09:30:08.500Z",
+        "age_s": 1414791.5
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:1537",
+        "at": "2026-09-29T09:30:08.500Z",
+        "age_s": 1414791.5
+      },
+      "signup_at": {
+        "value": "2025-07-19T10:24:30.825Z",
+        "source": "profiles_snapshot.csv:line:1537",
+        "at": "2026-09-29T09:30:08.500Z",
+        "age_s": 1414791.5
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-030247",
+        "at": "2026-10-12T16:32:59.000Z",
+        "age_s": 266221.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:1537",
+          "at": "2026-09-29T09:30:08.500Z",
+          "age_s": 1414791.5
+        },
+        "selected_source": "profiles_snapshot.csv:line:1537:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d1",
+          "source": "profiles_snapshot.csv:line:1537",
+          "at": "2026-09-29T09:30:08.500Z",
+          "age_s": 1414791.5
+        },
+        "selected_source": "app_setting:event:oua-030247"
+      }
+    ],
+    "observed_event_count": 57,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04835:28fc9774-b340-408e-8e57-6ec3d3784eb3:G07",
+      "user_id": "U-04835",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T15:16:55.043000Z",
+      "deadline": "2026-10-04T15:16:55.043000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "mopi-vasuva-d2",
+        "next_episode_id": "mopi-vasuva-d2-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:7a5b0be2-fbe5-4845-976a-37437251581d",
+        "episodes:mopi-vasuva-d2",
+        "catalogue:T0566"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-28fc9774-b340-408e-8e57-6ec3d3784eb3"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-04835:28fc9774-b340-408e-8e57-6ec3d3784eb3:G07",
+      "user_id": "U-04835",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T15:16:55.043000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

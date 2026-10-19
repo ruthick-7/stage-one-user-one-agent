@@ -1,0 +1,100 @@
+{
+  "viewer_id": "U-04631",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:2118",
+        "at": "2026-09-29T14:48:26.937Z",
+        "age_s": 1395693.063
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2118",
+        "at": "2026-09-29T14:48:26.937Z",
+        "age_s": 1395693.063
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2118",
+        "at": "2026-09-29T14:48:26.937Z",
+        "age_s": 1395693.063
+      },
+      "signup_at": {
+        "value": "2026-03-26T19:46:02.019Z",
+        "source": "profiles_snapshot.csv:line:2118",
+        "at": "2026-09-29T14:48:26.937Z",
+        "age_s": 1395693.063
+      },
+      "dialect": {
+        "value": "d5",
+        "source": "app_setting:event:oua-028818",
+        "at": "2026-10-15T16:42:39.000Z",
+        "age_s": 6441.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d3",
+          "source": "profiles_snapshot.csv:line:2118",
+          "at": "2026-09-29T14:48:26.937Z",
+          "age_s": 1395693.063
+        },
+        "selected_source": "app_setting:event:oua-028818"
+      }
+    ],
+    "observed_event_count": 56,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-04631:12dbe3cd-fe71-417d-a75c-590911e95c1a:G07",
+      "user_id": "U-04631",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T05:57:02.630000Z",
+      "deadline": "2026-10-04T05:57:02.630000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "yaka-naka-d5",
+        "next_episode_id": "yaka-naka-d5-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:6d899057-34e7-4984-a133-0f0827fcf09d",
+        "episodes:yaka-naka-d5",
+        "catalogue:T1185"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-12dbe3cd-fe71-417d-a75c-590911e95c1a"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-04631:12dbe3cd-fe71-417d-a75c-590911e95c1a:G07",
+      "user_id": "U-04631",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T05:57:02.630000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

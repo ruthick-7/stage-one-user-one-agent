@@ -1,0 +1,91 @@
+{
+  "viewer_id": "U-02050",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "never",
+        "source": "profiles_snapshot.csv:line:4104",
+        "at": "2026-09-28T18:13:10.026Z",
+        "age_s": 1469809.974
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4104",
+        "at": "2026-09-28T18:13:10.026Z",
+        "age_s": 1469809.974
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4104",
+        "at": "2026-09-28T18:13:10.026Z",
+        "age_s": 1469809.974
+      },
+      "signup_at": {
+        "value": "2025-11-04T18:29:16.003Z",
+        "source": "profiles_snapshot.csv:line:4104",
+        "at": "2026-09-28T18:13:10.026Z",
+        "age_s": 1469809.974
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-013283",
+        "at": "2026-10-13T07:49:00.000Z",
+        "age_s": 211260.0
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 40,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02050:121cfac7-c058-4120-adee-ddedaf367d6b:G07",
+      "user_id": "U-02050",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T11:31:33.957000Z",
+      "deadline": "2026-10-04T11:31:33.957000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "molo-d2",
+        "next_episode_id": "molo-d2-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:9802bb87-d156-4133-803e-2f614c34602e",
+        "episodes:molo-d2",
+        "catalogue:T0521"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-121cfac7-c058-4120-adee-ddedaf367d6b"
+  ],
+  "action_ids": [
+    "A-121cfac7-c058-4120-adee-ddedaf367d6b"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-02050:121cfac7-c058-4120-adee-ddedaf367d6b:G07",
+      "user_id": "U-02050",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T11:31:33.957000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

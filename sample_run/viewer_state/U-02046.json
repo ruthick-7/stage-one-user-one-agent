@@ -1,0 +1,110 @@
+{
+  "viewer_id": "U-02046",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:e54b2e25-09a7-4355-a5c4-a67be257f0ba",
+        "at": "2026-10-01T14:05:59.553Z",
+        "age_s": 1225440.447
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:2026",
+        "at": "2026-09-28T18:42:51.096Z",
+        "age_s": 1468028.904
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:2026",
+        "at": "2026-09-28T18:42:51.096Z",
+        "age_s": 1468028.904
+      },
+      "signup_at": {
+        "value": "2024-10-19T13:46:15.344Z",
+        "source": "profiles_snapshot.csv:line:2026",
+        "at": "2026-09-28T18:42:51.096Z",
+        "age_s": 1468028.904
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-013271",
+        "at": "2026-10-09T17:06:28.000Z",
+        "age_s": 523412.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "never",
+          "source": "profiles_snapshot.csv:line:2026",
+          "at": "2026-09-28T18:42:51.096Z",
+          "age_s": 1468028.904
+        },
+        "selected_source": "event:e54b2e25-09a7-4355-a5c4-a67be257f0ba"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "d4",
+          "source": "profiles_snapshot.csv:line:2026",
+          "at": "2026-09-28T18:42:51.096Z",
+          "age_s": 1468028.904
+        },
+        "selected_source": "app_setting:event:oua-013271"
+      }
+    ],
+    "observed_event_count": 20,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02046:b9f12995-86cf-4f85-9f64-7cf66bcd3574:G07",
+      "user_id": "U-02046",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T14:03:40.721000Z",
+      "deadline": "2026-10-04T14:03:40.721000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "jakasa-dapi-d3",
+        "next_episode_id": "jakasa-dapi-d3-s1e1"
+      },
+      "eligibility_evidence": [
+        "event:2f1f5edd-52e9-44af-8391-e2f4c24f42fc",
+        "episodes:jakasa-dapi-d3",
+        "catalogue:T0904"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-b9f12995-86cf-4f85-9f64-7cf66bcd3574"
+  ],
+  "action_ids": [],
+  "outcomes": [
+    {
+      "instance_id": "U-02046:b9f12995-86cf-4f85-9f64-7cf66bcd3574:G07",
+      "user_id": "U-02046",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T14:03:40.721000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

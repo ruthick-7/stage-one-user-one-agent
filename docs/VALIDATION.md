@@ -1,23 +1,30 @@
-# Validation performed
+# Validation evidence
 
 Commands executed from the repository root:
 
 ```bash
 python -m unittest discover -s tests -v
-python run.py --pack data_pack --out sample_run
+python run.py --pack data_pack --out practice_run
+python audit_run.py --pack data_pack --run practice_run
+python load_test.py --pack data_pack --out load_run --requests 1000 --workers 4
 ```
 
-- 16 behavioral tests passed.
-- Complete final replay processed 2,769 input triggers into 2,679 unique decisions; 90 duplicate triggers reused the original decisions.
-- Published 1,013 home pages and recorded 1,666 abstentions.
-- Supplied simulator generated 31,506 events for 1,746 triggered viewers; accepted all 1,013 pages; reported zero policy problems.
-- Judged 1,370 goal instances: 108 succeeded, 1,262 failed. These are goal attempts, not unique viewer-level experimental outcomes.
-- Every local decision completed within the 60-second budget. Read the current latency JSON for exact measurements and mock fault timing assumptions.
-- An independent artifact audit checked all actions for randomized agent membership, unique trigger IDs, title availability including withdrawals, dialect, content-slug uniqueness, row limits, and decision budgets. SQLite held no open goals after follow-up judging and contained all 1,370 outcome judgments.
-- The data audit measured 2,176 duplicate historical event rows, 30 extra profile versions and 514 extra catalogue language variants. Two descriptions were heuristically flagged; descriptions never become executable instructions regardless of that heuristic.
+## Revised implementation
 
-Primary fixed-endpoint recorded-completion difference: -0.12 percentage points, 95% interval [-2.10, 1.86]. Triggered-viewer subset: +1.10 points, interval [-3.54, 5.73]. Neither establishes clear positive uplift. Read the coverage caveat in the impact report; untriggered actual viewing is unobserved.
+- 29 tests passed, including genuine SQL read/write failures, interrupted release, durable recovery across reopening, late-delivered plays, local page revocation/rebuilding, missing-outcome bounds, baseline freezing and rule-correction integration.
+- 2,679 unique decisions from 2,769 triggers, with 90 duplicates; 917 pages and 1,762 abstentions.
+- Supplied simulator generated 31,481 events for 1,746 viewers and reported 0 policy problems. Every published page was accepted.
+- 1,370 adaptive goal instances judged: {'failed': 1265, 'succeeded': 105}. These are attempts, not unique randomized viewers.
+- Local replay maximum entry-to-durable-release latency: 48.40 ms; 0 decisions over 60 seconds. Timing includes final release completion; publication timestamps mark release requests.
+- Independent artifact audit passed holdout, duplicate, availability/withdrawal, genre/row/slug, budget, latency and 5,000-user cohort-denominator checks.
+- Burst benchmark: 1,000 requests queued together, 4 viewer shards, 2.67s total, p95 end-to-end 2366.32 ms, maximum 2461.98 ms, 0 deadline misses. This is a local mock-provider benchmark with separate SQLite per shard.
 
-Pilot randomized comparison: treatment 349/1,912 versus holdout 387/1,979; difference -1.30 points. The biased served comparison produces +22.43 points. The latter must not justify rollout.
+## Measurement
 
-No production concurrency, real provider, external publication API, live-page revocation, or fresh remote clone restoration was tested. The repository was initially empty; these are newly created, uncommitted source files. No commit, push or deployment was performed.
+Baseline goals are frozen before intervention and all randomized users retain their arms. Missing follow-up is inconclusive. The primary report supplies goal-success identification bounds and sampling envelopes; it does not claim an identified population point estimate. Read sample_run/impact_report.md for all denominators and the secondary completion metric.
+
+The pilot randomized comparison is treatment 349/1,912 versus holdout 387/1,979 (-1.30 percentage points), while the biased served comparison gives +22.43 points. The biased comparison must not justify rollout.
+
+## Limits
+
+The supplied simulator remains unchanged. Local revocation is tested directly because the simulator does not model pure revocation. Hosted models, external platform delivery, shared-database production load and unseen replay days are not validated. The original owner verified the earlier version on Windows; the revised version has been tested in this Linux environment. A Windows/Linux GitHub Actions matrix is configured, but a workflow run is not claimed until observed.

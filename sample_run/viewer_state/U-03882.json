@@ -1,0 +1,112 @@
+{
+  "viewer_id": "U-03882",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:813:plan_ends_at",
+        "at": "2026-10-05T10:58:15.407Z",
+        "age_s": 891104.593
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:813",
+        "at": "2026-09-29T10:01:02.539Z",
+        "age_s": 1412937.461
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:813",
+        "at": "2026-09-29T10:01:02.539Z",
+        "age_s": 1412937.461
+      },
+      "signup_at": {
+        "value": "2026-09-05T10:47:33.277Z",
+        "source": "event:27bd59ea-3f36-470c-b355-14e86adccc6d",
+        "at": "2026-09-05T10:47:33.277Z",
+        "age_s": 3483746.723
+      },
+      "dialect": {
+        "value": "d4",
+        "source": "app_setting:event:oua-024644",
+        "at": "2026-10-13T07:24:00.000Z",
+        "age_s": 212760.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "signup_at",
+        "rejected": {
+          "value": "2026-09-05T10:08:20.436Z",
+          "source": "profiles_snapshot.csv:line:813",
+          "at": "2026-09-29T10:01:02.539Z",
+          "age_s": 1412937.461
+        },
+        "selected_source": "event:27bd59ea-3f36-470c-b355-14e86adccc6d"
+      },
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:813",
+          "at": "2026-09-29T10:01:02.539Z",
+          "age_s": 1412937.461
+        },
+        "selected_source": "profiles_snapshot.csv:line:813:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 45,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03882:c9bfdad3-8911-4464-bc21-cd934a15fa6b:G07",
+      "user_id": "U-03882",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T14:38:38.924000Z",
+      "deadline": "2026-10-04T14:38:38.924000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "raja-d4",
+        "next_episode_id": "raja-d4-s1e3"
+      },
+      "eligibility_evidence": [
+        "event:d0decffe-32cf-4c95-abb2-6e84e006daff",
+        "episodes:raja-d4",
+        "catalogue:T0931"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-c9bfdad3-8911-4464-bc21-cd934a15fa6b"
+  ],
+  "action_ids": [
+    "A-c9bfdad3-8911-4464-bc21-cd934a15fa6b"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03882:c9bfdad3-8911-4464-bc21-cd934a15fa6b:G07",
+      "user_id": "U-03882",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T14:38:38.924000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

@@ -58,6 +58,9 @@ def verify_action(action, goal, pack, state, history, user, at, prior_actions, t
                       rules['min_titles_per_row'] <= len(r['title_ids']) <= rules['max_titles_per_row'] for r in rows))
         slugs = [pack.catalogue[t]['content_slug'] for t in ids if t in pack.catalogue]
         check('content_slug_unique', len(slugs) == len(ids) == len(set(slugs)))
+        # A named genre row must contain that genre; old unnamed candidates stay structurally checkable.
+        check('row_semantics', all(not r.get('genre') or all(r['genre'] in pack.catalogue.get(t, {}).get('genres', '').split('|')
+                                   for t in r['title_ids']) for r in rows))
     else:
         ids = [action.get('title_id')]
     check('dialect', action.get('dialect') == value(state, 'dialect') and

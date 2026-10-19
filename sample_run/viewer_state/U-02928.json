@@ -1,0 +1,78 @@
+{
+  "viewer_id": "U-02928",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "signup_at": {
+        "value": "2026-10-01T03:27:18.167Z",
+        "source": "event:39ac661f-385c-4f25-b487-23ef6ceabddc",
+        "at": "2026-10-01T03:27:18.167Z",
+        "age_s": 1263761.833
+      },
+      "subscription_status": {
+        "value": "never",
+        "source": "event:39ac661f-385c-4f25-b487-23ef6ceabddc",
+        "at": "2026-10-01T03:27:18.167Z",
+        "age_s": 1263761.833
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-018213",
+        "at": "2026-10-01T03:27:48.950Z",
+        "age_s": 1263731.05
+      }
+    },
+    "conflicts": [],
+    "observed_event_count": 5,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-02928:66c9add2-34bb-44ce-89b3-5ad2af6ba7c8:G01",
+      "user_id": "U-02928",
+      "id": "G01",
+      "name": "first_play_24h",
+      "started_at": "2026-10-01T03:27:39.950000Z",
+      "deadline": "2026-10-02T03:27:39.950000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "any title",
+        "window_hours": 24
+      },
+      "rule_version": "2026-09-30",
+      "context": null,
+      "eligibility_evidence": [
+        "event:39ac661f-385c-4f25-b487-23ef6ceabddc",
+        "event:39ac661f-385c-4f25-b487-23ef6ceabddc",
+        "app_setting:event:66c9add2-34bb-44ce-89b3-5ad2af6ba7c8"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-66c9add2-34bb-44ce-89b3-5ad2af6ba7c8",
+    "D-7d4127ce-d2e1-439c-b6eb-182ff2d96689"
+  ],
+  "action_ids": [
+    "A-66c9add2-34bb-44ce-89b3-5ad2af6ba7c8",
+    "A-7d4127ce-d2e1-439c-b6eb-182ff2d96689"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-02928:66c9add2-34bb-44ce-89b3-5ad2af6ba7c8:G01",
+      "user_id": "U-02928",
+      "goal_id": "G01",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-02T03:27:39.950000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

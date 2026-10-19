@@ -1,0 +1,79 @@
+{
+  "viewer_id": "U-04445",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:3932:plan_ends_at",
+        "at": "2026-10-03T05:29:01.168Z",
+        "age_s": 1083658.832
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:3932",
+        "at": "2026-09-28T20:48:23.171Z",
+        "age_s": 1460496.829
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:3932",
+        "at": "2026-09-28T20:48:23.171Z",
+        "age_s": 1460496.829
+      },
+      "signup_at": {
+        "value": "2026-09-22T09:36:37.259Z",
+        "source": "event:c48a565e-cfee-408a-9ae5-a67423d1d26a",
+        "at": "2026-09-22T09:36:37.259Z",
+        "age_s": 2019202.741
+      },
+      "dialect": {
+        "value": "d1",
+        "source": "app_setting:event:oua-027860",
+        "at": "2026-10-10T08:29:13.000Z",
+        "age_s": 468047.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "signup_at",
+        "rejected": {
+          "value": "2026-09-22T09:36:36.015Z",
+          "source": "profiles_snapshot.csv:line:3932",
+          "at": "2026-09-28T20:48:23.171Z",
+          "age_s": 1460496.829
+        },
+        "selected_source": "event:c48a565e-cfee-408a-9ae5-a67423d1d26a"
+      },
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:3932",
+          "at": "2026-09-28T20:48:23.171Z",
+          "age_s": 1460496.829
+        },
+        "selected_source": "profiles_snapshot.csv:line:3932:plan_ends_at"
+      },
+      {
+        "fact": "dialect",
+        "rejected": {
+          "value": "",
+          "source": "profiles_snapshot.csv:line:3932",
+          "at": "2026-09-28T20:48:23.171Z",
+          "age_s": 1460496.829
+        },
+        "selected_source": "app_setting:event:oua-027860"
+      }
+    ],
+    "observed_event_count": 49,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [],
+  "decision_ids": [
+    "D-3b7ecd74-082e-4c2c-98a6-fff73957c416"
+  ],
+  "action_ids": [],
+  "outcomes": [],
+  "learnings": []
+}

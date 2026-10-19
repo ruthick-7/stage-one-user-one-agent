@@ -1,0 +1,103 @@
+{
+  "viewer_id": "U-00343",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "active",
+        "source": "event:78b21df5-83a0-4c19-a2fa-48b0f5af3ccc",
+        "at": "2026-10-01T03:58:44.267Z",
+        "age_s": 1261875.733
+      },
+      "notifications_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4563",
+        "at": "2026-09-29T06:48:17.874Z",
+        "age_s": 1424502.126
+      },
+      "whatsapp_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4563",
+        "at": "2026-09-29T06:48:17.874Z",
+        "age_s": 1424502.126
+      },
+      "signup_at": {
+        "value": "2026-03-07T16:37:30.980Z",
+        "source": "profiles_snapshot.csv:line:4563",
+        "at": "2026-09-29T06:48:17.874Z",
+        "age_s": 1424502.126
+      },
+      "dialect": {
+        "value": "d3",
+        "source": "app_setting:event:oua-002395",
+        "at": "2026-10-15T16:43:04.000Z",
+        "age_s": 6416.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "never",
+          "source": "profiles_snapshot.csv:line:4563",
+          "at": "2026-09-29T06:48:17.874Z",
+          "age_s": 1424502.126
+        },
+        "selected_source": "event:78b21df5-83a0-4c19-a2fa-48b0f5af3ccc"
+      }
+    ],
+    "observed_event_count": 81,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-00343:a9c9152f-bd2f-4c97-93e0-388b4aebd4fd:G07",
+      "user_id": "U-00343",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T03:56:47.443000Z",
+      "deadline": "2026-10-04T03:56:47.443000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "digi-mone-d3",
+        "next_episode_id": "digi-mone-d3-s1e3"
+      },
+      "eligibility_evidence": [
+        "event:8dd71666-b191-4583-9a79-28d98181d48e",
+        "episodes:digi-mone-d3",
+        "catalogue:T0910"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-a9c9152f-bd2f-4c97-93e0-388b4aebd4fd",
+    "D-43813b63-139a-4137-9e71-7b9b13ef5d18"
+  ],
+  "action_ids": [
+    "A-43813b63-139a-4137-9e71-7b9b13ef5d18"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-00343:a9c9152f-bd2f-4c97-93e0-388b4aebd4fd:G07",
+      "user_id": "U-00343",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T03:56:47.443000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}

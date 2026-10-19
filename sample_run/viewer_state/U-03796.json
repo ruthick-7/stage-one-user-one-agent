@@ -1,0 +1,104 @@
+{
+  "viewer_id": "U-03796",
+  "facts_at_followup_horizon": {
+    "facts": {
+      "subscription_status": {
+        "value": "lapsed",
+        "source": "profiles_snapshot.csv:line:4335:plan_ends_at",
+        "at": "2026-10-03T20:04:34.652Z",
+        "age_s": 1031125.348
+      },
+      "notifications_opt_in": {
+        "value": true,
+        "source": "profiles_snapshot.csv:line:4335",
+        "at": "2026-09-29T04:23:36.041Z",
+        "age_s": 1433183.959
+      },
+      "whatsapp_opt_in": {
+        "value": false,
+        "source": "profiles_snapshot.csv:line:4335",
+        "at": "2026-09-29T04:23:36.041Z",
+        "age_s": 1433183.959
+      },
+      "signup_at": {
+        "value": "2026-04-22T09:19:05.632Z",
+        "source": "profiles_snapshot.csv:line:4335",
+        "at": "2026-09-29T04:23:36.041Z",
+        "age_s": 1433183.959
+      },
+      "dialect": {
+        "value": "d2",
+        "source": "app_setting:event:oua-024201",
+        "at": "2026-10-15T14:53:37.000Z",
+        "age_s": 12983.0
+      }
+    },
+    "conflicts": [
+      {
+        "fact": "subscription_status",
+        "rejected": {
+          "value": "active",
+          "source": "profiles_snapshot.csv:line:4335",
+          "at": "2026-09-29T04:23:36.041Z",
+          "age_s": 1433183.959
+        },
+        "selected_source": "profiles_snapshot.csv:line:4335:plan_ends_at"
+      }
+    ],
+    "observed_event_count": 130,
+    "as_of": "2026-10-15T18:30:00.000000Z",
+    "history_window_days": 30
+  },
+  "goals": [
+    {
+      "instance_id": "U-03796:06c96bf4-8724-422a-9154-a6830be9163d:G07",
+      "user_id": "U-03796",
+      "id": "G07",
+      "name": "resume_series_3d",
+      "started_at": "2026-10-01T04:47:55.086000Z",
+      "deadline": "2026-10-04T04:47:55.086000Z",
+      "success_signal": {
+        "event": "play_started",
+        "condition": "same content_slug as the unfinished series",
+        "window_hours": 72
+      },
+      "rule_version": "2026-09-30",
+      "context": {
+        "content_slug": "lola-rodira-d2",
+        "next_episode_id": "lola-rodira-d2-s1e2"
+      },
+      "eligibility_evidence": [
+        "event:263d66b2-a9fd-409a-9060-65afb4046d4e",
+        "episodes:lola-rodira-d2",
+        "catalogue:T0569"
+      ],
+      "status": "failed",
+      "judged_at": "2026-10-15T18:30:00.000000Z",
+      "outcome_evidence": [],
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "decision_ids": [
+    "D-06c96bf4-8724-422a-9154-a6830be9163d",
+    "D-33328c60-188d-48ed-b07d-f6f81587419b"
+  ],
+  "action_ids": [
+    "A-06c96bf4-8724-422a-9154-a6830be9163d",
+    "A-33328c60-188d-48ed-b07d-f6f81587419b"
+  ],
+  "outcomes": [
+    {
+      "instance_id": "U-03796:06c96bf4-8724-422a-9154-a6830be9163d:G07",
+      "user_id": "U-03796",
+      "goal_id": "G07",
+      "status": "failed",
+      "evidence": [],
+      "deadline": "2026-10-04T04:47:55.086000Z",
+      "rule_version": "2026-09-30",
+      "learning": "No attributable success; review evidence coverage before changing policy."
+    }
+  ],
+  "learnings": [
+    "No attributable success; review evidence coverage before changing policy."
+  ]
+}
